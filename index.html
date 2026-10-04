@@ -8,11 +8,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
 
@@ -48,14 +44,13 @@
 
 
     /* ==================================================
-       NAVBAR
+       NAVIGATION
     ================================================== */
 
     .navbar {
       position: absolute;
       top: 0;
       left: 0;
-
       width: 100%;
 
       display: flex;
@@ -117,7 +112,6 @@
       content: "";
 
       position: absolute;
-
       left: 0;
       bottom: -7px;
 
@@ -219,60 +213,62 @@
 
 
     /* ==================================================
-       HERO NAME
+       HERO NAME - FIXED ALIGNMENT
     ================================================== */
 
     .hero-name {
       position: absolute;
 
-      left: 0;
+      left: 50%;
       top: 39%;
 
-      transform: translateY(-50%);
+      transform: translate(-50%,-50%);
 
       width: 100%;
 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       z-index: 1;
 
-      font-size: clamp(75px,11.3vw,205px);
+      font-size: clamp(72px,10.4vw,190px);
       font-weight: 900;
 
-      line-height: .78;
+      line-height: .8;
 
-      /*
-        Slightly cleaner spacing inside
-        each word.
-      */
-      letter-spacing: -.025em;
+      letter-spacing: -.035em;
 
       text-transform: uppercase;
 
       white-space: nowrap;
 
-      user-select: none;
       pointer-events: none;
+      user-select: none;
+    }
+
+    .name-first,
+    .name-last {
+      position: static;
+      display: block;
     }
 
     .name-first {
-      position: absolute;
-
-      /*
-        Increased center spacing.
-      */
-      right: 53.5%;
-
       color: #eeeeee;
+      text-align: right;
     }
 
     .name-last {
-      position: absolute;
-
-      left: 53.5%;
-
       color: #ff6500;
+      text-align: left;
 
       text-shadow:
         0 0 45px rgba(255,101,0,.08);
+    }
+
+    .hero-name-gap {
+      width: clamp(45px,5vw,100px);
+      flex-shrink: 0;
     }
 
 
@@ -339,7 +335,7 @@
 
 
     /* ==================================================
-       LEFT HERO
+       HERO LEFT
     ================================================== */
 
     .hero-left {
@@ -399,7 +395,7 @@
 
 
     /* ==================================================
-       RIGHT HERO
+       HERO RIGHT
     ================================================== */
 
     .hero-right {
@@ -447,11 +443,6 @@
         0 0 12px #ff6500;
     }
 
-
-    /* ==================================================
-       CTA
-    ================================================== */
-
     .cta {
       display: inline-flex;
       align-items: center;
@@ -460,9 +451,7 @@
 
       padding: 15px 27px;
 
-      border:
-        1px solid #ff6500;
-
+      border: 1px solid #ff6500;
       border-radius: 50px;
 
       color: white;
@@ -480,13 +469,11 @@
 
     .cta-arrow {
       font-size: 19px;
-
       transition: .35s;
     }
 
     .cta:hover {
       background: #ff6500;
-
       color: #0c0c0c;
 
       transform: translateY(-3px);
@@ -501,7 +488,7 @@
 
 
     /* ==================================================
-       SCROLL TEXT
+       SCROLL
     ================================================== */
 
     .scroll-text {
@@ -543,8 +530,7 @@
 
       overflow: hidden;
 
-      background:
-        rgba(12,12,12,.96);
+      background: rgba(12,12,12,.96);
 
       border-top:
         1px solid rgba(255,101,0,.35);
@@ -675,15 +661,6 @@
       will-change: transform;
     }
 
-    .project-row:last-child {
-      margin-bottom: 0;
-    }
-
-
-    /* ==================================================
-       SHOWCASE CARDS
-    ================================================== */
-
     .showcase-card {
       position: relative;
 
@@ -726,7 +703,6 @@
 
     .showcase-card:hover img {
       transform: scale(1.04);
-
       filter: brightness(.65);
     }
 
@@ -749,8 +725,7 @@
           rgba(0,0,0,.88)
         );
 
-      transition:
-        opacity .4s ease;
+      transition: opacity .4s ease;
     }
 
     .showcase-card:hover .card-overlay {
@@ -775,11 +750,6 @@
       font-size: 22px;
       font-weight: 600;
     }
-
-
-    /* ==================================================
-       SHOWCASE BOTTOM
-    ================================================== */
 
     .showcase-bottom {
       width: 90%;
@@ -848,7 +818,6 @@
       content: "";
 
       position: absolute;
-
       inset: 0;
 
       opacity: .11;
@@ -864,8 +833,7 @@
           transparent 1px
         );
 
-      background-size:
-        70px 70px;
+      background-size: 70px 70px;
 
       mask-image:
         radial-gradient(
@@ -876,11 +844,6 @@
 
       pointer-events: none;
     }
-
-
-    /* ==================================================
-       ABOUT CONTENT
-    ================================================== */
 
     .about-content {
       position: relative;
@@ -910,8 +873,6 @@
     }
 
     .about-title {
-      margin: 0;
-
       color: #f1f1f1;
 
       font-size:
@@ -930,15 +891,7 @@
 
     .about-title span {
       color: #ff6500;
-
-      text-shadow:
-        0 0 50px rgba(255,101,0,.12);
     }
-
-
-    /* ==================================================
-       ABOUT TEXT
-    ================================================== */
 
     .about-text {
       max-width: 760px;
@@ -953,8 +906,6 @@
       font-weight: 300;
 
       line-height: 1.55;
-
-      letter-spacing: .2px;
     }
 
     .about-word {
@@ -968,22 +919,14 @@
 
       transition:
         opacity .12s linear,
-        transform .12s linear,
-        color .12s linear;
+        transform .12s linear;
     }
 
     .about-word.active {
       opacity: 1;
-
       transform: translateY(0);
-
       color: #f1f1f1;
     }
-
-
-    /* ==================================================
-       ABOUT TAGS
-    ================================================== */
 
     .about-tags {
       display: flex;
@@ -996,8 +939,7 @@
     }
 
     .about-tags span {
-      padding:
-        10px 18px;
+      padding: 10px 18px;
 
       border:
         1px solid rgba(255,255,255,.14);
@@ -1007,7 +949,6 @@
       color: #999;
 
       font-size: 9px;
-      font-weight: 500;
       letter-spacing: 2px;
 
       transition: .3s;
@@ -1016,17 +957,10 @@
     .about-tags span:hover {
       color: #ff6500;
 
-      border-color:
-        rgba(255,101,0,.7);
+      border-color: #ff6500;
 
-      transform:
-        translateY(-3px);
+      transform: translateY(-3px);
     }
-
-
-    /* ==================================================
-       ABOUT BUTTON
-    ================================================== */
 
     .about-button {
       display: inline-flex;
@@ -1036,12 +970,9 @@
 
       margin-top: 55px;
 
-      padding:
-        16px 27px;
+      padding: 16px 27px;
 
-      border:
-        1px solid #ff6500;
-
+      border: 1px solid #ff6500;
       border-radius: 50px;
 
       color: white;
@@ -1055,35 +986,12 @@
       transition: .35s;
     }
 
-    .about-button-arrow {
-      font-size: 19px;
-
-      transition: .35s;
-    }
-
     .about-button:hover {
       background: #ff6500;
-
       color: #0c0c0c;
 
-      transform:
-        translateY(-4px);
-
-      box-shadow:
-        0 15px 45px
-        rgba(255,101,0,.22);
+      transform: translateY(-4px);
     }
-
-    .about-button:hover
-    .about-button-arrow {
-      transform:
-        translate(4px,-4px);
-    }
-
-
-    /* ==================================================
-       ABOUT DECORATIONS
-    ================================================== */
 
     .about-decoration {
       position: absolute;
@@ -1106,15 +1014,10 @@
       background:
         rgba(18,18,18,.72);
 
-      backdrop-filter:
-        blur(12px);
+      backdrop-filter: blur(12px);
 
       box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.35);
-
-      transition:
-        transform .25s ease-out;
+        0 20px 60px rgba(0,0,0,.35);
 
       pointer-events: none;
     }
@@ -1130,7 +1033,6 @@
       color: #777;
 
       font-size: 7px;
-      font-weight: 500;
       letter-spacing: 2px;
     }
 
@@ -1141,8 +1043,7 @@
       border-radius:
         35px 12px 35px 12px;
 
-      transform:
-        rotate(-10deg);
+      transform: rotate(-10deg);
     }
 
     .shopify-card {
@@ -1151,8 +1052,7 @@
 
       border-radius: 50%;
 
-      transform:
-        rotate(9deg);
+      transform: rotate(9deg);
     }
 
     .shopify-card span {
@@ -1167,8 +1067,7 @@
       border-radius:
         15px 40px 15px 40px;
 
-      transform:
-        rotate(8deg);
+      transform: rotate(8deg);
     }
 
     .marketing-card span {
@@ -1181,8 +1080,7 @@
 
       border-radius: 25px;
 
-      transform:
-        rotate(-8deg);
+      transform: rotate(-8deg);
     }
 
     .pixel-grid {
@@ -1203,10 +1101,6 @@
       background: #ff6500;
 
       border-radius: 2px;
-
-      box-shadow:
-        0 0 8px
-        rgba(255,101,0,.4);
     }
 
     .pixel-grid i:nth-child(2),
@@ -1225,39 +1119,300 @@
         rgba(255,255,255,.18);
 
       font-size: 11px;
-
       letter-spacing: 4px;
     }
 
 
     /* ==================================================
-       NEXT SECTION PLACEHOLDER
+       SERVICES
     ================================================== */
 
-    .services-placeholder {
-      min-height: 45vh;
+    .services-section {
+      position: relative;
 
+      background: #f3f1ec;
+      color: #111;
+
+      padding:
+        120px 5% 90px;
+
+      border-radius:
+        65px 65px 0 0;
+
+      overflow: hidden;
+    }
+
+    .services-top {
+      max-width: 1500px;
+
+      margin:
+        0 auto 80px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 50px;
+    }
+
+    .services-eyebrow {
+      margin-bottom: 12px;
+
+      color: #ff6500;
+
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+    }
+
+    .services-heading {
+      color: #111;
+
+      font-size:
+        clamp(75px,12vw,190px);
+
+      font-weight: 900;
+
+      line-height: .78;
+
+      letter-spacing: -.06em;
+
+      text-transform: uppercase;
+    }
+
+    .services-intro {
+      width: 320px;
+
+      color: #696969;
+
+      font-size: 14px;
+      font-weight: 300;
+
+      line-height: 1.65;
+    }
+
+
+    /* ==================================================
+       SERVICE ROWS
+    ================================================== */
+
+    .services-list {
+      max-width: 1500px;
+
+      margin: auto;
+
+      border-top:
+        1px solid rgba(0,0,0,.18);
+    }
+
+    .service-row {
+      position: relative;
+
+      min-height: 170px;
+
+      display: grid;
+
+      grid-template-columns:
+        100px
+        minmax(350px,1.7fr)
+        1fr
+        80px;
+
+      align-items: center;
+
+      gap: 30px;
+
+      border-bottom:
+        1px solid rgba(0,0,0,.18);
+
+      overflow: hidden;
+    }
+
+    .service-row::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background: #ff6500;
+
+      transform: scaleX(0);
+
+      transform-origin: left;
+
+      transition:
+        transform .45s
+        cubic-bezier(.77,0,.18,1);
+
+      z-index: 0;
+    }
+
+    .service-row:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-row > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .service-number {
+      color: #999;
+
+      font-size: 12px;
+      font-weight: 500;
+
+      letter-spacing: 2px;
+
+      transition: .35s;
+    }
+
+    .service-name {
+      color: #151515;
+
+      font-size:
+        clamp(31px,4vw,62px);
+
+      font-weight: 700;
+
+      line-height: .9;
+
+      letter-spacing: -.03em;
+
+      text-transform: uppercase;
+
+      transition:
+        color .35s,
+        transform .35s;
+    }
+
+    .service-name span {
+      color: #777;
+
+      transition: color .35s;
+    }
+
+    .service-description {
+      max-width: 330px;
+
+      color: #777;
+
+      font-size: 13px;
+      font-weight: 300;
+
+      line-height: 1.55;
+
+      transition: color .35s;
+    }
+
+    .service-arrow {
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background: #ffffff;
+      width: 55px;
+      height: 55px;
 
-      border-radius:
-        55px 55px 0 0;
+      justify-self: end;
+
+      border:
+        1px solid rgba(0,0,0,.25);
+
+      border-radius: 50%;
+
+      color: #111;
+
+      font-size: 22px;
+
+      transition: .4s ease;
     }
 
-    .services-placeholder h2 {
-      color: #e7e7e7;
+    .service-row:hover
+    .service-number {
+      color: rgba(0,0,0,.65);
+    }
 
-      font-size:
-        clamp(70px,14vw,220px);
+    .service-row:hover
+    .service-name {
+      color: #0c0c0c;
 
-      font-weight: 900;
+      transform: translateX(12px);
+    }
 
-      line-height: 1;
+    .service-row:hover
+    .service-name span {
+      color: #0c0c0c;
+    }
 
-      text-transform: uppercase;
+    .service-row:hover
+    .service-description {
+      color: rgba(0,0,0,.7);
+    }
+
+    .service-row:hover
+    .service-arrow {
+      background: #0c0c0c;
+
+      border-color: #0c0c0c;
+
+      color: #ff6500;
+
+      transform: rotate(45deg);
+    }
+
+
+    /* ==================================================
+       SERVICES FOOTER
+    ================================================== */
+
+    .services-footer {
+      max-width: 1500px;
+
+      margin:
+        60px auto 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .services-footer > span {
+      color: #888;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+    }
+
+    .services-footer a {
+      display: inline-flex;
+
+      padding: 15px 25px;
+
+      border: 1px solid #111;
+      border-radius: 50px;
+
+      color: #111;
+
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+
+      transition: .35s;
+    }
+
+    .services-footer a:hover {
+      background: #111;
+      color: #ff6500;
+
+      transform: translateY(-3px);
     }
 
 
@@ -1269,16 +1424,12 @@
 
       from {
         opacity: 0;
-
-        transform:
-          translateY(30px);
+        transform: translateY(30px);
       }
 
       to {
         opacity: 1;
-
-        transform:
-          translateY(0);
+        transform: translateY(0);
       }
 
     }
@@ -1306,13 +1457,11 @@
     @keyframes stripMove {
 
       from {
-        transform:
-          translateX(0);
+        transform: translateX(0);
       }
 
       to {
-        transform:
-          translateX(-50%);
+        transform: translateX(-50%);
       }
 
     }
@@ -1325,31 +1474,21 @@
     @media(max-width:1000px) {
 
       .hero-name {
-        top: 34%;
-
-        font-size: 11vw;
+        top: 35%;
+        font-size: 10vw;
       }
 
-      .name-first {
-        right: 53%;
-      }
-
-      .name-last {
-        left: 53%;
+      .hero-name-gap {
+        width: 5vw;
       }
 
       .portrait-wrapper {
         width: 390px;
       }
 
-      .hero-left {
-        width: 34%;
-      }
-
       .showcase-heading {
-        align-items: flex-start;
-
         flex-direction: column;
+        align-items: flex-start;
       }
 
     }
@@ -1362,8 +1501,7 @@
     @media(max-width:768px) {
 
       .navbar {
-        padding:
-          22px 20px;
+        padding: 22px 20px;
       }
 
       .logo {
@@ -1379,40 +1517,35 @@
       }
 
 
-      /* HERO NAME */
+      /* HERO */
 
       .hero-name {
-        top: 21%;
+        top: 19%;
 
-        transform: none;
+        transform: translateX(-50%);
 
-        display: flex;
         flex-direction: column;
-        align-items: center;
 
         font-size: 17vw;
 
         line-height: .73;
       }
 
-      .name-first,
-      .name-last {
-        position: static;
+      .hero-name-gap {
+        width: 0;
+        height: 4px;
       }
 
       .name-first {
-        margin-right: 14vw;
+        transform: translateX(-7vw);
       }
 
       .name-last {
-        margin-left: 14vw;
+        transform: translateX(7vw);
       }
 
-
       .portrait-wrapper {
-        width:
-          min(78vw,390px);
-
+        width: min(78vw,390px);
         height: 54vh;
 
         bottom: 42px;
@@ -1547,8 +1680,6 @@
       }
 
       .about-text {
-        max-width: 560px;
-
         margin-top: 50px;
 
         font-size: 18px;
@@ -1587,25 +1718,71 @@
         right: 5%;
       }
 
-      .pixel-grid {
-        grid-template-columns:
-          repeat(3,7px);
 
-        gap: 4px;
-      }
+      /* SERVICES */
 
-      .pixel-grid i {
-        width: 7px;
-        height: 7px;
-      }
+      .services-section {
+        padding:
+          90px 20px 70px;
 
-      .about-tags {
-        max-width: 450px;
-      }
-
-      .services-placeholder {
         border-radius:
-          35px 35px 0 0;
+          38px 38px 0 0;
+      }
+
+      .services-top {
+        margin-bottom: 55px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 30px;
+      }
+
+      .services-heading {
+        font-size: 18vw;
+      }
+
+      .services-intro {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .service-row {
+        min-height: auto;
+
+        padding: 35px 0;
+
+        grid-template-columns:
+          45px 1fr 45px;
+
+        gap: 12px;
+      }
+
+      .service-name {
+        font-size:
+          clamp(28px,8vw,42px);
+      }
+
+      .service-description {
+        grid-column: 2 / 4;
+
+        margin-top: 8px;
+
+        max-width: 360px;
+      }
+
+      .service-arrow {
+        width: 42px;
+        height: 42px;
+
+        font-size: 17px;
+      }
+
+      .services-footer {
+        margin-top: 45px;
+
+        flex-direction: column;
+        align-items: flex-start;
       }
 
     }
@@ -1642,10 +1819,6 @@
         font-size: 16px;
       }
 
-      .about-button {
-        margin-top: 40px;
-      }
-
     }
 
   </style>
@@ -1656,7 +1829,7 @@
 
 
   <!-- ==================================================
-       NAVIGATION
+       NAVBAR
   ================================================== -->
 
   <nav class="navbar">
@@ -1667,23 +1840,10 @@
     </div>
 
     <div class="nav-links">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#services">
-        Services
-      </a>
-
-      <a href="#projects">
-        Projects
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
-
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </div>
 
   </nav>
@@ -1694,23 +1854,20 @@
        HERO
   ================================================== -->
 
-  <section
-    class="hero"
-    id="home"
-  >
+  <section class="hero" id="home">
 
     <div class="hero-glow"></div>
 
     <div class="orbit"></div>
 
 
-    <!-- NAME -->
-
     <div class="hero-name">
 
       <span class="name-first">
         PRATHAM
       </span>
+
+      <span class="hero-name-gap"></span>
 
       <span class="name-last">
         TEMKAR
@@ -1719,36 +1876,26 @@
     </div>
 
 
-    <!-- LEFT CONTENT -->
-
     <div class="hero-left">
 
       <div class="hello">
-        Hello, I'm
+        HELLO, I'M
       </div>
 
       <div class="role">
-
-        Shopify Developer
-
+        SHOPIFY DEVELOPER
         <br>
-
-        × Digital Marketing
-
+        × DIGITAL MARKETING
       </div>
 
       <p class="description">
-
         I build modern Shopify experiences
         and help brands create a stronger
         digital presence.
-
       </p>
 
     </div>
 
-
-    <!-- PORTRAIT -->
 
     <div class="portrait-wrapper">
 
@@ -1761,18 +1908,15 @@
     </div>
 
 
-    <!-- RIGHT -->
-
     <div class="hero-right">
 
       <div class="available">
 
         <span class="available-dot"></span>
 
-        Available for projects
+        AVAILABLE FOR PROJECTS
 
       </div>
-
 
       <a
         href="#contact"
@@ -1780,7 +1924,7 @@
       >
 
         <span class="cta-text">
-          Let's Work Together
+          LET'S WORK TOGETHER
         </span>
 
         <span class="cta-arrow">
@@ -1793,60 +1937,45 @@
 
 
     <div class="scroll-text">
-      Scroll to explore ↓
+      SCROLL TO EXPLORE ↓
     </div>
 
-
-    <!-- HERO MARQUEE -->
 
     <div class="hero-strip">
 
       <div class="hero-strip-track">
 
-
         <div class="strip-copy">
-
           <span>Shopify Development</span><b>•</b>
           <span>Custom Sections</span><b>•</b>
           <span>Store Design</span><b>•</b>
           <span>Digital Marketing</span><b>•</b>
           <span>Landing Pages</span><b>•</b>
-
         </div>
 
-
         <div class="strip-copy">
-
           <span>Shopify Development</span><b>•</b>
           <span>Custom Sections</span><b>•</b>
           <span>Store Design</span><b>•</b>
           <span>Digital Marketing</span><b>•</b>
           <span>Landing Pages</span><b>•</b>
-
         </div>
 
-
         <div class="strip-copy">
-
           <span>Shopify Development</span><b>•</b>
           <span>Custom Sections</span><b>•</b>
           <span>Store Design</span><b>•</b>
           <span>Digital Marketing</span><b>•</b>
           <span>Landing Pages</span><b>•</b>
-
         </div>
 
-
         <div class="strip-copy">
-
           <span>Shopify Development</span><b>•</b>
           <span>Custom Sections</span><b>•</b>
           <span>Store Design</span><b>•</b>
           <span>Digital Marketing</span><b>•</b>
           <span>Landing Pages</span><b>•</b>
-
         </div>
-
 
       </div>
 
@@ -1857,7 +1986,7 @@
 
 
   <!-- ==================================================
-       MOVING PROJECT SHOWCASE
+       SHOWCASE
   ================================================== -->
 
   <section
@@ -1870,15 +1999,15 @@
       <div>
 
         <div class="showcase-eyebrow">
-          Selected Work
+          SELECTED WORK
         </div>
 
         <h2 class="showcase-title">
 
-          Building digital
+          BUILDING DIGITAL
 
           <span>
-            experiences.
+            EXPERIENCES.
           </span>
 
         </h2>
@@ -1896,33 +2025,23 @@
     </div>
 
 
-
-    <!-- ROW ONE -->
+    <!-- ROW 1 -->
 
     <div
       class="project-row"
       id="rowOne"
     >
 
-
       <div class="showcase-card">
 
         <img
           src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            E-commerce Experience
-          </div>
-
+          <div class="card-type">Shopify</div>
+          <div class="card-title">E-commerce Experience</div>
         </div>
 
       </div>
@@ -1932,20 +2051,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Development
-          </div>
-
-          <div class="card-title">
-            Custom Store
-          </div>
-
+          <div class="card-type">Development</div>
+          <div class="card-title">Custom Store</div>
         </div>
 
       </div>
@@ -1955,20 +2066,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            UI / UX
-          </div>
-
-          <div class="card-title">
-            Modern Commerce
-          </div>
-
+          <div class="card-type">UI / UX</div>
+          <div class="card-title">Modern Commerce</div>
         </div>
 
       </div>
@@ -1978,20 +2081,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            Store Experience
-          </div>
-
+          <div class="card-type">Shopify</div>
+          <div class="card-title">Store Experience</div>
         </div>
 
       </div>
@@ -2001,20 +2096,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Digital
-          </div>
-
-          <div class="card-title">
-            Brand Experience
-          </div>
-
+          <div class="card-type">Digital</div>
+          <div class="card-title">Brand Experience</div>
         </div>
 
       </div>
@@ -2023,150 +2110,41 @@
       <!-- DUPLICATES -->
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            E-commerce Experience
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Development
-          </div>
-
-          <div class="card-title">
-            Custom Store
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            UI / UX
-          </div>
-
-          <div class="card-title">
-            Modern Commerce
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            Store Experience
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" alt="Project">
       </div>
-
-
-      <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Digital
-          </div>
-
-          <div class="card-title">
-            Brand Experience
-          </div>
-
-        </div>
-
-      </div>
-
 
     </div>
 
 
-
-    <!-- ROW TWO -->
+    <!-- ROW 2 -->
 
     <div
       class="project-row"
       id="rowTwo"
     >
 
-
       <div class="showcase-card">
 
         <img
           src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            E-commerce
-          </div>
-
-          <div class="card-title">
-            Conversion Design
-          </div>
-
+          <div class="card-type">E-commerce</div>
+          <div class="card-title">Conversion Design</div>
         </div>
 
       </div>
@@ -2176,20 +2154,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            Product Experience
-          </div>
-
+          <div class="card-type">Shopify</div>
+          <div class="card-title">Product Experience</div>
         </div>
 
       </div>
@@ -2199,20 +2169,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Design
-          </div>
-
-          <div class="card-title">
-            Landing Experience
-          </div>
-
+          <div class="card-type">Design</div>
+          <div class="card-title">Landing Experience</div>
         </div>
 
       </div>
@@ -2222,20 +2184,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Digital
-          </div>
-
-          <div class="card-title">
-            Interactive Website
-          </div>
-
+          <div class="card-type">Digital</div>
+          <div class="card-title">Interactive Website</div>
         </div>
 
       </div>
@@ -2245,20 +2199,12 @@
 
         <img
           src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
-          alt="Project preview"
-          loading="lazy"
+          alt="Project"
         >
 
         <div class="card-overlay">
-
-          <div class="card-type">
-            Development
-          </div>
-
-          <div class="card-title">
-            Web Experience
-          </div>
-
+          <div class="card-type">Development</div>
+          <div class="card-title">Web Experience</div>
         </div>
 
       </div>
@@ -2267,132 +2213,32 @@
       <!-- DUPLICATES -->
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            E-commerce
-          </div>
-
-          <div class="card-title">
-            Conversion Design
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Shopify
-          </div>
-
-          <div class="card-title">
-            Product Experience
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Design
-          </div>
-
-          <div class="card-title">
-            Landing Experience
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" alt="Project">
       </div>
-
 
       <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Digital
-          </div>
-
-          <div class="card-title">
-            Interactive Website
-          </div>
-
-        </div>
-
+        <img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" alt="Project">
       </div>
-
-
-      <div class="showcase-card">
-
-        <img
-          src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
-          alt="Project preview"
-          loading="lazy"
-        >
-
-        <div class="card-overlay">
-
-          <div class="card-type">
-            Development
-          </div>
-
-          <div class="card-title">
-            Web Experience
-          </div>
-
-        </div>
-
-      </div>
-
 
     </div>
-
 
 
     <div class="showcase-bottom">
 
       <p>
-        Shopify • Development • Digital
+        SHOPIFY • DEVELOPMENT • DIGITAL
       </p>
 
       <div class="scroll-indicator">
-        Keep scrolling ↓
+        KEEP SCROLLING ↓
       </div>
 
     </div>
@@ -2402,7 +2248,7 @@
 
 
   <!-- ==================================================
-       ABOUT ME
+       ABOUT
   ================================================== -->
 
   <section
@@ -2410,101 +2256,42 @@
     id="about"
   >
 
-
-    <!-- DECORATIONS -->
-
-    <div
-      class="about-decoration code-card"
-    >
-
-      <span>
-        &lt;/&gt;
-      </span>
-
-      <small>
-        DEVELOPMENT
-      </small>
-
+    <div class="about-decoration code-card">
+      <span>&lt;/&gt;</span>
+      <small>DEVELOPMENT</small>
     </div>
 
-
-    <div
-      class="about-decoration shopify-card"
-    >
-
-      <span>
-        S
-      </span>
-
-      <small>
-        SHOPIFY
-      </small>
-
+    <div class="about-decoration shopify-card">
+      <span>S</span>
+      <small>SHOPIFY</small>
     </div>
 
-
-    <div
-      class="about-decoration marketing-card"
-    >
-
-      <span>
-        ↗
-      </span>
-
-      <small>
-        GROWTH
-      </small>
-
+    <div class="about-decoration marketing-card">
+      <span>↗</span>
+      <small>GROWTH</small>
     </div>
 
-
-    <div
-      class="about-decoration pixel-card"
-    >
+    <div class="about-decoration pixel-card">
 
       <div class="pixel-grid">
-
-        <i></i>
-        <i></i>
-        <i></i>
-
-        <i></i>
-        <i></i>
-        <i></i>
-
-        <i></i>
-        <i></i>
-        <i></i>
-
+        <i></i><i></i><i></i>
+        <i></i><i></i><i></i>
+        <i></i><i></i><i></i>
       </div>
 
-      <small>
-        DIGITAL
-      </small>
+      <small>DIGITAL</small>
 
     </div>
 
-
-
-    <!-- CONTENT -->
 
     <div class="about-content">
 
       <div class="about-eyebrow">
-
         GET TO KNOW ME
-
       </div>
 
-
       <h2 class="about-title">
-
-        ABOUT
-
-        <span>
-          ME
-        </span>
-
+        ABOUT <span>ME</span>
       </h2>
 
 
@@ -2512,34 +2299,20 @@
         class="about-text"
         id="aboutText"
       >
-
-        Shopify Developer focused on building modern,
-        responsive and engaging e-commerce experiences.
-        Alongside development, I'm expanding my skills
-        in Digital Marketing & AI to understand not only
-        how a store looks and works, but also how it can grow.
-
+        I'm Pratham Temkar, a Shopify developer focused
+        on building modern, responsive and engaging
+        e-commerce experiences. Alongside development,
+        I'm expanding my skills in Digital Marketing
+        and AI to understand not only how a store looks
+        and works, but how it can grow.
       </p>
 
 
       <div class="about-tags">
-
-        <span>
-          SHOPIFY
-        </span>
-
-        <span>
-          WEB DEVELOPMENT
-        </span>
-
-        <span>
-          DIGITAL MARKETING
-        </span>
-
-        <span>
-          AI
-        </span>
-
+        <span>SHOPIFY</span>
+        <span>WEB DEVELOPMENT</span>
+        <span>DIGITAL MARKETING</span>
+        <span>AI</span>
       </div>
 
 
@@ -2547,15 +2320,8 @@
         href="#contact"
         class="about-button"
       >
-
-        <span>
-          LET'S CONNECT
-        </span>
-
-        <span class="about-button-arrow">
-          ↗
-        </span>
-
+        <span>LET'S CONNECT</span>
+        <span>↗</span>
       </a>
 
     </div>
@@ -2570,19 +2336,186 @@
 
 
   <!-- ==================================================
-       SERVICES PLACEHOLDER
-
-       NEXT SECTION WE WILL BUILD
+       SERVICES
   ================================================== -->
 
   <section
-    class="services-placeholder"
+    class="services-section"
     id="services"
   >
 
-    <h2>
-      Services
-    </h2>
+    <div class="services-top">
+
+      <div>
+
+        <div class="services-eyebrow">
+          WHAT I DO
+        </div>
+
+        <h2 class="services-heading">
+          SERVICES
+        </h2>
+
+      </div>
+
+
+      <p class="services-intro">
+        Shopify development focused on creating
+        modern, responsive and engaging online
+        store experiences.
+      </p>
+
+    </div>
+
+
+
+    <div class="services-list">
+
+
+      <!-- 01 -->
+
+      <div class="service-row">
+
+        <div class="service-number">
+          01
+        </div>
+
+        <div class="service-name">
+          Shopify Store
+          <span>Development</span>
+        </div>
+
+        <div class="service-description">
+          Building responsive Shopify stores
+          with clean layouts and a smooth
+          shopping experience.
+        </div>
+
+        <div class="service-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <!-- 02 -->
+
+      <div class="service-row">
+
+        <div class="service-number">
+          02
+        </div>
+
+        <div class="service-name">
+          Custom Shopify
+          <span>Sections</span>
+        </div>
+
+        <div class="service-description">
+          Custom sections designed to give
+          Shopify stores more flexibility and
+          stronger visual presentation.
+        </div>
+
+        <div class="service-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <!-- 03 -->
+
+      <div class="service-row">
+
+        <div class="service-number">
+          03
+        </div>
+
+        <div class="service-name">
+          Theme
+          <span>Customization</span>
+        </div>
+
+        <div class="service-description">
+          Customizing Shopify themes to better
+          match a brand's identity, products
+          and customer experience.
+        </div>
+
+        <div class="service-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <!-- 04 -->
+
+      <div class="service-row">
+
+        <div class="service-number">
+          04
+        </div>
+
+        <div class="service-name">
+          Landing Page
+          <span>Development</span>
+        </div>
+
+        <div class="service-description">
+          Creating focused landing pages for
+          products, campaigns and brand
+          storytelling.
+        </div>
+
+        <div class="service-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+      <!-- 05 -->
+
+      <div class="service-row">
+
+        <div class="service-number">
+          05
+        </div>
+
+        <div class="service-name">
+          Shopify Store
+          <span>Improvements</span>
+        </div>
+
+        <div class="service-description">
+          Improving existing store layouts,
+          sections and overall visual
+          experience.
+        </div>
+
+        <div class="service-arrow">
+          ↗
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="services-footer">
+
+      <span>
+        HAVE A PROJECT IN MIND?
+      </span>
+
+      <a href="#contact">
+        LET'S WORK TOGETHER ↗
+      </a>
+
+    </div>
 
   </section>
 
@@ -2594,116 +2527,53 @@
 
   <script>
 
-
     /* ==================================================
-       SHOWCASE SCROLL
+       SHOWCASE MOVEMENT
     ================================================== */
 
     const rowOne =
-      document.getElementById(
-        "rowOne"
-      );
+      document.getElementById("rowOne");
 
     const rowTwo =
-      document.getElementById(
-        "rowTwo"
-      );
+      document.getElementById("rowTwo");
 
     const showcase =
-      document.querySelector(
-        ".showcase"
-      );
-
-
-    let ticking = false;
+      document.querySelector(".showcase");
 
 
     function moveProjectRows() {
 
-      if (
-        !rowOne ||
-        !rowTwo ||
-        !showcase
-      ) {
+      if (!rowOne || !rowTwo || !showcase) {
         return;
       }
 
-
       const rect =
-        showcase
-          .getBoundingClientRect();
-
+        showcase.getBoundingClientRect();
 
       const progress =
-        window.innerHeight -
-        rect.top;
-
+        window.innerHeight - rect.top;
 
       const movement =
         progress * .22;
 
 
-      /*
-        ROW 1
-        moves RIGHT
-      */
-
       rowOne.style.transform =
-        `translate3d(${
-          -650 + movement
-        }px,0,0)`;
+        `translate3d(${-650 + movement}px,0,0)`;
 
-
-      /*
-        ROW 2
-        moves LEFT
-      */
 
       rowTwo.style.transform =
-        `translate3d(${
-          -850 - movement
-        }px,0,0)`;
-
-
-      ticking = false;
+        `translate3d(${-850 - movement}px,0,0)`;
 
     }
 
 
-    window.addEventListener(
-      "scroll",
-      () => {
-
-        if (!ticking) {
-
-          window.requestAnimationFrame(
-            moveProjectRows
-          );
-
-          ticking = true;
-
-        }
-
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    moveProjectRows();
-
-
 
     /* ==================================================
-       ABOUT WORD REVEAL
+       ABOUT TEXT
     ================================================== */
 
     const aboutText =
-      document.getElementById(
-        "aboutText"
-      );
-
+      document.getElementById("aboutText");
 
     let aboutWords = [];
 
@@ -2711,14 +2581,9 @@
     if (aboutText) {
 
       const originalText =
-        aboutText
-          .textContent
+        aboutText.textContent
           .trim()
-          .replace(
-            /\s+/g,
-            " "
-          );
-
+          .replace(/\s+/g," ");
 
       const words =
         originalText.split(" ");
@@ -2741,44 +2606,32 @@
     }
 
 
-
     function revealAboutText() {
 
-      if (
-        !aboutText ||
-        !aboutWords.length
-      ) {
+      if (!aboutText || !aboutWords.length) {
         return;
       }
 
 
       const rect =
-        aboutText
-          .getBoundingClientRect();
-
-
-      const windowHeight =
-        window.innerHeight;
+        aboutText.getBoundingClientRect();
 
 
       let progress =
         (
-          windowHeight * .85 -
+          window.innerHeight * .85 -
           rect.top
         )
         /
         (
-          windowHeight * .65
+          window.innerHeight * .65
         );
 
 
       progress =
         Math.max(
           0,
-          Math.min(
-            1,
-            progress
-          )
+          Math.min(1,progress)
         );
 
 
@@ -2792,18 +2645,13 @@
       aboutWords.forEach(
         (word,index) => {
 
-          if (
-            index <=
-            visibleWords
-          ) {
+          if (index <= visibleWords) {
 
             word.classList.add(
               "active"
             );
 
-          }
-
-          else {
+          } else {
 
             word.classList.remove(
               "active"
@@ -2817,108 +2665,47 @@
     }
 
 
-    window.addEventListener(
-      "scroll",
-      revealAboutText,
-      {
-        passive: true
-      }
-    );
-
-
-    revealAboutText();
-
-
 
     /* ==================================================
-       ABOUT DECORATION PARALLAX
+       MASTER SCROLL
     ================================================== */
 
-    const aboutSection =
-      document.querySelector(
-        ".about-section"
-      );
+    let ticking = false;
 
 
-    const decorations =
-      document.querySelectorAll(
-        ".about-decoration"
-      );
+    function updateScrollEffects() {
 
+      moveProjectRows();
 
-    function moveAboutDecorations() {
+      revealAboutText();
 
-      if (!aboutSection) {
-        return;
-      }
-
-
-      const rect =
-        aboutSection
-          .getBoundingClientRect();
-
-
-      /*
-        Only calculate movement while
-        section is around viewport.
-      */
-
-      if (
-        rect.bottom < 0 ||
-        rect.top >
-        window.innerHeight
-      ) {
-        return;
-      }
-
-
-      const centerProgress =
-        (
-          window.innerHeight / 2
-        )
-        -
-        (
-          rect.top +
-          rect.height / 2
-        );
-
-
-      const movement =
-        centerProgress * .035;
-
-
-      decorations.forEach(
-        (item,index) => {
-
-          const direction =
-            index % 2 === 0
-              ? 1
-              : -1;
-
-
-          item.style.translate =
-            `0 ${
-              movement *
-              direction
-            }px`;
-
-        }
-      );
+      ticking = false;
 
     }
 
 
     window.addEventListener(
       "scroll",
-      moveAboutDecorations,
+      () => {
+
+        if (!ticking) {
+
+          requestAnimationFrame(
+            updateScrollEffects
+          );
+
+          ticking = true;
+
+        }
+
+      },
       {
         passive: true
       }
     );
 
 
-    moveAboutDecorations();
-
+    updateScrollEffects();
 
   </script>
 
