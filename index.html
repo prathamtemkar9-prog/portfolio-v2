@@ -1,2713 +1,3837 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pratham Temkar | Shopify Developer</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================================================
+   GLOBAL
+================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#0c0c0c;
+color:#f5f5f5;
+font-family:"Kanit",sans-serif;
+overflow-x:hidden;
+}
+
+::selection{
+background:#ff6500;
+color:#0c0c0c;
+}
+
+img{
+display:block;
+}
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:28px 5%;
+z-index:100;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:11px;
+font-size:16px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.logo-dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#ff6500;
+box-shadow:
+0 0 10px rgba(255,101,0,.8),
+0 0 25px rgba(255,101,0,.3);
+}
+
+.nav-links{
+display:flex;
+gap:clamp(22px,3vw,48px);
+}
+
+.nav-links a{
+position:relative;
+color:#f5f5f5;
+text-decoration:none;
+font-size:12px;
+font-weight:500;
+letter-spacing:1.5px;
+text-transform:uppercase;
+transition:.3s;
+}
+
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-7px;
+width:0;
+height:1px;
+background:#ff6500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#ff6500;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero{
+position:relative;
+width:100%;
+height:100vh;
+min-height:700px;
+overflow:hidden;
+
+background:
+radial-gradient(
+circle at 50% 52%,
+rgba(255,101,0,.10),
+transparent 35%
+),
+#0c0c0c;
+}
+
+.hero-glow{
+position:absolute;
+width:750px;
+height:750px;
+left:50%;
+top:55%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+
+background:
+radial-gradient(
+circle,
+rgba(255,101,0,.18),
+rgba(255,101,0,.06) 35%,
+transparent 70%
+);
+
+filter:blur(25px);
+pointer-events:none;
+}
+
+.orbit{
+position:absolute;
+width:500px;
+height:500px;
+left:50%;
+top:56%;
+
+transform:
+translate(-50%,-50%)
+rotate(-13deg)
+scaleY(.30);
+
+border:2px solid rgba(255,101,0,.6);
+border-radius:50%;
+
+box-shadow:
+0 0 25px rgba(255,101,0,.22);
+
+z-index:2;
+pointer-events:none;
+}
+
+
+/* ==================================================
+   HERO NAME
+================================================== */
+
+.hero-name{
+position:absolute;
+left:50%;
+top:39%;
+transform:translate(-50%,-50%);
+width:100%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:1;
+
+font-size:clamp(72px,10.4vw,190px);
+font-weight:900;
+line-height:.8;
+letter-spacing:-.035em;
+
+text-transform:uppercase;
+white-space:nowrap;
+
+pointer-events:none;
+user-select:none;
+}
+
+.name-first,
+.name-last{
+position:static;
+display:block;
+}
+
+.name-first{
+color:#eeeeee;
+text-align:right;
+}
+
+.name-last{
+color:#ff6500;
+text-align:left;
+
+text-shadow:
+0 0 45px rgba(255,101,0,.08);
+}
+
+.hero-name-gap{
+width:clamp(45px,5vw,100px);
+flex-shrink:0;
+}
+
+
+/* ==================================================
+   PORTRAIT
+================================================== */
+
+.portrait-wrapper{
+position:absolute;
+left:50%;
+bottom:42px;
+transform:translateX(-50%);
+
+width:clamp(330px,30vw,500px);
+height:61vh;
+max-height:630px;
+
+overflow:hidden;
+
+border-radius:
+240px 240px 25px 25px;
+
+z-index:10;
+
+box-shadow:
+0 0 100px rgba(255,101,0,.08);
+
+animation:portraitIn 1.1s ease both;
+}
+
+.portrait{
+width:100%;
+height:100%;
+object-fit:cover;
+object-position:center 18%;
+
+filter:
+contrast(1.04)
+saturate(.88);
+}
+
+.portrait-wrapper::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:25%;
+
+background:
+linear-gradient(
+transparent,
+rgba(12,12,12,.95)
+);
+}
+
+
+/* ==================================================
+   HERO LEFT
+================================================== */
+
+.hero-left{
+position:absolute;
+left:5%;
+bottom:16%;
+width:30%;
+z-index:20;
+
+animation:
+fadeUp .9s .2s ease both;
+}
+
+.hello{
+margin-bottom:12px;
+color:#ff6500;
+font-size:10px;
+font-weight:500;
+letter-spacing:5px;
+text-transform:uppercase;
+}
+
+.role{
+color:#f4f4f4;
+
+font-size:
+clamp(19px,1.7vw,28px);
+
+font-weight:600;
+line-height:1.2;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.description{
+max-width:360px;
+margin-top:18px;
+
+color:#898989;
+
+font-size:13px;
+font-weight:300;
+line-height:1.7;
+letter-spacing:.4px;
+}
+
+
+/* ==================================================
+   HERO RIGHT
+================================================== */
+
+.hero-right{
+position:absolute;
+right:5%;
+bottom:16%;
+z-index:20;
 
-  <title>Pratham Temkar | Shopify Developer</title>
+display:flex;
+flex-direction:column;
+align-items:flex-end;
+
+animation:
+fadeUp .9s .35s ease both;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+.available{
+display:flex;
+align-items:center;
+gap:10px;
 
-  <style>
+margin-bottom:20px;
 
-    /* ==================================================
-       GLOBAL
-    ================================================== */
+color:#999;
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+font-size:10px;
+font-weight:500;
+letter-spacing:2px;
 
-    html {
-      scroll-behavior: smooth;
-    }
+text-transform:uppercase;
+}
 
-    body {
-      background: #0c0c0c;
-      color: #f5f5f5;
-      font-family: "Kanit", sans-serif;
-      overflow-x: hidden;
-    }
+.available-dot{
+width:8px;
+height:8px;
 
-    ::selection {
-      background: #ff6500;
-      color: #0c0c0c;
-    }
+border-radius:50%;
 
-    img {
-      display: block;
-    }
+background:#ff6500;
 
+box-shadow:
+0 0 12px #ff6500;
+}
 
-    /* ==================================================
-       NAVIGATION
-    ================================================== */
+.cta{
+display:inline-flex;
+align-items:center;
+gap:22px;
 
-    .navbar {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
+padding:15px 27px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+border:1px solid #ff6500;
+border-radius:50px;
 
-      padding: 28px 5%;
+color:white;
+text-decoration:none;
 
-      z-index: 100;
-    }
+font-size:12px;
+font-weight:600;
+letter-spacing:2px;
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 11px;
+text-transform:uppercase;
 
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 2px;
+transition:.35s;
+}
 
-      text-transform: uppercase;
-    }
+.cta-arrow{
+font-size:19px;
+transition:.35s;
+}
 
-    .logo-dot {
-      width: 10px;
-      height: 10px;
+.cta:hover{
+background:#ff6500;
+color:#0c0c0c;
 
-      border-radius: 50%;
+transform:translateY(-3px);
 
-      background: #ff6500;
+box-shadow:
+0 10px 40px rgba(255,101,0,.25);
+}
 
-      box-shadow:
-        0 0 10px rgba(255,101,0,.8),
-        0 0 25px rgba(255,101,0,.3);
-    }
+.cta:hover .cta-arrow{
+transform:translate(4px,-4px);
+}
 
-    .nav-links {
-      display: flex;
-      gap: clamp(22px,3vw,48px);
-    }
+.scroll-text{
+position:absolute;
+left:50%;
+bottom:63px;
 
-    .nav-links a {
-      position: relative;
+transform:translateX(-50%);
 
-      color: #f5f5f5;
+z-index:30;
 
-      text-decoration: none;
+color:#777;
 
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
+font-size:9px;
+letter-spacing:3px;
 
-      text-transform: uppercase;
+text-transform:uppercase;
+}
 
-      transition: .3s;
-    }
 
-    .nav-links a::after {
-      content: "";
+/* ==================================================
+   HERO STRIP
+================================================== */
 
-      position: absolute;
-      left: 0;
-      bottom: -7px;
+.hero-strip{
+position:absolute;
+bottom:0;
+left:0;
 
-      width: 0;
-      height: 1px;
+width:100%;
+height:42px;
 
-      background: #ff6500;
+z-index:40;
 
-      transition: .3s;
-    }
+display:flex;
+align-items:center;
 
-    .nav-links a:hover {
-      color: #ff6500;
-    }
+overflow:hidden;
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
+background:rgba(12,12,12,.96);
 
+border-top:
+1px solid rgba(255,101,0,.35);
+}
 
-    /* ==================================================
-       HERO
-    ================================================== */
+.hero-strip-track{
+display:flex;
+width:max-content;
 
-    .hero {
-      position: relative;
+animation:
+stripMove 22s linear infinite;
+}
 
-      width: 100%;
-      height: 100vh;
-      min-height: 700px;
+.strip-copy{
+display:flex;
+align-items:center;
+white-space:nowrap;
+}
 
-      overflow: hidden;
+.strip-copy span{
+padding:0 25px;
 
-      background:
-        radial-gradient(
-          circle at 50% 52%,
-          rgba(255,101,0,.10),
-          transparent 35%
-        ),
-        #0c0c0c;
-    }
+color:#ddd;
 
-    .hero-glow {
-      position: absolute;
+font-size:10px;
+font-weight:500;
+letter-spacing:3px;
 
-      width: 750px;
-      height: 750px;
+text-transform:uppercase;
+}
 
-      left: 50%;
-      top: 55%;
+.strip-copy b{
+color:#ff6500;
+}
 
-      transform: translate(-50%,-50%);
 
-      border-radius: 50%;
+/* ==================================================
+   MOVING SHOWCASE
+================================================== */
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(255,101,0,.18),
-          rgba(255,101,0,.06) 35%,
-          transparent 70%
-        );
+.showcase{
+position:relative;
 
-      filter: blur(25px);
+padding:
+130px 0 150px;
 
-      pointer-events: none;
-    }
+background:#0c0c0c;
 
+overflow:hidden;
+}
 
-    /* ==================================================
-       ORBIT
-    ================================================== */
+.showcase-heading{
+width:90%;
+max-width:1500px;
 
-    .orbit {
-      position: absolute;
+margin:
+0 auto 70px;
 
-      width: 500px;
-      height: 500px;
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
 
-      left: 50%;
-      top: 56%;
+gap:30px;
+}
 
-      transform:
-        translate(-50%,-50%)
-        rotate(-13deg)
-        scaleY(.30);
+.showcase-eyebrow{
+margin-bottom:12px;
 
-      border: 2px solid rgba(255,101,0,.6);
+color:#ff6500;
 
-      border-radius: 50%;
+font-size:11px;
+font-weight:500;
+letter-spacing:5px;
 
-      box-shadow:
-        0 0 25px rgba(255,101,0,.22);
+text-transform:uppercase;
+}
 
-      z-index: 2;
+.showcase-title{
+max-width:850px;
 
-      pointer-events: none;
-    }
+color:#f1f1f1;
 
+font-size:
+clamp(48px,7vw,110px);
 
-    /* ==================================================
-       HERO NAME - FIXED ALIGNMENT
-    ================================================== */
+font-weight:900;
+line-height:.82;
+letter-spacing:-.04em;
 
-    .hero-name {
-      position: absolute;
+text-transform:uppercase;
+}
 
-      left: 50%;
-      top: 39%;
+.showcase-title span{
+color:#ff6500;
+}
 
-      transform: translate(-50%,-50%);
+.showcase-description{
+max-width:320px;
 
-      width: 100%;
+color:#858585;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+font-size:14px;
+font-weight:300;
+line-height:1.6;
+}
 
-      z-index: 1;
+.project-row{
+position:relative;
 
-      font-size: clamp(72px,10.4vw,190px);
-      font-weight: 900;
+display:flex;
 
-      line-height: .8;
+width:max-content;
 
-      letter-spacing: -.035em;
+gap:14px;
+margin-bottom:14px;
 
-      text-transform: uppercase;
+will-change:transform;
+}
 
-      white-space: nowrap;
+.showcase-card{
+position:relative;
 
-      pointer-events: none;
-      user-select: none;
-    }
+width:420px;
+height:270px;
 
-    .name-first,
-    .name-last {
-      position: static;
-      display: block;
-    }
+flex-shrink:0;
 
-    .name-first {
-      color: #eeeeee;
-      text-align: right;
-    }
+overflow:hidden;
 
-    .name-last {
-      color: #ff6500;
-      text-align: left;
+border-radius:22px;
 
-      text-shadow:
-        0 0 45px rgba(255,101,0,.08);
-    }
+background:#171717;
 
-    .hero-name-gap {
-      width: clamp(45px,5vw,100px);
-      flex-shrink: 0;
-    }
+border:
+1px solid rgba(255,255,255,.08);
 
+transition:
+transform .4s ease,
+border-color .4s ease;
+}
 
-    /* ==================================================
-       PORTRAIT
-    ================================================== */
+.showcase-card:hover{
+transform:scale(.975);
 
-    .portrait-wrapper {
-      position: absolute;
+border-color:
+rgba(255,101,0,.55);
+}
 
-      left: 50%;
-      bottom: 42px;
+.showcase-card img{
+width:100%;
+height:100%;
 
-      transform: translateX(-50%);
+object-fit:cover;
 
-      width: clamp(330px,30vw,500px);
-      height: 61vh;
+transition:
+transform .6s ease,
+filter .6s ease;
+}
 
-      max-height: 630px;
+.showcase-card:hover img{
+transform:scale(1.04);
+filter:brightness(.65);
+}
 
-      overflow: hidden;
+.card-overlay{
+position:absolute;
+inset:0;
 
-      border-radius:
-        240px 240px 25px 25px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
 
-      z-index: 10;
+padding:25px;
 
-      box-shadow:
-        0 0 100px rgba(255,101,0,.08);
+opacity:0;
 
-      animation:
-        portraitIn 1.1s ease both;
-    }
+background:
+linear-gradient(
+transparent 30%,
+rgba(0,0,0,.88)
+);
 
-    .portrait {
-      width: 100%;
-      height: 100%;
+transition:opacity .4s ease;
+}
 
-      object-fit: cover;
-      object-position: center 18%;
+.showcase-card:hover .card-overlay{
+opacity:1;
+}
 
-      filter:
-        contrast(1.04)
-        saturate(.88);
-    }
+.card-type{
+margin-bottom:5px;
 
-    .portrait-wrapper::after {
-      content: "";
+color:#ff6500;
 
-      position: absolute;
+font-size:9px;
+font-weight:500;
+letter-spacing:3px;
 
-      left: 0;
-      bottom: 0;
+text-transform:uppercase;
+}
 
-      width: 100%;
-      height: 25%;
+.card-title{
+color:white;
+font-size:22px;
+font-weight:600;
+}
 
-      background:
-        linear-gradient(
-          transparent,
-          rgba(12,12,12,.95)
-        );
-    }
+.showcase-bottom{
+width:90%;
+max-width:1500px;
 
+margin:
+65px auto 0;
 
-    /* ==================================================
-       HERO LEFT
-    ================================================== */
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-    .hero-left {
-      position: absolute;
+border-top:
+1px solid rgba(255,255,255,.12);
 
-      left: 5%;
-      bottom: 16%;
+padding-top:25px;
+}
 
-      width: 30%;
+.showcase-bottom p{
+color:#707070;
 
-      z-index: 20;
+font-size:11px;
+letter-spacing:2px;
 
-      animation:
-        fadeUp .9s .2s ease both;
-    }
+text-transform:uppercase;
+}
 
-    .hello {
-      margin-bottom: 12px;
+.scroll-indicator{
+color:#ff6500;
 
-      color: #ff6500;
+font-size:11px;
+letter-spacing:3px;
 
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 5px;
+text-transform:uppercase;
+}
 
-      text-transform: uppercase;
-    }
 
-    .role {
-      color: #f4f4f4;
+/* ==================================================
+   ABOUT
+================================================== */
 
-      font-size:
-        clamp(19px,1.7vw,28px);
+.about-section{
+position:relative;
 
-      font-weight: 600;
+min-height:100vh;
 
-      line-height: 1.2;
+display:flex;
+align-items:center;
+justify-content:center;
 
-      letter-spacing: 3px;
+padding:
+140px 5% 150px;
 
-      text-transform: uppercase;
-    }
+overflow:hidden;
 
-    .description {
-      max-width: 360px;
+background:
+radial-gradient(
+circle at 50% 48%,
+rgba(255,101,0,.09),
+transparent 32%
+),
+#0c0c0c;
+}
 
-      margin-top: 18px;
+.about-section::before{
+content:"";
 
-      color: #898989;
+position:absolute;
+inset:0;
 
-      font-size: 13px;
-      font-weight: 300;
+opacity:.11;
 
-      line-height: 1.7;
-      letter-spacing: .4px;
-    }
+background-image:
+linear-gradient(
+rgba(255,255,255,.08) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255,255,255,.08) 1px,
+transparent 1px
+);
 
+background-size:70px 70px;
 
-    /* ==================================================
-       HERO RIGHT
-    ================================================== */
+mask-image:
+radial-gradient(
+circle at center,
+black,
+transparent 72%
+);
 
-    .hero-right {
-      position: absolute;
+pointer-events:none;
+}
 
-      right: 5%;
-      bottom: 16%;
+.about-content{
+position:relative;
 
-      z-index: 20;
+width:100%;
+max-width:1100px;
 
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+display:flex;
+flex-direction:column;
+align-items:center;
 
-      animation:
-        fadeUp .9s .35s ease both;
-    }
+text-align:center;
 
-    .available {
-      display: flex;
-      align-items: center;
+z-index:10;
+}
 
-      gap: 10px;
+.about-eyebrow{
+margin-bottom:20px;
 
-      margin-bottom: 20px;
+color:#ff6500;
 
-      color: #999;
+font-size:10px;
+font-weight:500;
+letter-spacing:6px;
 
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 2px;
+text-transform:uppercase;
+}
 
-      text-transform: uppercase;
-    }
+.about-title{
+color:#f1f1f1;
 
-    .available-dot {
-      width: 8px;
-      height: 8px;
+font-size:
+clamp(80px,13vw,210px);
 
-      border-radius: 50%;
+font-weight:900;
+line-height:.8;
+letter-spacing:-.055em;
 
-      background: #ff6500;
+text-transform:uppercase;
 
-      box-shadow:
-        0 0 12px #ff6500;
-    }
+white-space:nowrap;
+}
 
-    .cta {
-      display: inline-flex;
-      align-items: center;
+.about-title span{
+color:#ff6500;
+}
 
-      gap: 22px;
+.about-text{
+max-width:760px;
 
-      padding: 15px 27px;
+margin-top:70px;
 
-      border: 1px solid #ff6500;
-      border-radius: 50px;
+color:#d0d0d0;
 
-      color: white;
+font-size:
+clamp(18px,2vw,27px);
 
-      text-decoration: none;
+font-weight:300;
+line-height:1.55;
+}
 
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 2px;
+.about-word{
+display:inline-block;
 
-      text-transform: uppercase;
+margin-right:.20em;
 
-      transition: .35s;
-    }
+opacity:.15;
 
-    .cta-arrow {
-      font-size: 19px;
-      transition: .35s;
-    }
+transform:translateY(8px);
 
-    .cta:hover {
-      background: #ff6500;
-      color: #0c0c0c;
+transition:
+opacity .12s linear,
+transform .12s linear;
+}
 
-      transform: translateY(-3px);
+.about-word.active{
+opacity:1;
 
-      box-shadow:
-        0 10px 40px rgba(255,101,0,.25);
-    }
+transform:translateY(0);
 
-    .cta:hover .cta-arrow {
-      transform: translate(4px,-4px);
-    }
+color:#f1f1f1;
+}
 
+.about-tags{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
 
-    /* ==================================================
-       SCROLL
-    ================================================== */
+gap:10px;
 
-    .scroll-text {
-      position: absolute;
+margin-top:45px;
+}
 
-      left: 50%;
-      bottom: 63px;
+.about-tags span{
+padding:10px 18px;
 
-      transform: translateX(-50%);
+border:
+1px solid rgba(255,255,255,.14);
 
-      z-index: 30;
+border-radius:50px;
 
-      color: #777;
+color:#999;
 
-      font-size: 9px;
-      letter-spacing: 3px;
+font-size:9px;
+letter-spacing:2px;
 
-      text-transform: uppercase;
-    }
+transition:.3s;
+}
 
+.about-tags span:hover{
+color:#ff6500;
 
-    /* ==================================================
-       HERO STRIP
-    ================================================== */
+border-color:#ff6500;
 
-    .hero-strip {
-      position: absolute;
+transform:translateY(-3px);
+}
 
-      bottom: 0;
-      left: 0;
+.about-button{
+display:inline-flex;
+align-items:center;
 
-      width: 100%;
-      height: 42px;
+gap:30px;
 
-      z-index: 40;
+margin-top:55px;
 
-      display: flex;
-      align-items: center;
+padding:16px 27px;
 
-      overflow: hidden;
+border:1px solid #ff6500;
+border-radius:50px;
 
-      background: rgba(12,12,12,.96);
+color:white;
 
-      border-top:
-        1px solid rgba(255,101,0,.35);
-    }
+text-decoration:none;
 
-    .hero-strip-track {
-      display: flex;
+font-size:11px;
+font-weight:600;
+letter-spacing:2px;
 
-      width: max-content;
+transition:.35s;
+}
 
-      animation:
-        stripMove 22s linear infinite;
-    }
+.about-button:hover{
+background:#ff6500;
+color:#0c0c0c;
 
-    .strip-copy {
-      display: flex;
-      align-items: center;
+transform:translateY(-4px);
+}
 
-      white-space: nowrap;
-    }
+.about-decoration{
+position:absolute;
 
-    .strip-copy span {
-      padding: 0 25px;
+z-index:5;
 
-      color: #ddd;
+width:125px;
+height:125px;
 
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 3px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 
-      text-transform: uppercase;
-    }
+gap:9px;
 
-    .strip-copy b {
-      color: #ff6500;
-    }
+border:
+1px solid rgba(255,101,0,.22);
 
+background:
+rgba(18,18,18,.72);
 
-    /* ==================================================
-       SHOWCASE
-    ================================================== */
+backdrop-filter:blur(12px);
 
-    .showcase {
-      position: relative;
+box-shadow:
+0 20px 60px rgba(0,0,0,.35);
 
-      padding:
-        130px 0 150px;
+pointer-events:none;
+}
 
-      background: #0c0c0c;
+.about-decoration span{
+color:#ff6500;
 
-      overflow: hidden;
-    }
+font-size:36px;
+font-weight:700;
+}
 
-    .showcase-heading {
-      width: 90%;
-      max-width: 1500px;
+.about-decoration small{
+color:#777;
 
-      margin:
-        0 auto 70px;
+font-size:7px;
+letter-spacing:2px;
+}
 
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+.code-card{
+top:13%;
+left:7%;
 
-      gap: 30px;
-    }
+border-radius:
+35px 12px 35px 12px;
 
-    .showcase-eyebrow {
-      margin-bottom: 12px;
+transform:rotate(-10deg);
+}
 
-      color: #ff6500;
+.shopify-card{
+top:13%;
+right:7%;
 
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 5px;
+border-radius:50%;
 
-      text-transform: uppercase;
-    }
+transform:rotate(9deg);
+}
 
-    .showcase-title {
-      max-width: 850px;
+.shopify-card span{
+font-size:48px;
+font-weight:900;
+}
 
-      color: #f1f1f1;
+.marketing-card{
+bottom:13%;
+left:11%;
 
-      font-size:
-        clamp(48px,7vw,110px);
+border-radius:
+15px 40px 15px 40px;
 
-      font-weight: 900;
+transform:rotate(8deg);
+}
 
-      line-height: .82;
+.marketing-card span{
+font-size:55px;
+}
 
-      letter-spacing: -.04em;
+.pixel-card{
+bottom:12%;
+right:10%;
 
-      text-transform: uppercase;
-    }
+border-radius:25px;
 
-    .showcase-title span {
-      color: #ff6500;
-    }
+transform:rotate(-8deg);
+}
 
-    .showcase-description {
-      max-width: 320px;
+.pixel-grid{
+display:grid;
 
-      color: #858585;
+grid-template-columns:
+repeat(3,10px);
 
-      font-size: 14px;
-      font-weight: 300;
+gap:5px;
+}
 
-      line-height: 1.6;
-    }
+.pixel-grid i{
+width:10px;
+height:10px;
 
+display:block;
 
-    /* ==================================================
-       PROJECT ROWS
-    ================================================== */
+background:#ff6500;
 
-    .project-row {
-      position: relative;
+border-radius:2px;
+}
 
-      display: flex;
+.pixel-grid i:nth-child(2),
+.pixel-grid i:nth-child(4),
+.pixel-grid i:nth-child(8){
+opacity:.25;
+}
 
-      width: max-content;
+.about-number{
+position:absolute;
 
-      gap: 14px;
+left:5%;
+bottom:40px;
 
-      margin-bottom: 14px;
+color:
+rgba(255,255,255,.18);
 
-      will-change: transform;
-    }
+font-size:11px;
+letter-spacing:4px;
+}
 
-    .showcase-card {
-      position: relative;
 
-      width: 420px;
-      height: 270px;
+/* ==================================================
+   SERVICES
+================================================== */
 
-      flex-shrink: 0;
+.services-section{
+position:relative;
 
-      overflow: hidden;
+background:#f3f1ec;
+color:#111;
 
-      border-radius: 22px;
+padding:
+120px 5% 90px;
 
-      background: #171717;
+border-radius:
+65px 65px 0 0;
 
-      border:
-        1px solid rgba(255,255,255,.08);
+overflow:hidden;
+}
 
-      transition:
-        transform .4s ease,
-        border-color .4s ease;
-    }
+.services-top{
+max-width:1500px;
 
-    .showcase-card:hover {
-      transform: scale(.975);
+margin:
+0 auto 80px;
 
-      border-color:
-        rgba(255,101,0,.55);
-    }
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
 
-    .showcase-card img {
-      width: 100%;
-      height: 100%;
+gap:50px;
+}
 
-      object-fit: cover;
+.services-eyebrow{
+margin-bottom:12px;
 
-      transition:
-        transform .6s ease,
-        filter .6s ease;
-    }
+color:#ff6500;
 
-    .showcase-card:hover img {
-      transform: scale(1.04);
-      filter: brightness(.65);
-    }
+font-size:10px;
+font-weight:600;
+letter-spacing:5px;
 
-    .card-overlay {
-      position: absolute;
+text-transform:uppercase;
+}
 
-      inset: 0;
+.services-heading{
+color:#111;
 
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+font-size:
+clamp(75px,12vw,190px);
 
-      padding: 25px;
+font-weight:900;
+line-height:.78;
+letter-spacing:-.06em;
 
-      opacity: 0;
+text-transform:uppercase;
+}
 
-      background:
-        linear-gradient(
-          transparent 30%,
-          rgba(0,0,0,.88)
-        );
+.services-intro{
+width:320px;
 
-      transition: opacity .4s ease;
-    }
+color:#696969;
 
-    .showcase-card:hover .card-overlay {
-      opacity: 1;
-    }
+font-size:14px;
+font-weight:300;
+line-height:1.65;
+}
 
-    .card-type {
-      margin-bottom: 5px;
+.services-list{
+max-width:1500px;
 
-      color: #ff6500;
+margin:auto;
 
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 3px;
+border-top:
+1px solid rgba(0,0,0,.18);
+}
 
-      text-transform: uppercase;
-    }
+.service-row{
+position:relative;
 
-    .card-title {
-      color: white;
+min-height:170px;
 
-      font-size: 22px;
-      font-weight: 600;
-    }
+display:grid;
 
-    .showcase-bottom {
-      width: 90%;
-      max-width: 1500px;
+grid-template-columns:
+100px
+minmax(350px,1.7fr)
+1fr
+80px;
 
-      margin:
-        65px auto 0;
+align-items:center;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+gap:30px;
 
-      border-top:
-        1px solid rgba(255,255,255,.12);
+border-bottom:
+1px solid rgba(0,0,0,.18);
 
-      padding-top: 25px;
-    }
+overflow:hidden;
+}
 
-    .showcase-bottom p {
-      color: #707070;
+.service-row::before{
+content:"";
 
-      font-size: 11px;
-      letter-spacing: 2px;
+position:absolute;
+inset:0;
 
-      text-transform: uppercase;
-    }
+background:#ff6500;
 
-    .scroll-indicator {
-      color: #ff6500;
+transform:scaleX(0);
+transform-origin:left;
 
-      font-size: 11px;
-      letter-spacing: 3px;
+transition:
+transform .45s cubic-bezier(.77,0,.18,1);
 
-      text-transform: uppercase;
-    }
+z-index:0;
+}
 
+.service-row:hover::before{
+transform:scaleX(1);
+}
 
-    /* ==================================================
-       ABOUT
-    ================================================== */
+.service-row > *{
+position:relative;
+z-index:2;
+}
 
-    .about-section {
-      position: relative;
+.service-number{
+color:#999;
 
-      min-height: 100vh;
+font-size:12px;
+font-weight:500;
+letter-spacing:2px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+transition:.35s;
+}
 
-      padding:
-        140px 5% 150px;
+.service-name{
+color:#151515;
 
-      overflow: hidden;
+font-size:
+clamp(31px,4vw,62px);
 
-      background:
-        radial-gradient(
-          circle at 50% 48%,
-          rgba(255,101,0,.09),
-          transparent 32%
-        ),
-        #0c0c0c;
-    }
+font-weight:700;
+line-height:.9;
+letter-spacing:-.03em;
 
-    .about-section::before {
-      content: "";
+text-transform:uppercase;
 
-      position: absolute;
-      inset: 0;
+transition:
+color .35s,
+transform .35s;
+}
 
-      opacity: .11;
+.service-name span{
+color:#777;
 
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,.08) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,.08) 1px,
-          transparent 1px
-        );
+transition:color .35s;
+}
 
-      background-size: 70px 70px;
+.service-description{
+max-width:330px;
 
-      mask-image:
-        radial-gradient(
-          circle at center,
-          black,
-          transparent 72%
-        );
+color:#777;
 
-      pointer-events: none;
-    }
+font-size:13px;
+font-weight:300;
+line-height:1.55;
 
-    .about-content {
-      position: relative;
+transition:color .35s;
+}
 
-      width: 100%;
-      max-width: 1100px;
+.service-arrow{
+display:flex;
+align-items:center;
+justify-content:center;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+width:55px;
+height:55px;
 
-      text-align: center;
+justify-self:end;
 
-      z-index: 10;
-    }
+border:
+1px solid rgba(0,0,0,.25);
 
-    .about-eyebrow {
-      margin-bottom: 20px;
+border-radius:50%;
 
-      color: #ff6500;
+color:#111;
 
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 6px;
+font-size:22px;
 
-      text-transform: uppercase;
-    }
+transition:.4s ease;
+}
 
-    .about-title {
-      color: #f1f1f1;
+.service-row:hover .service-name{
+color:#0c0c0c;
 
-      font-size:
-        clamp(80px,13vw,210px);
+transform:translateX(12px);
+}
 
-      font-weight: 900;
+.service-row:hover .service-name span{
+color:#0c0c0c;
+}
 
-      line-height: .8;
+.service-row:hover .service-description{
+color:rgba(0,0,0,.7);
+}
 
-      letter-spacing: -.055em;
+.service-row:hover .service-arrow{
+background:#0c0c0c;
+border-color:#0c0c0c;
+color:#ff6500;
 
-      text-transform: uppercase;
+transform:rotate(45deg);
+}
 
-      white-space: nowrap;
-    }
+.services-footer{
+max-width:1500px;
 
-    .about-title span {
-      color: #ff6500;
-    }
+margin:
+60px auto 0;
 
-    .about-text {
-      max-width: 760px;
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-      margin-top: 70px;
+gap:30px;
+}
 
-      color: #d0d0d0;
+.services-footer > span{
+color:#888;
 
-      font-size:
-        clamp(18px,2vw,27px);
+font-size:10px;
+letter-spacing:4px;
+}
 
-      font-weight: 300;
+.services-footer a{
+display:inline-flex;
 
-      line-height: 1.55;
-    }
+padding:15px 25px;
 
-    .about-word {
-      display: inline-block;
+border:1px solid #111;
+border-radius:50px;
 
-      margin-right: .20em;
+color:#111;
 
-      opacity: .15;
+text-decoration:none;
 
-      transform: translateY(8px);
+font-size:11px;
+font-weight:600;
+letter-spacing:2px;
 
-      transition:
-        opacity .12s linear,
-        transform .12s linear;
-    }
+transition:.35s;
+}
 
-    .about-word.active {
-      opacity: 1;
-      transform: translateY(0);
-      color: #f1f1f1;
-    }
+.services-footer a:hover{
+background:#111;
+color:#ff6500;
 
-    .about-tags {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+transform:translateY(-3px);
+}
 
-      gap: 10px;
 
-      margin-top: 45px;
-    }
+/* ==================================================
+   PROJECTS / MY WORK
+================================================== */
 
-    .about-tags span {
-      padding: 10px 18px;
+.projects-section{
+position:relative;
 
-      border:
-        1px solid rgba(255,255,255,.14);
+background:#0c0c0c;
 
-      border-radius: 50px;
+padding:
+130px 5% 180px;
 
-      color: #999;
+border-radius:
+65px 65px 0 0;
 
-      font-size: 9px;
-      letter-spacing: 2px;
+overflow:visible;
+}
 
-      transition: .3s;
-    }
+.projects-header{
+max-width:1500px;
 
-    .about-tags span:hover {
-      color: #ff6500;
+margin:
+0 auto 90px;
 
-      border-color: #ff6500;
+display:flex;
+align-items:flex-end;
+justify-content:space-between;
 
-      transform: translateY(-3px);
-    }
+gap:50px;
+}
 
-    .about-button {
-      display: inline-flex;
-      align-items: center;
+.projects-eyebrow{
+margin-bottom:15px;
 
-      gap: 30px;
+color:#ff6500;
 
-      margin-top: 55px;
+font-size:10px;
+font-weight:500;
+letter-spacing:5px;
 
-      padding: 16px 27px;
+text-transform:uppercase;
+}
 
-      border: 1px solid #ff6500;
-      border-radius: 50px;
+.projects-heading{
+color:#f3f3f3;
 
-      color: white;
+font-size:
+clamp(70px,11vw,175px);
 
-      text-decoration: none;
+font-weight:900;
 
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
+line-height:.78;
+letter-spacing:-.055em;
 
-      transition: .35s;
-    }
+text-transform:uppercase;
+}
 
-    .about-button:hover {
-      background: #ff6500;
-      color: #0c0c0c;
+.projects-heading span{
+color:#ff6500;
+}
 
-      transform: translateY(-4px);
-    }
+.projects-header-text{
+width:320px;
 
-    .about-decoration {
-      position: absolute;
+color:#777;
 
-      z-index: 5;
+font-size:14px;
+font-weight:300;
+line-height:1.65;
+}
 
-      width: 125px;
-      height: 125px;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+/* ==================================================
+   PROJECT STACK
+================================================== */
 
-      gap: 9px;
+.projects-stack{
+position:relative;
 
-      border:
-        1px solid rgba(255,101,0,.22);
+max-width:1500px;
 
-      background:
-        rgba(18,18,18,.72);
+margin:auto;
+}
 
-      backdrop-filter: blur(12px);
+.project-stack-card{
+position:sticky;
 
-      box-shadow:
-        0 20px 60px rgba(0,0,0,.35);
+top:40px;
 
-      pointer-events: none;
-    }
+width:100%;
+height:min(76vh,760px);
 
-    .about-decoration span {
-      color: #ff6500;
+margin-bottom:120px;
 
-      font-size: 36px;
-      font-weight: 700;
-    }
+display:grid;
 
-    .about-decoration small {
-      color: #777;
+grid-template-columns:
+.85fr 1.35fr;
 
-      font-size: 7px;
-      letter-spacing: 2px;
-    }
+overflow:hidden;
 
-    .code-card {
-      top: 13%;
-      left: 7%;
+border-radius:38px;
 
-      border-radius:
-        35px 12px 35px 12px;
+background:#171717;
 
-      transform: rotate(-10deg);
-    }
+border:
+1px solid rgba(255,255,255,.1);
 
-    .shopify-card {
-      top: 13%;
-      right: 7%;
+box-shadow:
+0 -20px 70px rgba(0,0,0,.35);
 
-      border-radius: 50%;
+transform-origin:center top;
 
-      transform: rotate(9deg);
-    }
+will-change:transform;
+}
 
-    .shopify-card span {
-      font-size: 48px;
-      font-weight: 900;
-    }
 
-    .marketing-card {
-      bottom: 13%;
-      left: 11%;
+/* CARD POSITIONS */
 
-      border-radius:
-        15px 40px 15px 40px;
+.project-stack-card:nth-child(1){
+top:35px;
+}
 
-      transform: rotate(8deg);
-    }
+.project-stack-card:nth-child(2){
+top:55px;
+}
 
-    .marketing-card span {
-      font-size: 55px;
-    }
+.project-stack-card:nth-child(3){
+top:75px;
+}
 
-    .pixel-card {
-      bottom: 12%;
-      right: 10%;
 
-      border-radius: 25px;
+/* ==================================================
+   PROJECT INFO
+================================================== */
 
-      transform: rotate(-8deg);
-    }
+.project-info{
+position:relative;
 
-    .pixel-grid {
-      display: grid;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 
-      grid-template-columns:
-        repeat(3,10px);
+padding:
+55px 50px;
 
-      gap: 5px;
-    }
+background:
+linear-gradient(
+145deg,
+#191919,
+#101010
+);
 
-    .pixel-grid i {
-      width: 10px;
-      height: 10px;
+z-index:3;
+}
 
-      display: block;
+.project-topline{
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-      background: #ff6500;
+gap:20px;
+}
 
-      border-radius: 2px;
-    }
+.project-index{
+color:#ff6500;
 
-    .pixel-grid i:nth-child(2),
-    .pixel-grid i:nth-child(4),
-    .pixel-grid i:nth-child(8) {
-      opacity: .25;
-    }
+font-size:12px;
+font-weight:600;
+letter-spacing:3px;
+}
 
-    .about-number {
-      position: absolute;
+.project-category{
+padding:
+8px 14px;
 
-      left: 5%;
-      bottom: 40px;
+border:
+1px solid rgba(255,255,255,.13);
 
-      color:
-        rgba(255,255,255,.18);
+border-radius:50px;
 
-      font-size: 11px;
-      letter-spacing: 4px;
-    }
+color:#777;
 
+font-size:8px;
+letter-spacing:2px;
 
-    /* ==================================================
-       SERVICES
-    ================================================== */
+text-transform:uppercase;
+}
 
-    .services-section {
-      position: relative;
+.project-main{
+margin:
+auto 0;
+}
 
-      background: #f3f1ec;
-      color: #111;
+.project-title{
+color:#f4f4f4;
 
-      padding:
-        120px 5% 90px;
+font-size:
+clamp(42px,5vw,78px);
 
-      border-radius:
-        65px 65px 0 0;
+font-weight:800;
 
-      overflow: hidden;
-    }
+line-height:.88;
+letter-spacing:-.035em;
 
-    .services-top {
-      max-width: 1500px;
+text-transform:uppercase;
+}
 
-      margin:
-        0 auto 80px;
+.project-title span{
+display:block;
 
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
+color:#ff6500;
+}
 
-      gap: 50px;
-    }
+.project-summary{
+max-width:390px;
 
-    .services-eyebrow {
-      margin-bottom: 12px;
+margin-top:30px;
 
-      color: #ff6500;
+color:#888;
 
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 5px;
+font-size:14px;
+font-weight:300;
+line-height:1.65;
+}
 
-      text-transform: uppercase;
-    }
+.project-tags{
+display:flex;
+flex-wrap:wrap;
 
-    .services-heading {
-      color: #111;
+gap:8px;
 
-      font-size:
-        clamp(75px,12vw,190px);
+margin-top:30px;
+}
 
-      font-weight: 900;
+.project-tags span{
+padding:
+8px 12px;
 
-      line-height: .78;
+border-radius:50px;
 
-      letter-spacing: -.06em;
+background:
+rgba(255,255,255,.05);
 
-      text-transform: uppercase;
-    }
+border:
+1px solid rgba(255,255,255,.08);
 
-    .services-intro {
-      width: 320px;
+color:#999;
 
-      color: #696969;
+font-size:8px;
+letter-spacing:1.5px;
 
-      font-size: 14px;
-      font-weight: 300;
+text-transform:uppercase;
+}
 
-      line-height: 1.65;
-    }
+.project-bottom{
+display:flex;
+align-items:center;
+justify-content:space-between;
 
+gap:20px;
+}
 
-    /* ==================================================
-       SERVICE ROWS
-    ================================================== */
+.project-status{
+color:#666;
 
-    .services-list {
-      max-width: 1500px;
+font-size:9px;
+letter-spacing:2px;
 
-      margin: auto;
+text-transform:uppercase;
+}
 
-      border-top:
-        1px solid rgba(0,0,0,.18);
-    }
+.project-link{
+display:flex;
+align-items:center;
+justify-content:center;
 
-    .service-row {
-      position: relative;
+width:60px;
+height:60px;
 
-      min-height: 170px;
+border-radius:50%;
 
-      display: grid;
+background:#ff6500;
 
-      grid-template-columns:
-        100px
-        minmax(350px,1.7fr)
-        1fr
-        80px;
+color:#0c0c0c;
 
-      align-items: center;
+text-decoration:none;
 
-      gap: 30px;
+font-size:24px;
 
-      border-bottom:
-        1px solid rgba(0,0,0,.18);
+transition:.35s;
+}
 
-      overflow: hidden;
-    }
+.project-link:hover{
+background:#f5f5f5;
 
-    .service-row::before {
-      content: "";
+transform:
+rotate(45deg)
+scale(1.05);
+}
 
-      position: absolute;
 
-      inset: 0;
+/* ==================================================
+   PROJECT VISUAL
+================================================== */
 
-      background: #ff6500;
+.project-visual{
+position:relative;
 
-      transform: scaleX(0);
+overflow:hidden;
 
-      transform-origin: left;
+background:#222;
+}
 
-      transition:
-        transform .45s
-        cubic-bezier(.77,0,.18,1);
+.project-visual img{
+width:100%;
+height:100%;
 
-      z-index: 0;
-    }
+object-fit:cover;
 
-    .service-row:hover::before {
-      transform: scaleX(1);
-    }
+transition:
+transform .8s cubic-bezier(.2,.7,.2,1);
+}
 
-    .service-row > * {
-      position: relative;
-      z-index: 2;
-    }
+.project-stack-card:hover
+.project-visual img{
+transform:scale(1.035);
+}
 
-    .service-number {
-      color: #999;
+.project-visual::after{
+content:"";
 
-      font-size: 12px;
-      font-weight: 500;
+position:absolute;
+inset:0;
 
-      letter-spacing: 2px;
+background:
+linear-gradient(
+90deg,
+rgba(12,12,12,.28),
+transparent 35%
+);
 
-      transition: .35s;
-    }
+pointer-events:none;
+}
 
-    .service-name {
-      color: #151515;
+.project-demo-label{
+position:absolute;
 
-      font-size:
-        clamp(31px,4vw,62px);
+right:25px;
+top:25px;
 
-      font-weight: 700;
+z-index:4;
 
-      line-height: .9;
+padding:
+9px 14px;
 
-      letter-spacing: -.03em;
+border-radius:50px;
 
-      text-transform: uppercase;
+background:
+rgba(12,12,12,.7);
 
-      transition:
-        color .35s,
-        transform .35s;
-    }
+backdrop-filter:
+blur(10px);
 
-    .service-name span {
-      color: #777;
+border:
+1px solid rgba(255,255,255,.12);
 
-      transition: color .35s;
-    }
+color:#ddd;
 
-    .service-description {
-      max-width: 330px;
+font-size:8px;
+letter-spacing:2px;
 
-      color: #777;
+text-transform:uppercase;
+}
 
-      font-size: 13px;
-      font-weight: 300;
 
-      line-height: 1.55;
+/* ==================================================
+   PROJECT END
+================================================== */
 
-      transition: color .35s;
-    }
+.projects-end{
+max-width:1500px;
 
-    .service-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+margin:
+40px auto 0;
 
-      width: 55px;
-      height: 55px;
+padding-top:40px;
 
-      justify-self: end;
+border-top:
+1px solid rgba(255,255,255,.1);
 
-      border:
-        1px solid rgba(0,0,0,.25);
+display:flex;
+align-items:center;
+justify-content:space-between;
 
-      border-radius: 50%;
+gap:30px;
+}
 
-      color: #111;
+.projects-end p{
+color:#777;
 
-      font-size: 22px;
+font-size:11px;
+letter-spacing:2px;
 
-      transition: .4s ease;
-    }
+text-transform:uppercase;
+}
 
-    .service-row:hover
-    .service-number {
-      color: rgba(0,0,0,.65);
-    }
+.projects-end span{
+color:#ff6500;
+}
 
-    .service-row:hover
-    .service-name {
-      color: #0c0c0c;
 
-      transform: translateX(12px);
-    }
+/* ==================================================
+   NEXT CONTACT PREVIEW
+================================================== */
 
-    .service-row:hover
-    .service-name span {
-      color: #0c0c0c;
-    }
+.contact-preview{
+min-height:65vh;
 
-    .service-row:hover
-    .service-description {
-      color: rgba(0,0,0,.7);
-    }
+display:flex;
+align-items:center;
+justify-content:center;
 
-    .service-row:hover
-    .service-arrow {
-      background: #0c0c0c;
+padding:80px 5%;
 
-      border-color: #0c0c0c;
+background:#0c0c0c;
 
-      color: #ff6500;
+border-top:
+1px solid rgba(255,255,255,.08);
 
-      transform: rotate(45deg);
-    }
+text-align:center;
+}
 
+.contact-preview h2{
+color:#f2f2f2;
 
-    /* ==================================================
-       SERVICES FOOTER
-    ================================================== */
+font-size:
+clamp(60px,12vw,190px);
 
-    .services-footer {
-      max-width: 1500px;
+font-weight:900;
 
-      margin:
-        60px auto 0;
+line-height:.8;
+letter-spacing:-.06em;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+text-transform:uppercase;
+}
 
-      gap: 30px;
-    }
+.contact-preview h2 span{
+color:#ff6500;
+}
 
-    .services-footer > span {
-      color: #888;
 
-      font-size: 10px;
+/* ==================================================
+   ANIMATIONS
+================================================== */
 
-      letter-spacing: 4px;
-    }
+@keyframes fadeUp{
 
-    .services-footer a {
-      display: inline-flex;
+from{
+opacity:0;
+transform:translateY(30px);
+}
 
-      padding: 15px 25px;
+to{
+opacity:1;
+transform:translateY(0);
+}
 
-      border: 1px solid #111;
-      border-radius: 50px;
+}
 
-      color: #111;
+@keyframes portraitIn{
 
-      text-decoration: none;
+from{
+opacity:0;
 
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
+transform:
+translateX(-50%)
+translateY(60px);
+}
 
-      transition: .35s;
-    }
+to{
+opacity:1;
 
-    .services-footer a:hover {
-      background: #111;
-      color: #ff6500;
+transform:
+translateX(-50%)
+translateY(0);
+}
 
-      transform: translateY(-3px);
-    }
+}
 
+@keyframes stripMove{
 
-    /* ==================================================
-       ANIMATIONS
-    ================================================== */
+from{
+transform:translateX(0);
+}
 
-    @keyframes fadeUp {
+to{
+transform:translateX(-50%);
+}
 
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
+}
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
 
-    }
+/* ==================================================
+   TABLET
+================================================== */
 
-    @keyframes portraitIn {
+@media(max-width:1000px){
 
-      from {
-        opacity: 0;
+.hero-name{
+top:35%;
+font-size:10vw;
+}
 
-        transform:
-          translateX(-50%)
-          translateY(60px);
-      }
+.hero-name-gap{
+width:5vw;
+}
 
-      to {
-        opacity: 1;
+.portrait-wrapper{
+width:390px;
+}
 
-        transform:
-          translateX(-50%)
-          translateY(0);
-      }
+.showcase-heading,
+.projects-header{
+flex-direction:column;
+align-items:flex-start;
+}
 
-    }
+.project-stack-card{
+grid-template-columns:1fr 1.25fr;
+}
 
-    @keyframes stripMove {
+.project-info{
+padding:40px 35px;
+}
 
-      from {
-        transform: translateX(0);
-      }
+}
 
-      to {
-        transform: translateX(-50%);
-      }
 
-    }
+/* ==================================================
+   MOBILE
+================================================== */
 
+@media(max-width:768px){
 
-    /* ==================================================
-       TABLET
-    ================================================== */
+.navbar{
+padding:22px 20px;
+}
 
-    @media(max-width:1000px) {
+.logo{
+font-size:12px;
+}
 
-      .hero-name {
-        top: 35%;
-        font-size: 10vw;
-      }
+.nav-links{
+gap:17px;
+}
 
-      .hero-name-gap {
-        width: 5vw;
-      }
+.nav-links a{
+font-size:9px;
+}
 
-      .portrait-wrapper {
-        width: 390px;
-      }
 
-      .showcase-heading {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+/* HERO */
 
-    }
+.hero-name{
+top:19%;
 
+transform:translateX(-50%);
 
-    /* ==================================================
-       MOBILE
-    ================================================== */
+flex-direction:column;
 
-    @media(max-width:768px) {
+font-size:17vw;
+line-height:.73;
+}
 
-      .navbar {
-        padding: 22px 20px;
-      }
+.hero-name-gap{
+width:0;
+height:4px;
+}
 
-      .logo {
-        font-size: 12px;
-      }
+.name-first{
+transform:translateX(-7vw);
+}
 
-      .nav-links {
-        gap: 17px;
-      }
+.name-last{
+transform:translateX(7vw);
+}
 
-      .nav-links a {
-        font-size: 9px;
-      }
+.portrait-wrapper{
+width:min(78vw,390px);
+height:54vh;
 
+bottom:42px;
+}
 
-      /* HERO */
+.orbit{
+width:330px;
+height:330px;
 
-      .hero-name {
-        top: 19%;
+top:60%;
+}
 
-        transform: translateX(-50%);
+.hero-glow{
+width:500px;
+height:500px;
 
-        flex-direction: column;
+top:60%;
+}
 
-        font-size: 17vw;
+.hero-left{
+left:20px;
+bottom:83px;
 
-        line-height: .73;
-      }
+width:60%;
+}
 
-      .hero-name-gap {
-        width: 0;
-        height: 4px;
-      }
+.hello{
+font-size:8px;
+}
 
-      .name-first {
-        transform: translateX(-7vw);
-      }
+.role{
+font-size:14px;
+letter-spacing:2px;
+}
 
-      .name-last {
-        transform: translateX(7vw);
-      }
+.description{
+display:none;
+}
 
-      .portrait-wrapper {
-        width: min(78vw,390px);
-        height: 54vh;
+.hero-right{
+right:20px;
+bottom:83px;
+}
 
-        bottom: 42px;
-      }
+.available{
+display:none;
+}
 
-      .orbit {
-        width: 330px;
-        height: 330px;
+.cta{
+width:52px;
+height:52px;
 
-        top: 60%;
-      }
+padding:0;
 
-      .hero-glow {
-        width: 500px;
-        height: 500px;
+justify-content:center;
+}
 
-        top: 60%;
-      }
+.cta-text{
+display:none;
+}
 
-      .hero-left {
-        left: 20px;
-        bottom: 83px;
+.scroll-text{
+display:none;
+}
 
-        width: 60%;
-      }
 
-      .hello {
-        font-size: 8px;
-      }
+/* SHOWCASE */
 
-      .role {
-        font-size: 14px;
+.showcase{
+padding:
+90px 0 100px;
+}
 
-        letter-spacing: 2px;
-      }
+.showcase-heading{
+width:
+calc(100% - 40px);
 
-      .description {
-        display: none;
-      }
+margin-bottom:45px;
+}
 
-      .hero-right {
-        right: 20px;
-        bottom: 83px;
-      }
+.showcase-description{
+max-width:100%;
+}
 
-      .available {
-        display: none;
-      }
+.project-row{
+gap:10px;
+margin-bottom:10px;
+}
 
-      .cta {
-        width: 52px;
-        height: 52px;
+.showcase-card{
+width:300px;
+height:195px;
 
-        padding: 0;
+border-radius:17px;
+}
 
-        justify-content: center;
-      }
+.card-overlay{
+opacity:1;
 
-      .cta-text {
-        display: none;
-      }
+padding:18px;
 
-      .scroll-text {
-        display: none;
-      }
+background:
+linear-gradient(
+transparent 45%,
+rgba(0,0,0,.82)
+);
+}
 
+.card-title{
+font-size:17px;
+}
 
-      /* SHOWCASE */
+.showcase-bottom{
+width:
+calc(100% - 40px);
+}
 
-      .showcase {
-        padding:
-          90px 0 100px;
-      }
 
-      .showcase-heading {
-        width:
-          calc(100% - 40px);
+/* ABOUT */
 
-        margin-bottom: 45px;
-      }
+.about-section{
+min-height:900px;
 
-      .showcase-description {
-        max-width: 100%;
-      }
+padding:
+110px 20px;
+}
 
-      .project-row {
-        gap: 10px;
+.about-title{
+font-size:20vw;
+}
 
-        margin-bottom: 10px;
-      }
+.about-text{
+margin-top:50px;
+font-size:18px;
+}
 
-      .showcase-card {
-        width: 300px;
-        height: 195px;
+.about-decoration{
+width:82px;
+height:82px;
+}
 
-        border-radius: 17px;
-      }
+.about-decoration span{
+font-size:25px;
+}
 
-      .card-overlay {
-        opacity: 1;
+.about-decoration small{
+display:none;
+}
 
-        padding: 18px;
+.code-card{
+top:9%;
+left:4%;
+}
 
-        background:
-          linear-gradient(
-            transparent 45%,
-            rgba(0,0,0,.82)
-          );
-      }
+.shopify-card{
+top:11%;
+right:4%;
+}
 
-      .card-title {
-        font-size: 17px;
-      }
+.marketing-card{
+bottom:8%;
+left:5%;
+}
 
-      .showcase-bottom {
-        width:
-          calc(100% - 40px);
-      }
+.pixel-card{
+bottom:7%;
+right:5%;
+}
 
 
-      /* ABOUT */
+/* SERVICES */
 
-      .about-section {
-        min-height: 900px;
+.services-section{
+padding:
+90px 20px 70px;
 
-        padding:
-          110px 20px;
-      }
+border-radius:
+38px 38px 0 0;
+}
 
-      .about-title {
-        font-size: 20vw;
-      }
+.services-top{
+margin-bottom:55px;
 
-      .about-text {
-        margin-top: 50px;
+flex-direction:column;
+align-items:flex-start;
 
-        font-size: 18px;
-      }
+gap:30px;
+}
 
-      .about-decoration {
-        width: 82px;
-        height: 82px;
-      }
+.services-heading{
+font-size:18vw;
+}
 
-      .about-decoration span {
-        font-size: 25px;
-      }
+.services-intro{
+width:100%;
+max-width:400px;
+}
 
-      .about-decoration small {
-        display: none;
-      }
+.service-row{
+min-height:auto;
 
-      .code-card {
-        top: 9%;
-        left: 4%;
-      }
+padding:35px 0;
 
-      .shopify-card {
-        top: 11%;
-        right: 4%;
-      }
+grid-template-columns:
+45px 1fr 45px;
 
-      .marketing-card {
-        bottom: 8%;
-        left: 5%;
-      }
+gap:12px;
+}
 
-      .pixel-card {
-        bottom: 7%;
-        right: 5%;
-      }
+.service-name{
+font-size:
+clamp(28px,8vw,42px);
+}
 
+.service-description{
+grid-column:2 / 4;
 
-      /* SERVICES */
+margin-top:8px;
 
-      .services-section {
-        padding:
-          90px 20px 70px;
+max-width:360px;
+}
 
-        border-radius:
-          38px 38px 0 0;
-      }
+.service-arrow{
+width:42px;
+height:42px;
 
-      .services-top {
-        margin-bottom: 55px;
+font-size:17px;
+}
 
-        flex-direction: column;
-        align-items: flex-start;
+.services-footer{
+margin-top:45px;
 
-        gap: 30px;
-      }
+flex-direction:column;
+align-items:flex-start;
+}
 
-      .services-heading {
-        font-size: 18vw;
-      }
 
-      .services-intro {
-        width: 100%;
-        max-width: 400px;
-      }
+/* PROJECTS */
 
-      .service-row {
-        min-height: auto;
+.projects-section{
+padding:
+90px 20px 120px;
 
-        padding: 35px 0;
+border-radius:
+38px 38px 0 0;
+}
 
-        grid-template-columns:
-          45px 1fr 45px;
+.projects-header{
+margin-bottom:55px;
+}
 
-        gap: 12px;
-      }
+.projects-heading{
+font-size:18vw;
+}
 
-      .service-name {
-        font-size:
-          clamp(28px,8vw,42px);
-      }
+.projects-header-text{
+width:100%;
+max-width:400px;
+}
 
-      .service-description {
-        grid-column: 2 / 4;
+.project-stack-card{
+position:relative !important;
 
-        margin-top: 8px;
+top:auto !important;
 
-        max-width: 360px;
-      }
+height:auto;
 
-      .service-arrow {
-        width: 42px;
-        height: 42px;
+min-height:700px;
 
-        font-size: 17px;
-      }
+margin-bottom:30px;
 
-      .services-footer {
-        margin-top: 45px;
+grid-template-columns:1fr;
 
-        flex-direction: column;
-        align-items: flex-start;
-      }
+border-radius:25px;
+}
 
-    }
+.project-info{
+min-height:390px;
 
+padding:
+30px 25px;
+}
 
-    /* ==================================================
-       SMALL MOBILE
-    ================================================== */
+.project-title{
+font-size:
+clamp(38px,11vw,60px);
+}
 
-    @media(max-width:520px) {
+.project-summary{
+font-size:13px;
+}
 
-      .nav-links a:nth-child(2),
-      .nav-links a:nth-child(4) {
-        display: none;
-      }
+.project-visual{
+height:340px;
+}
 
-      .hero-name {
-        font-size: 18vw;
-      }
+.projects-end{
+flex-direction:column;
+align-items:flex-start;
+}
 
-      .portrait-wrapper {
-        width: 82vw;
-      }
+}
 
-      .showcase-title {
-        font-size: 15vw;
-      }
 
-      .about-title {
-        font-size: 19vw;
-      }
+/* ==================================================
+   SMALL MOBILE
+================================================== */
 
-      .about-text {
-        font-size: 16px;
-      }
+@media(max-width:520px){
 
-    }
+.nav-links a:nth-child(2),
+.nav-links a:nth-child(4){
+display:none;
+}
 
-  </style>
+.hero-name{
+font-size:18vw;
+}
+
+.portrait-wrapper{
+width:82vw;
+}
+
+.showcase-title{
+font-size:15vw;
+}
+
+.about-title{
+font-size:19vw;
+}
+
+.about-text{
+font-size:16px;
+}
+
+.project-visual{
+height:280px;
+}
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ==================================================
-       NAVBAR
-  ================================================== -->
+<!-- ==================================================
+     NAVIGATION
+================================================== -->
 
-  <nav class="navbar">
+<nav class="navbar">
 
-    <div class="logo">
-      <span class="logo-dot"></span>
-      PRATHAM TEMKAR
-    </div>
+<div class="logo">
+<span class="logo-dot"></span>
+PRATHAM TEMKAR
+</div>
 
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </div>
+<div class="nav-links">
 
-  </nav>
+<a href="#about">
+About
+</a>
 
+<a href="#services">
+Services
+</a>
 
+<a href="#projects">
+Projects
+</a>
 
-  <!-- ==================================================
-       HERO
-  ================================================== -->
+<a href="#contact">
+Contact
+</a>
 
-  <section class="hero" id="home">
+</div>
 
-    <div class="hero-glow"></div>
+</nav>
 
-    <div class="orbit"></div>
 
 
-    <div class="hero-name">
+<!-- ==================================================
+     HERO
+================================================== -->
 
-      <span class="name-first">
-        PRATHAM
-      </span>
+<section class="hero" id="home">
 
-      <span class="hero-name-gap"></span>
+<div class="hero-glow"></div>
 
-      <span class="name-last">
-        TEMKAR
-      </span>
+<div class="orbit"></div>
 
-    </div>
 
+<div class="hero-name">
 
-    <div class="hero-left">
+<span class="name-first">
+PRATHAM
+</span>
 
-      <div class="hello">
-        HELLO, I'M
-      </div>
+<span class="hero-name-gap"></span>
 
-      <div class="role">
-        SHOPIFY DEVELOPER
-        <br>
-        × DIGITAL MARKETING
-      </div>
+<span class="name-last">
+TEMKAR
+</span>
 
-      <p class="description">
-        I build modern Shopify experiences
-        and help brands create a stronger
-        digital presence.
-      </p>
+</div>
 
-    </div>
 
+<div class="hero-left">
 
-    <div class="portrait-wrapper">
+<div class="hello">
+HELLO, I'M
+</div>
 
-      <img
-        src="pratham-profile.png"
-        alt="Pratham Temkar"
-        class="portrait"
-      >
+<div class="role">
+SHOPIFY DEVELOPER
+<br>
+× DIGITAL MARKETING
+</div>
 
-    </div>
+<p class="description">
+I build modern Shopify experiences
+and help brands create a stronger
+digital presence.
+</p>
 
+</div>
 
-    <div class="hero-right">
 
-      <div class="available">
+<div class="portrait-wrapper">
 
-        <span class="available-dot"></span>
+<img
+src="pratham-profile.png"
+alt="Pratham Temkar"
+class="portrait"
+>
 
-        AVAILABLE FOR PROJECTS
+</div>
 
-      </div>
 
-      <a
-        href="#contact"
-        class="cta"
-      >
+<div class="hero-right">
 
-        <span class="cta-text">
-          LET'S WORK TOGETHER
-        </span>
+<div class="available">
 
-        <span class="cta-arrow">
-          ↗
-        </span>
+<span class="available-dot"></span>
 
-      </a>
+AVAILABLE FOR PROJECTS
 
-    </div>
+</div>
 
 
-    <div class="scroll-text">
-      SCROLL TO EXPLORE ↓
-    </div>
+<a
+href="#contact"
+class="cta"
+>
 
+<span class="cta-text">
+LET'S WORK TOGETHER
+</span>
 
-    <div class="hero-strip">
+<span class="cta-arrow">
+↗
+</span>
 
-      <div class="hero-strip-track">
+</a>
 
-        <div class="strip-copy">
-          <span>Shopify Development</span><b>•</b>
-          <span>Custom Sections</span><b>•</b>
-          <span>Store Design</span><b>•</b>
-          <span>Digital Marketing</span><b>•</b>
-          <span>Landing Pages</span><b>•</b>
-        </div>
+</div>
 
-        <div class="strip-copy">
-          <span>Shopify Development</span><b>•</b>
-          <span>Custom Sections</span><b>•</b>
-          <span>Store Design</span><b>•</b>
-          <span>Digital Marketing</span><b>•</b>
-          <span>Landing Pages</span><b>•</b>
-        </div>
 
-        <div class="strip-copy">
-          <span>Shopify Development</span><b>•</b>
-          <span>Custom Sections</span><b>•</b>
-          <span>Store Design</span><b>•</b>
-          <span>Digital Marketing</span><b>•</b>
-          <span>Landing Pages</span><b>•</b>
-        </div>
+<div class="scroll-text">
+SCROLL TO EXPLORE ↓
+</div>
 
-        <div class="strip-copy">
-          <span>Shopify Development</span><b>•</b>
-          <span>Custom Sections</span><b>•</b>
-          <span>Store Design</span><b>•</b>
-          <span>Digital Marketing</span><b>•</b>
-          <span>Landing Pages</span><b>•</b>
-        </div>
 
-      </div>
+<div class="hero-strip">
 
-    </div>
+<div class="hero-strip-track">
 
-  </section>
 
+<div class="strip-copy">
 
+<span>Shopify Development</span><b>•</b>
+<span>Custom Sections</span><b>•</b>
+<span>Store Design</span><b>•</b>
+<span>Digital Marketing</span><b>•</b>
+<span>Landing Pages</span><b>•</b>
 
-  <!-- ==================================================
-       SHOWCASE
-  ================================================== -->
+</div>
 
-  <section
-    class="showcase"
-    id="projects-preview"
-  >
 
-    <div class="showcase-heading">
+<div class="strip-copy">
 
-      <div>
+<span>Shopify Development</span><b>•</b>
+<span>Custom Sections</span><b>•</b>
+<span>Store Design</span><b>•</b>
+<span>Digital Marketing</span><b>•</b>
+<span>Landing Pages</span><b>•</b>
 
-        <div class="showcase-eyebrow">
-          SELECTED WORK
-        </div>
+</div>
 
-        <h2 class="showcase-title">
 
-          BUILDING DIGITAL
+<div class="strip-copy">
 
-          <span>
-            EXPERIENCES.
-          </span>
+<span>Shopify Development</span><b>•</b>
+<span>Custom Sections</span><b>•</b>
+<span>Store Design</span><b>•</b>
+<span>Digital Marketing</span><b>•</b>
+<span>Landing Pages</span><b>•</b>
 
-        </h2>
+</div>
 
-      </div>
 
+<div class="strip-copy">
 
-      <p class="showcase-description">
+<span>Shopify Development</span><b>•</b>
+<span>Custom Sections</span><b>•</b>
+<span>Store Design</span><b>•</b>
+<span>Digital Marketing</span><b>•</b>
+<span>Landing Pages</span><b>•</b>
 
-        A growing collection of Shopify development,
-        e-commerce design and digital projects.
+</div>
 
-      </p>
 
-    </div>
+</div>
 
+</div>
 
-    <!-- ROW 1 -->
+</section>
 
-    <div
-      class="project-row"
-      id="rowOne"
-    >
 
-      <div class="showcase-card">
 
-        <img
-          src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
-          alt="Project"
-        >
+<!-- ==================================================
+     MOVING SHOWCASE
+================================================== -->
 
-        <div class="card-overlay">
-          <div class="card-type">Shopify</div>
-          <div class="card-title">E-commerce Experience</div>
-        </div>
+<section
+class="showcase"
+id="projects-preview"
+>
 
-      </div>
+<div class="showcase-heading">
 
+<div>
 
-      <div class="showcase-card">
+<div class="showcase-eyebrow">
+SELECTED WORK
+</div>
 
-        <img
-          src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-          alt="Project"
-        >
+<h2 class="showcase-title">
 
-        <div class="card-overlay">
-          <div class="card-type">Development</div>
-          <div class="card-title">Custom Store</div>
-        </div>
+BUILDING DIGITAL
 
-      </div>
+<span>
+EXPERIENCES.
+</span>
 
+</h2>
 
-      <div class="showcase-card">
+</div>
 
-        <img
-          src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
-          alt="Project"
-        >
 
-        <div class="card-overlay">
-          <div class="card-type">UI / UX</div>
-          <div class="card-title">Modern Commerce</div>
-        </div>
+<p class="showcase-description">
 
-      </div>
+A growing collection of Shopify development,
+e-commerce design and digital projects.
 
+</p>
 
-      <div class="showcase-card">
+</div>
 
-        <img
-          src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
-          alt="Project"
-        >
 
-        <div class="card-overlay">
-          <div class="card-type">Shopify</div>
-          <div class="card-title">Store Experience</div>
-        </div>
 
-      </div>
+<!-- ROW ONE -->
 
+<div
+class="project-row"
+id="rowOne"
+>
 
-      <div class="showcase-card">
 
-        <img
-          src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
-          alt="Project"
-        >
+<div class="showcase-card">
 
-        <div class="card-overlay">
-          <div class="card-type">Digital</div>
-          <div class="card-title">Brand Experience</div>
-        </div>
+<img
+src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
+alt="Project"
+>
 
-      </div>
+<div class="card-overlay">
 
+<div class="card-type">
+Shopify
+</div>
 
-      <!-- DUPLICATES -->
+<div class="card-title">
+E-commerce Experience
+</div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Project">
-      </div>
+</div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Project">
-      </div>
+</div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Project">
-      </div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" alt="Project">
-      </div>
+<div class="showcase-card">
 
-    </div>
+<img
+src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
+alt="Project"
+>
 
+<div class="card-overlay">
 
-    <!-- ROW 2 -->
+<div class="card-type">
+Development
+</div>
 
-    <div
-      class="project-row"
-      id="rowTwo"
-    >
+<div class="card-title">
+Custom Store
+</div>
 
-      <div class="showcase-card">
+</div>
 
-        <img
-          src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
-          alt="Project"
-        >
+</div>
 
-        <div class="card-overlay">
-          <div class="card-type">E-commerce</div>
-          <div class="card-title">Conversion Design</div>
-        </div>
 
-      </div>
+<div class="showcase-card">
 
+<img
+src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
+alt="Project"
+>
 
-      <div class="showcase-card">
+<div class="card-overlay">
 
-        <img
-          src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-          alt="Project"
-        >
+<div class="card-type">
+UI / UX
+</div>
 
-        <div class="card-overlay">
-          <div class="card-type">Shopify</div>
-          <div class="card-title">Product Experience</div>
-        </div>
+<div class="card-title">
+Modern Commerce
+</div>
 
-      </div>
+</div>
 
+</div>
 
-      <div class="showcase-card">
 
-        <img
-          src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
-          alt="Project"
-        >
+<div class="showcase-card">
 
-        <div class="card-overlay">
-          <div class="card-type">Design</div>
-          <div class="card-title">Landing Experience</div>
-        </div>
+<img
+src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
+alt="Project"
+>
 
-      </div>
+<div class="card-overlay">
 
+<div class="card-type">
+Shopify
+</div>
 
-      <div class="showcase-card">
+<div class="card-title">
+Store Experience
+</div>
 
-        <img
-          src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
-          alt="Project"
-        >
+</div>
 
-        <div class="card-overlay">
-          <div class="card-type">Digital</div>
-          <div class="card-title">Interactive Website</div>
-        </div>
+</div>
 
-      </div>
 
+<div class="showcase-card">
 
-      <div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
+alt="Project"
+>
 
-        <img
-          src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
-          alt="Project"
-        >
+<div class="card-overlay">
 
-        <div class="card-overlay">
-          <div class="card-type">Development</div>
-          <div class="card-title">Web Experience</div>
-        </div>
+<div class="card-type">
+Digital
+</div>
 
-      </div>
+<div class="card-title">
+Brand Experience
+</div>
 
+</div>
 
-      <!-- DUPLICATES -->
+</div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt="Project">
-      </div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" alt="Project">
-      </div>
+<!-- DUPLICATES -->
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" alt="Project">
-      </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
+alt="Project"
+>
+</div>
 
-      <div class="showcase-card">
-        <img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" alt="Project">
-      </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
+alt="Project"
+>
+</div>
 
-    </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
+alt="Project"
+>
+</div>
 
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
+alt="Project"
+>
+</div>
 
-    <div class="showcase-bottom">
 
-      <p>
-        SHOPIFY • DEVELOPMENT • DIGITAL
-      </p>
+</div>
 
-      <div class="scroll-indicator">
-        KEEP SCROLLING ↓
-      </div>
 
-    </div>
 
-  </section>
+<!-- ROW TWO -->
 
+<div
+class="project-row"
+id="rowTwo"
+>
 
 
-  <!-- ==================================================
-       ABOUT
-  ================================================== -->
+<div class="showcase-card">
 
-  <section
-    class="about-section"
-    id="about"
-  >
+<img
+src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
+alt="Project"
+>
 
-    <div class="about-decoration code-card">
-      <span>&lt;/&gt;</span>
-      <small>DEVELOPMENT</small>
-    </div>
+<div class="card-overlay">
 
-    <div class="about-decoration shopify-card">
-      <span>S</span>
-      <small>SHOPIFY</small>
-    </div>
+<div class="card-type">
+E-commerce
+</div>
 
-    <div class="about-decoration marketing-card">
-      <span>↗</span>
-      <small>GROWTH</small>
-    </div>
+<div class="card-title">
+Conversion Design
+</div>
 
-    <div class="about-decoration pixel-card">
+</div>
 
-      <div class="pixel-grid">
-        <i></i><i></i><i></i>
-        <i></i><i></i><i></i>
-        <i></i><i></i><i></i>
-      </div>
+</div>
 
-      <small>DIGITAL</small>
 
-    </div>
+<div class="showcase-card">
 
+<img
+src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
+alt="Project"
+>
 
-    <div class="about-content">
+<div class="card-overlay">
 
-      <div class="about-eyebrow">
-        GET TO KNOW ME
-      </div>
+<div class="card-type">
+Shopify
+</div>
 
-      <h2 class="about-title">
-        ABOUT <span>ME</span>
-      </h2>
+<div class="card-title">
+Product Experience
+</div>
 
+</div>
 
-      <p
-        class="about-text"
-        id="aboutText"
-      >
-        I'm Pratham Temkar, a Shopify developer focused
-        on building modern, responsive and engaging
-        e-commerce experiences. Alongside development,
-        I'm expanding my skills in Digital Marketing
-        and AI to understand not only how a store looks
-        and works, but how it can grow.
-      </p>
+</div>
 
 
-      <div class="about-tags">
-        <span>SHOPIFY</span>
-        <span>WEB DEVELOPMENT</span>
-        <span>DIGITAL MARKETING</span>
-        <span>AI</span>
-      </div>
+<div class="showcase-card">
 
+<img
+src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
+alt="Project"
+>
 
-      <a
-        href="#contact"
-        class="about-button"
-      >
-        <span>LET'S CONNECT</span>
-        <span>↗</span>
-      </a>
+<div class="card-overlay">
 
-    </div>
+<div class="card-type">
+Design
+</div>
 
+<div class="card-title">
+Landing Experience
+</div>
 
-    <div class="about-number">
-      02
-    </div>
+</div>
 
-  </section>
+</div>
 
 
+<div class="showcase-card">
 
-  <!-- ==================================================
-       SERVICES
-  ================================================== -->
+<img
+src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
+alt="Project"
+>
 
-  <section
-    class="services-section"
-    id="services"
-  >
+<div class="card-overlay">
 
-    <div class="services-top">
+<div class="card-type">
+Digital
+</div>
 
-      <div>
+<div class="card-title">
+Interactive Website
+</div>
 
-        <div class="services-eyebrow">
-          WHAT I DO
-        </div>
+</div>
 
-        <h2 class="services-heading">
-          SERVICES
-        </h2>
+</div>
 
-      </div>
 
+<div class="showcase-card">
 
-      <p class="services-intro">
-        Shopify development focused on creating
-        modern, responsive and engaging online
-        store experiences.
-      </p>
+<img
+src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
+alt="Project"
+>
 
-    </div>
+<div class="card-overlay">
 
+<div class="card-type">
+Development
+</div>
 
+<div class="card-title">
+Web Experience
+</div>
 
-    <div class="services-list">
+</div>
 
+</div>
 
-      <!-- 01 -->
 
-      <div class="service-row">
+<!-- DUPLICATES -->
 
-        <div class="service-number">
-          01
-        </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
+alt="Project"
+>
+</div>
 
-        <div class="service-name">
-          Shopify Store
-          <span>Development</span>
-        </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
+alt="Project"
+>
+</div>
 
-        <div class="service-description">
-          Building responsive Shopify stores
-          with clean layouts and a smooth
-          shopping experience.
-        </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
+alt="Project"
+>
+</div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+<div class="showcase-card">
+<img
+src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
+alt="Project"
+>
+</div>
 
-      </div>
 
+</div>
 
-      <!-- 02 -->
 
-      <div class="service-row">
+<div class="showcase-bottom">
 
-        <div class="service-number">
-          02
-        </div>
+<p>
+SHOPIFY • DEVELOPMENT • DIGITAL
+</p>
 
-        <div class="service-name">
-          Custom Shopify
-          <span>Sections</span>
-        </div>
+<div class="scroll-indicator">
+KEEP SCROLLING ↓
+</div>
 
-        <div class="service-description">
-          Custom sections designed to give
-          Shopify stores more flexibility and
-          stronger visual presentation.
-        </div>
+</div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+</section>
 
-      </div>
 
 
-      <!-- 03 -->
+<!-- ==================================================
+     ABOUT
+================================================== -->
 
-      <div class="service-row">
+<section
+class="about-section"
+id="about"
+>
 
-        <div class="service-number">
-          03
-        </div>
 
-        <div class="service-name">
-          Theme
-          <span>Customization</span>
-        </div>
+<div class="about-decoration code-card">
 
-        <div class="service-description">
-          Customizing Shopify themes to better
-          match a brand's identity, products
-          and customer experience.
-        </div>
+<span>
+&lt;/&gt;
+</span>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+<small>
+DEVELOPMENT
+</small>
 
-      </div>
+</div>
 
 
-      <!-- 04 -->
+<div class="about-decoration shopify-card">
 
-      <div class="service-row">
+<span>
+S
+</span>
 
-        <div class="service-number">
-          04
-        </div>
+<small>
+SHOPIFY
+</small>
 
-        <div class="service-name">
-          Landing Page
-          <span>Development</span>
-        </div>
+</div>
 
-        <div class="service-description">
-          Creating focused landing pages for
-          products, campaigns and brand
-          storytelling.
-        </div>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+<div class="about-decoration marketing-card">
 
-      </div>
+<span>
+↗
+</span>
 
+<small>
+GROWTH
+</small>
 
-      <!-- 05 -->
+</div>
 
-      <div class="service-row">
 
-        <div class="service-number">
-          05
-        </div>
+<div class="about-decoration pixel-card">
 
-        <div class="service-name">
-          Shopify Store
-          <span>Improvements</span>
-        </div>
+<div class="pixel-grid">
 
-        <div class="service-description">
-          Improving existing store layouts,
-          sections and overall visual
-          experience.
-        </div>
+<i></i>
+<i></i>
+<i></i>
 
-        <div class="service-arrow">
-          ↗
-        </div>
+<i></i>
+<i></i>
+<i></i>
 
-      </div>
+<i></i>
+<i></i>
+<i></i>
 
+</div>
 
-    </div>
+<small>
+DIGITAL
+</small>
 
+</div>
 
-    <div class="services-footer">
 
-      <span>
-        HAVE A PROJECT IN MIND?
-      </span>
 
-      <a href="#contact">
-        LET'S WORK TOGETHER ↗
-      </a>
+<div class="about-content">
 
-    </div>
+<div class="about-eyebrow">
+GET TO KNOW ME
+</div>
 
-  </section>
 
+<h2 class="about-title">
 
+ABOUT
 
-  <!-- ==================================================
-       JAVASCRIPT
-  ================================================== -->
+<span>
+ME
+</span>
 
-  <script>
+</h2>
 
-    /* ==================================================
-       SHOWCASE MOVEMENT
-    ================================================== */
 
-    const rowOne =
-      document.getElementById("rowOne");
+<p
+class="about-text"
+id="aboutText"
+>
 
-    const rowTwo =
-      document.getElementById("rowTwo");
+I'm Pratham Temkar, a Shopify developer focused
+on building modern, responsive and engaging
+e-commerce experiences. Alongside development,
+I'm expanding my skills in Digital Marketing
+and AI to understand not only how a store looks
+and works, but how it can grow.
 
-    const showcase =
-      document.querySelector(".showcase");
+</p>
 
 
-    function moveProjectRows() {
+<div class="about-tags">
 
-      if (!rowOne || !rowTwo || !showcase) {
-        return;
-      }
+<span>
+SHOPIFY
+</span>
 
-      const rect =
-        showcase.getBoundingClientRect();
+<span>
+WEB DEVELOPMENT
+</span>
 
-      const progress =
-        window.innerHeight - rect.top;
+<span>
+DIGITAL MARKETING
+</span>
 
-      const movement =
-        progress * .22;
+<span>
+AI
+</span>
 
+</div>
 
-      rowOne.style.transform =
-        `translate3d(${-650 + movement}px,0,0)`;
 
+<a
+href="#contact"
+class="about-button"
+>
 
-      rowTwo.style.transform =
-        `translate3d(${-850 - movement}px,0,0)`;
+<span>
+LET'S CONNECT
+</span>
 
-    }
+<span>
+↗
+</span>
 
+</a>
 
+</div>
 
-    /* ==================================================
-       ABOUT TEXT
-    ================================================== */
 
-    const aboutText =
-      document.getElementById("aboutText");
+<div class="about-number">
+02
+</div>
 
-    let aboutWords = [];
+</section>
 
 
-    if (aboutText) {
 
-      const originalText =
-        aboutText.textContent
-          .trim()
-          .replace(/\s+/g," ");
+<!-- ==================================================
+     SERVICES
+================================================== -->
 
-      const words =
-        originalText.split(" ");
+<section
+class="services-section"
+id="services"
+>
 
+<div class="services-top">
 
-      aboutText.innerHTML =
-        words
-          .map(
-            word =>
-              `<span class="about-word">${word}</span>`
-          )
-          .join(" ");
+<div>
 
+<div class="services-eyebrow">
+WHAT I DO
+</div>
 
-      aboutWords =
-        document.querySelectorAll(
-          ".about-word"
-        );
+<h2 class="services-heading">
+SERVICES
+</h2>
 
-    }
+</div>
 
 
-    function revealAboutText() {
+<p class="services-intro">
 
-      if (!aboutText || !aboutWords.length) {
-        return;
-      }
+Shopify development focused on creating
+modern, responsive and engaging online
+store experiences.
 
+</p>
 
-      const rect =
-        aboutText.getBoundingClientRect();
+</div>
 
 
-      let progress =
-        (
-          window.innerHeight * .85 -
-          rect.top
-        )
-        /
-        (
-          window.innerHeight * .65
-        );
 
+<div class="services-list">
 
-      progress =
-        Math.max(
-          0,
-          Math.min(1,progress)
-        );
 
+<div class="service-row">
 
-      const visibleWords =
-        Math.floor(
-          progress *
-          aboutWords.length
-        );
+<div class="service-number">
+01
+</div>
 
+<div class="service-name">
 
-      aboutWords.forEach(
-        (word,index) => {
+Shopify Store
 
-          if (index <= visibleWords) {
+<span>
+Development
+</span>
 
-            word.classList.add(
-              "active"
-            );
+</div>
 
-          } else {
+<div class="service-description">
 
-            word.classList.remove(
-              "active"
-            );
+Building responsive Shopify stores
+with clean layouts and a smooth
+shopping experience.
 
-          }
+</div>
 
-        }
-      );
+<div class="service-arrow">
+↗
+</div>
 
-    }
+</div>
 
 
 
-    /* ==================================================
-       MASTER SCROLL
-    ================================================== */
+<div class="service-row">
 
-    let ticking = false;
+<div class="service-number">
+02
+</div>
 
+<div class="service-name">
 
-    function updateScrollEffects() {
+Custom Shopify
 
-      moveProjectRows();
+<span>
+Sections
+</span>
 
-      revealAboutText();
+</div>
 
-      ticking = false;
+<div class="service-description">
 
-    }
+Custom sections designed to give
+Shopify stores more flexibility and
+stronger visual presentation.
 
+</div>
 
-    window.addEventListener(
-      "scroll",
-      () => {
+<div class="service-arrow">
+↗
+</div>
 
-        if (!ticking) {
+</div>
 
-          requestAnimationFrame(
-            updateScrollEffects
-          );
 
-          ticking = true;
 
-        }
+<div class="service-row">
 
-      },
-      {
-        passive: true
-      }
-    );
+<div class="service-number">
+03
+</div>
 
+<div class="service-name">
 
-    updateScrollEffects();
+Theme
 
-  </script>
+<span>
+Customization
+</span>
+
+</div>
+
+<div class="service-description">
+
+Customizing Shopify themes to better
+match a brand's identity, products
+and customer experience.
+
+</div>
+
+<div class="service-arrow">
+↗
+</div>
+
+</div>
+
+
+
+<div class="service-row">
+
+<div class="service-number">
+04
+</div>
+
+<div class="service-name">
+
+Landing Page
+
+<span>
+Development
+</span>
+
+</div>
+
+<div class="service-description">
+
+Creating focused landing pages for
+products, campaigns and brand
+storytelling.
+
+</div>
+
+<div class="service-arrow">
+↗
+</div>
+
+</div>
+
+
+
+<div class="service-row">
+
+<div class="service-number">
+05
+</div>
+
+<div class="service-name">
+
+Shopify Store
+
+<span>
+Improvements
+</span>
+
+</div>
+
+<div class="service-description">
+
+Improving existing store layouts,
+sections and overall visual
+experience.
+
+</div>
+
+<div class="service-arrow">
+↗
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="services-footer">
+
+<span>
+HAVE A PROJECT IN MIND?
+</span>
+
+<a href="#contact">
+LET'S WORK TOGETHER ↗
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PROJECTS / MY WORK
+================================================== -->
+
+<section
+class="projects-section"
+id="projects"
+>
+
+<div class="projects-header">
+
+<div>
+
+<div class="projects-eyebrow">
+MY WORK
+</div>
+
+<h2 class="projects-heading">
+
+SELECTED
+
+<span>
+PROJECTS
+</span>
+
+</h2>
+
+</div>
+
+
+<p class="projects-header-text">
+
+A closer look at Shopify and digital
+experiences I've worked on. These cards
+are temporary while the final project
+content is being prepared.
+
+</p>
+
+</div>
+
+
+
+<div class="projects-stack">
+
+
+<!-- ==================================================
+     PROJECT 01
+================================================== -->
+
+<article class="project-stack-card">
+
+<div class="project-info">
+
+<div class="project-topline">
+
+<div class="project-index">
+PROJECT 01
+</div>
+
+<div class="project-category">
+SHOPIFY
+</div>
+
+</div>
+
+
+<div class="project-main">
+
+<h3 class="project-title">
+
+FASHION
+
+<span>
+STORE
+</span>
+
+</h3>
+
+
+<p class="project-summary">
+
+A modern Shopify storefront concept
+focused on strong product presentation,
+clean navigation and a smooth shopping
+experience.
+
+</p>
+
+
+<div class="project-tags">
+
+<span>SHOPIFY</span>
+<span>LIQUID</span>
+<span>RESPONSIVE</span>
+
+</div>
+
+</div>
+
+
+<div class="project-bottom">
+
+<div class="project-status">
+PROJECT PREVIEW
+</div>
+
+<a
+href="#"
+class="project-link"
+aria-label="View project"
+>
+↗
+</a>
+
+</div>
+
+</div>
+
+
+<div class="project-visual">
+
+<div class="project-demo-label">
+TEMPORARY VISUAL
+</div>
+
+<img
+src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
+alt="Temporary fashion Shopify project preview"
+>
+
+</div>
+
+</article>
+
+
+
+<!-- ==================================================
+     PROJECT 02
+================================================== -->
+
+<article class="project-stack-card">
+
+<div class="project-info">
+
+<div class="project-topline">
+
+<div class="project-index">
+PROJECT 02
+</div>
+
+<div class="project-category">
+CUSTOM DEVELOPMENT
+</div>
+
+</div>
+
+
+<div class="project-main">
+
+<h3 class="project-title">
+
+CUSTOM
+
+<span>
+SECTIONS
+</span>
+
+</h3>
+
+
+<p class="project-summary">
+
+A custom Shopify section concept designed
+to give brands more control over content,
+visual storytelling and product presentation.
+
+</p>
+
+
+<div class="project-tags">
+
+<span>SHOPIFY</span>
+<span>LIQUID</span>
+<span>HTML / CSS</span>
+
+</div>
+
+</div>
+
+
+<div class="project-bottom">
+
+<div class="project-status">
+PROJECT PREVIEW
+</div>
+
+<a
+href="#"
+class="project-link"
+aria-label="View project"
+>
+↗
+</a>
+
+</div>
+
+</div>
+
+
+<div class="project-visual">
+
+<div class="project-demo-label">
+TEMPORARY VISUAL
+</div>
+
+<img
+src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
+alt="Temporary custom Shopify section preview"
+>
+
+</div>
+
+</article>
+
+
+
+<!-- ==================================================
+     PROJECT 03
+================================================== -->
+
+<article class="project-stack-card">
+
+<div class="project-info">
+
+<div class="project-topline">
+
+<div class="project-index">
+PROJECT 03
+</div>
+
+<div class="project-category">
+E-COMMERCE
+</div>
+
+</div>
+
+
+<div class="project-main">
+
+<h3 class="project-title">
+
+PRODUCT
+
+<span>
+EXPERIENCE
+</span>
+
+</h3>
+
+
+<p class="project-summary">
+
+An e-commerce experience concept built
+around clear product information, modern
+visual hierarchy and engaging interaction.
+
+</p>
+
+
+<div class="project-tags">
+
+<span>E-COMMERCE</span>
+<span>UI</span>
+<span>SHOPIFY</span>
+
+</div>
+
+</div>
+
+
+<div class="project-bottom">
+
+<div class="project-status">
+PROJECT PREVIEW
+</div>
+
+<a
+href="#"
+class="project-link"
+aria-label="View project"
+>
+↗
+</a>
+
+</div>
+
+</div>
+
+
+<div class="project-visual">
+
+<div class="project-demo-label">
+TEMPORARY VISUAL
+</div>
+
+<img
+src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
+alt="Temporary ecommerce project preview"
+>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+
+<div class="projects-end">
+
+<p>
+MORE WORK WILL BE ADDED AS THE PORTFOLIO
+<span>GROWS.</span>
+</p>
+
+<div class="scroll-indicator">
+NEXT — CONTACT ↓
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT PREVIEW
+================================================== -->
+
+<section
+class="contact-preview"
+id="contact"
+>
+
+<h2>
+
+LET'S BUILD
+
+<span>
+SOMETHING.
+</span>
+
+</h2>
+
+</section>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+/* ==================================================
+   MOVING SHOWCASE
+================================================== */
+
+const rowOne =
+document.getElementById("rowOne");
+
+const rowTwo =
+document.getElementById("rowTwo");
+
+const showcase =
+document.querySelector(".showcase");
+
+
+function moveProjectRows(){
+
+if(
+!rowOne ||
+!rowTwo ||
+!showcase
+){
+return;
+}
+
+
+const rect =
+showcase.getBoundingClientRect();
+
+
+const progress =
+window.innerHeight -
+rect.top;
+
+
+const movement =
+progress * .22;
+
+
+rowOne.style.transform =
+`translate3d(${
+-650 + movement
+}px,0,0)`;
+
+
+rowTwo.style.transform =
+`translate3d(${
+-850 - movement
+}px,0,0)`;
+
+}
+
+
+
+/* ==================================================
+   ABOUT WORD REVEAL
+================================================== */
+
+const aboutText =
+document.getElementById(
+"aboutText"
+);
+
+
+let aboutWords = [];
+
+
+if(aboutText){
+
+const originalText =
+aboutText
+.textContent
+.trim()
+.replace(
+/\s+/g,
+" "
+);
+
+
+const words =
+originalText.split(" ");
+
+
+aboutText.innerHTML =
+words
+.map(
+word =>
+`<span class="about-word">${word}</span>`
+)
+.join(" ");
+
+
+aboutWords =
+document.querySelectorAll(
+".about-word"
+);
+
+}
+
+
+function revealAboutText(){
+
+if(
+!aboutText ||
+!aboutWords.length
+){
+return;
+}
+
+
+const rect =
+aboutText
+.getBoundingClientRect();
+
+
+let progress =
+(
+window.innerHeight * .85 -
+rect.top
+)
+/
+(
+window.innerHeight * .65
+);
+
+
+progress =
+Math.max(
+0,
+Math.min(
+1,
+progress
+)
+);
+
+
+const visibleWords =
+Math.floor(
+progress *
+aboutWords.length
+);
+
+
+aboutWords.forEach(
+(word,index) => {
+
+if(
+index <=
+visibleWords
+){
+
+word.classList.add(
+"active"
+);
+
+}
+
+else{
+
+word.classList.remove(
+"active"
+);
+
+}
+
+}
+);
+
+}
+
+
+
+/* ==================================================
+   STACKING PROJECT SCALE
+================================================== */
+
+const stackCards =
+document.querySelectorAll(
+".project-stack-card"
+);
+
+
+function animateProjectCards(){
+
+if(
+window.innerWidth <= 768
+){
+stackCards.forEach(
+card => {
+card.style.transform =
+"scale(1)";
+}
+);
+
+return;
+}
+
+
+stackCards.forEach(
+(card,index) => {
+
+const rect =
+card.getBoundingClientRect();
+
+
+const stickyTop =
+35 + index * 20;
+
+
+/*
+Once a card reaches its sticky
+position, gradually scale it
+slightly as the next card arrives.
+*/
+
+const distance =
+stickyTop -
+rect.top;
+
+
+let progress =
+distance / 500;
+
+
+progress =
+Math.max(
+0,
+Math.min(
+1,
+progress
+)
+);
+
+
+const minimumScale =
+1 -
+(
+(stackCards.length - index)
+*
+.012
+);
+
+
+const scale =
+1 -
+progress *
+(1 - minimumScale);
+
+
+card.style.transform =
+`scale(${scale})`;
+
+}
+);
+
+}
+
+
+
+/* ==================================================
+   MASTER SCROLL
+================================================== */
+
+let ticking = false;
+
+
+function updateScrollEffects(){
+
+moveProjectRows();
+
+revealAboutText();
+
+animateProjectCards();
+
+ticking = false;
+
+}
+
+
+window.addEventListener(
+"scroll",
+() => {
+
+if(!ticking){
+
+requestAnimationFrame(
+updateScrollEffects
+);
+
+ticking = true;
+
+}
+
+},
+{
+passive:true
+}
+);
+
+
+window.addEventListener(
+"resize",
+updateScrollEffects
+);
+
+
+updateScrollEffects();
+
+
+</script>
 
 
 </body>
