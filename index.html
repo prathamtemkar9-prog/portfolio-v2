@@ -8,9 +8,18 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* =========================
+       GLOBAL
+    ========================= */
+
     * {
       margin: 0;
       padding: 0;
@@ -28,14 +37,23 @@
       overflow-x: hidden;
     }
 
-    /* ================= NAVBAR ================= */
+    ::selection {
+      background: #ff6a00;
+      color: #090909;
+    }
+
+
+    /* =========================
+       NAVBAR
+    ========================= */
 
     .navbar {
       position: absolute;
       top: 0;
       left: 0;
+
       width: 100%;
-      z-index: 50;
+      z-index: 100;
 
       display: flex;
       align-items: center;
@@ -47,246 +65,368 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 11px;
 
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 17px;
+      font-weight: 700;
       letter-spacing: 2px;
+
+      text-transform: uppercase;
     }
 
     .logo-dot {
-      width: 12px;
-      height: 12px;
+      width: 11px;
+      height: 11px;
+
       border-radius: 50%;
+
       background: #ff6a00;
-      box-shadow: 0 0 20px rgba(255,106,0,.8);
+
+      box-shadow:
+        0 0 8px rgba(255, 106, 0, 0.8),
+        0 0 20px rgba(255, 106, 0, 0.35);
     }
 
     .nav-links {
       display: flex;
-      gap: 45px;
+      align-items: center;
+
+      gap: clamp(22px, 3vw, 48px);
     }
 
     .nav-links a {
-      color: #fff;
+      position: relative;
+
+      color: #f5f5f5;
+
       text-decoration: none;
       text-transform: uppercase;
-      font-size: 13px;
+
+      font-size: 12px;
+      font-weight: 500;
+
       letter-spacing: 1.5px;
-      transition: .3s;
+
+      transition: 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 1px;
+
+      background: #ff6a00;
+
+      transition: width 0.3s ease;
     }
 
     .nav-links a:hover {
       color: #ff6a00;
     }
 
-    /* ================= HERO ================= */
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       position: relative;
-      min-height: 100vh;
+
+      width: 100%;
+      height: 100vh;
+      min-height: 720px;
+
       overflow: hidden;
 
       display: flex;
       align-items: center;
 
-      padding: 120px 5% 50px;
+      padding: 90px 5% 60px;
+
+      background:
+        radial-gradient(
+          circle at 50% 55%,
+          rgba(255, 106, 0, 0.08),
+          transparent 34%
+        ),
+        #090909;
     }
 
-    /* Orange atmospheric glow */
 
-    .hero::before {
-      content: "";
+    /* =========================
+       BACKGROUND GLOW
+    ========================= */
+
+    .hero-glow {
       position: absolute;
 
-      width: 700px;
-      height: 700px;
+      width: 750px;
+      height: 750px;
 
-      top: 50%;
       left: 50%;
+      top: 57%;
 
       transform: translate(-50%, -50%);
+
+      border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(255,106,0,.20) 0%,
-          rgba(255,106,0,.07) 35%,
+          rgba(255, 106, 0, 0.17) 0%,
+          rgba(255, 106, 0, 0.07) 30%,
+          rgba(255, 106, 0, 0.02) 50%,
           transparent 70%
         );
 
       filter: blur(20px);
+
       pointer-events: none;
     }
 
-    .orange-line {
+
+    /* =========================
+       ORANGE ORBIT
+    ========================= */
+
+    .orbit {
       position: absolute;
 
-      width: 420px;
-      height: 420px;
+      width: 480px;
+      height: 480px;
 
-      border: 2px solid rgba(255,106,0,.65);
-      border-radius: 50%;
-
-      top: 50%;
       left: 50%;
+      top: 58%;
 
       transform:
         translate(-50%, -50%)
-        rotate(-15deg)
-        scaleY(.35);
+        rotate(-13deg)
+        scaleY(0.30);
+
+      border: 2px solid rgba(255, 106, 0, 0.65);
+      border-radius: 50%;
 
       box-shadow:
-        0 0 25px rgba(255,106,0,.25),
-        inset 0 0 20px rgba(255,106,0,.1);
+        0 0 20px rgba(255, 106, 0, 0.25),
+        inset 0 0 20px rgba(255, 106, 0, 0.08);
 
-      z-index: 1;
+      z-index: 2;
+
+      pointer-events: none;
     }
 
-    /* ================= HUGE NAME ================= */
+
+    /* =========================
+       BIG NAME
+    ========================= */
 
     .big-name {
       position: absolute;
 
-      width: 100%;
-
-      top: 47%;
       left: 50%;
+      top: 45%;
 
       transform: translate(-50%, -50%);
 
+      width: 100%;
+
       display: flex;
       justify-content: center;
+      align-items: center;
 
-      font-size: clamp(75px, 12.5vw, 220px);
-      line-height: .8;
+      /*
+       THIS CREATES THE SPACE BETWEEN
+       PRATHAM AND TEMKAR
+      */
+      gap: clamp(22px, 2.4vw, 50px);
+
+      font-size: clamp(80px, 12.2vw, 220px);
 
       font-weight: 900;
-      letter-spacing: -7px;
+
+      line-height: 0.78;
+
+      letter-spacing: -0.045em;
 
       text-transform: uppercase;
+
       white-space: nowrap;
 
-      z-index: 0;
+      z-index: 1;
+
+      user-select: none;
+
+      animation: nameEnter 1s ease forwards;
     }
 
     .first-name {
-      color: #e7e7e7;
+      color: #eeeeee;
     }
 
     .last-name {
       color: #ff6a00;
+
+      text-shadow:
+        0 0 40px rgba(255, 106, 0, 0.08);
     }
 
-    /* ================= LEFT CONTENT ================= */
+
+    /* =========================
+       LEFT CONTENT
+    ========================= */
 
     .hero-left {
-      position: relative;
-      width: 30%;
+      position: absolute;
+
+      left: 5%;
+      bottom: 17%;
+
       z-index: 20;
 
-      margin-top: 240px;
+      width: 28%;
 
-      animation: fadeUp 1s ease forwards;
+      animation: fadeUp 0.9s 0.25s ease both;
     }
 
-    .small-heading {
+    .hello {
+      margin-bottom: 13px;
+
       color: #ff6a00;
 
-      font-size: 13px;
+      font-size: 11px;
+      font-weight: 500;
+
       letter-spacing: 5px;
 
-      margin-bottom: 12px;
-    }
-
-    .role {
-      font-size: clamp(18px, 2vw, 28px);
-
-      font-weight: 500;
-      line-height: 1.15;
-
-      letter-spacing: 4px;
       text-transform: uppercase;
     }
 
-    .hero-description {
-      margin-top: 18px;
+    .role {
+      color: #f5f5f5;
 
-      max-width: 360px;
+      font-size: clamp(20px, 1.75vw, 29px);
 
-      color: #999;
-      font-weight: 300;
+      font-weight: 600;
 
-      font-size: 14px;
-      line-height: 1.7;
+      line-height: 1.18;
 
-      letter-spacing: 1px;
+      letter-spacing: 3.5px;
+
+      text-transform: uppercase;
     }
 
-    /* ================= PORTRAIT ================= */
+    .description {
+      max-width: 380px;
+
+      margin-top: 18px;
+
+      color: #898989;
+
+      font-size: 14px;
+      font-weight: 300;
+
+      line-height: 1.7;
+
+      letter-spacing: 0.5px;
+    }
+
+
+    /* =========================
+       PORTRAIT
+    ========================= */
 
     .portrait-wrapper {
       position: absolute;
 
-      bottom: 0;
       left: 50%;
+      bottom: 41px;
 
       transform: translateX(-50%);
 
-      width: min(35vw, 520px);
+      width: clamp(340px, 31vw, 500px);
+
+      height: 62vh;
+
+      max-height: 640px;
+      min-height: 500px;
 
       z-index: 10;
 
-      animation: portraitEnter 1.2s ease forwards;
+      overflow: hidden;
+
+      border-radius:
+        240px 240px 28px 28px;
+
+      box-shadow:
+        0 0 90px rgba(255, 106, 0, 0.10);
+
+      animation:
+        portraitEnter 1.1s 0.15s ease both;
     }
+
+    .portrait {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      /*
+       Moves your face slightly higher
+       inside the frame.
+      */
+      object-position: center 18%;
+
+      filter:
+        contrast(1.04)
+        saturate(0.88);
+    }
+
+
+    /* DARK FADE AT BOTTOM OF PHOTO */
 
     .portrait-wrapper::after {
       content: "";
 
       position: absolute;
 
+      left: 0;
       bottom: 0;
-      left: -20%;
 
-      width: 140%;
-      height: 30%;
+      width: 100%;
+      height: 26%;
 
       background:
         linear-gradient(
-          to top,
-          #090909 10%,
-          transparent
+          to bottom,
+          transparent,
+          rgba(9, 9, 9, 0.9)
         );
 
       pointer-events: none;
     }
 
-    .portrait {
-      display: block;
 
-      width: 100%;
-      max-height: 72vh;
-
-      object-fit: cover;
-      object-position: top center;
-
-      border-radius: 220px 220px 30px 30px;
-
-      filter:
-        contrast(1.05)
-        saturate(.8);
-
-      box-shadow:
-        0 0 80px rgba(255,106,0,.12);
-    }
-
-    /* ================= RIGHT SIDE ================= */
+    /* =========================
+       RIGHT CONTENT
+    ========================= */
 
     .hero-right {
       position: absolute;
 
       right: 5%;
-      bottom: 15%;
+      bottom: 17%;
 
       z-index: 20;
 
@@ -294,22 +434,26 @@
       flex-direction: column;
       align-items: flex-end;
 
-      animation: fadeUp 1.2s ease forwards;
+      animation:
+        fadeUp 0.9s 0.4s ease both;
     }
 
     .available {
       display: flex;
       align-items: center;
-      gap: 9px;
 
-      color: #aaa;
+      gap: 10px;
 
-      font-size: 12px;
+      margin-bottom: 20px;
+
+      color: #999;
+
+      font-size: 11px;
+      font-weight: 500;
+
       letter-spacing: 2px;
 
       text-transform: uppercase;
-
-      margin-bottom: 20px;
     }
 
     .available-dot {
@@ -324,15 +468,22 @@
         0 0 12px #ff6a00;
     }
 
+
+    /* =========================
+       CTA
+    ========================= */
+
     .cta {
       display: inline-flex;
-
       align-items: center;
-      gap: 20px;
 
-      padding: 15px 25px;
+      gap: 22px;
 
-      border: 1px solid #ff6a00;
+      padding: 16px 27px;
+
+      border:
+        1px solid rgba(255, 106, 0, 0.9);
+
       border-radius: 50px;
 
       color: #fff;
@@ -340,89 +491,51 @@
       text-decoration: none;
 
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
 
       letter-spacing: 2px;
 
       text-transform: uppercase;
 
-      transition: .35s;
+      transition:
+        background 0.35s ease,
+        color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s ease;
     }
 
-    .cta span {
+    .cta-arrow {
       font-size: 20px;
-      transition: .35s;
+
+      transition:
+        transform 0.35s ease;
     }
 
     .cta:hover {
       color: #090909;
+
       background: #ff6a00;
 
+      transform: translateY(-3px);
+
       box-shadow:
-        0 0 35px rgba(255,106,0,.35);
+        0 10px 40px rgba(255, 106, 0, 0.25);
     }
 
-    .cta:hover span {
+    .cta:hover .cta-arrow {
       transform: translate(4px, -4px);
     }
 
-    /* ================= BOTTOM STRIP ================= */
 
-    .bottom-strip {
+    /* =========================
+       SCROLL TEXT
+    ========================= */
+
+    .scroll-text {
       position: absolute;
 
-      bottom: 0;
-      left: 0;
-
-      width: 100%;
-      height: 42px;
-
-      z-index: 30;
-
-      display: flex;
-      align-items: center;
-
-      overflow: hidden;
-
-      background: rgba(9,9,9,.85);
-
-      border-top:
-        1px solid rgba(255,106,0,.45);
-    }
-
-    .marquee {
-      display: flex;
-
-      width: max-content;
-
-      animation: marquee 18s linear infinite;
-    }
-
-    .marquee span {
-      white-space: nowrap;
-
-      color: #ddd;
-
-      font-size: 11px;
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      padding-right: 55px;
-    }
-
-    .marquee b {
-      color: #ff6a00;
-      margin-left: 55px;
-    }
-
-    /* ================= SCROLL ================= */
-
-    .scroll {
-      position: absolute;
-
-      bottom: 65px;
       left: 50%;
+      bottom: 62px;
 
       transform: translateX(-50%);
 
@@ -430,13 +543,80 @@
 
       color: #777;
 
-      font-size: 10px;
+      font-size: 9px;
+
       letter-spacing: 3px;
 
       text-transform: uppercase;
     }
 
-    /* ================= ANIMATIONS ================= */
+
+    /* =========================
+       MARQUEE
+    ========================= */
+
+    .marquee-container {
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 100%;
+      height: 42px;
+
+      z-index: 50;
+
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        rgba(9, 9, 9, 0.94);
+
+      border-top:
+        1px solid rgba(255, 106, 0, 0.4);
+    }
+
+    .marquee {
+      display: flex;
+
+      width: max-content;
+
+      animation:
+        marqueeMove 24s linear infinite;
+    }
+
+    .marquee-content {
+      display: flex;
+      align-items: center;
+
+      white-space: nowrap;
+    }
+
+    .marquee-content span {
+      color: #d6d6d6;
+
+      padding: 0 25px;
+
+      font-size: 10px;
+      font-weight: 500;
+
+      letter-spacing: 3.5px;
+
+      text-transform: uppercase;
+    }
+
+    .marquee-content i {
+      color: #ff6a00;
+
+      font-style: normal;
+    }
+
+
+    /* =========================
+       ANIMATIONS
+    ========================= */
 
     @keyframes fadeUp {
 
@@ -449,12 +629,15 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
+
 
     @keyframes portraitEnter {
 
       from {
         opacity: 0;
+
         transform:
           translateX(-50%)
           translateY(60px);
@@ -462,13 +645,35 @@
 
       to {
         opacity: 1;
+
         transform:
           translateX(-50%)
           translateY(0);
       }
+
     }
 
-    @keyframes marquee {
+
+    @keyframes nameEnter {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translate(-50%, -45%);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%);
+      }
+
+    }
+
+
+    @keyframes marqueeMove {
 
       from {
         transform: translateX(0);
@@ -477,14 +682,58 @@
       to {
         transform: translateX(-50%);
       }
+
     }
 
-    /* ================= MOBILE ================= */
 
-    @media (max-width: 900px) {
+    /* =========================
+       TABLET
+    ========================= */
+
+    @media (max-width: 1000px) {
+
+      .big-name {
+        top: 38%;
+
+        font-size: 12.5vw;
+
+        gap: 22px;
+      }
+
+      .portrait-wrapper {
+        width: 390px;
+        height: 58vh;
+      }
+
+      .hero-left {
+        width: 34%;
+      }
+
+      .description {
+        font-size: 12px;
+      }
+
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
 
       .navbar {
-        padding: 22px;
+        padding: 22px 20px;
+      }
+
+      .logo {
+        font-size: 13px;
+        letter-spacing: 1.5px;
+      }
+
+      .logo-dot {
+        width: 9px;
+        height: 9px;
       }
 
       .nav-links {
@@ -492,68 +741,101 @@
       }
 
       .nav-links a {
-        font-size: 10px;
-      }
-
-      .hero {
-        min-height: 100svh;
-        padding: 100px 22px 80px;
-      }
-
-      .big-name {
-        top: 28%;
-
-        flex-direction: column;
-
-        align-items: center;
-
-        font-size: 17vw;
-
-        line-height: .75;
-
-        letter-spacing: -3px;
-      }
-
-      .portrait-wrapper {
-        width: min(75vw, 400px);
-      }
-
-      .portrait {
-        max-height: 57vh;
-      }
-
-      .hero-left {
-        position: absolute;
-
-        left: 22px;
-        bottom: 90px;
-
-        width: 55%;
-
-        margin: 0;
-      }
-
-      .role {
-        font-size: 15px;
-        letter-spacing: 2px;
-      }
-
-      .hero-description {
-        display: none;
-      }
-
-      .small-heading {
         font-size: 9px;
       }
 
+
+      .hero {
+        height: 100svh;
+        min-height: 680px;
+
+        padding:
+          90px 20px 60px;
+      }
+
+
+      /* NAME STACKS ON MOBILE */
+
+      .big-name {
+        top: 24%;
+
+        flex-direction: column;
+
+        gap: 3px;
+
+        font-size: 17vw;
+
+        line-height: 0.75;
+
+        letter-spacing: -0.04em;
+      }
+
+
+      .hero-glow {
+        width: 500px;
+        height: 500px;
+
+        top: 58%;
+      }
+
+
+      .orbit {
+        width: 330px;
+        height: 330px;
+
+        top: 60%;
+      }
+
+
+      .portrait-wrapper {
+        bottom: 41px;
+
+        width: min(76vw, 390px);
+
+        height: 54vh;
+
+        min-height: 390px;
+
+        border-radius:
+          190px 190px 20px 20px;
+      }
+
+
+      .hero-left {
+        left: 20px;
+        bottom: 82px;
+
+        width: 58%;
+      }
+
+      .hello {
+        margin-bottom: 8px;
+
+        font-size: 8px;
+
+        letter-spacing: 3px;
+      }
+
+      .role {
+        font-size: 14px;
+
+        letter-spacing: 2px;
+      }
+
+      .description {
+        display: none;
+      }
+
+
       .hero-right {
-        right: 22px;
-        bottom: 90px;
+        right: 20px;
+        bottom: 82px;
       }
 
       .available {
         display: none;
       }
+
 
       .cta {
         width: 52px;
@@ -561,6 +843,7 @@
 
         padding: 0;
 
+        display: flex;
         justify-content: center;
       }
 
@@ -568,34 +851,44 @@
         display: none;
       }
 
-      .orange-line {
-        width: 310px;
-        height: 310px;
-      }
 
-      .scroll {
+      .scroll-text {
         display: none;
       }
+
     }
 
-    @media (max-width: 600px) {
 
-      .logo {
-        font-size: 13px;
-      }
+    /* =========================
+       SMALL MOBILE
+    ========================= */
+
+    @media (max-width: 520px) {
 
       .nav-links a:nth-child(2),
       .nav-links a:nth-child(4) {
         display: none;
       }
 
+      .nav-links {
+        gap: 20px;
+      }
+
       .big-name {
-        top: 25%;
+        top: 23%;
+        font-size: 18vw;
+      }
+
+      .portrait-wrapper {
+        width: 82vw;
+
+        height: 53vh;
       }
 
       .hero-left {
-        width: 60%;
+        width: 65%;
       }
+
     }
 
   </style>
@@ -604,63 +897,118 @@
 
 <body>
 
-  <!-- NAVBAR -->
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
 
   <nav class="navbar">
 
     <div class="logo">
-  <span class="logo-dot"></span>
-  PRATHAM TEMKAR
-</div>
+
+      <span class="logo-dot"></span>
+
+      PRATHAM TEMKAR
+
+    </div>
+
 
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#services">
+        Services
+      </a>
+
+      <a href="#projects">
+        Projects
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
     </div>
 
   </nav>
 
 
-  <!-- HERO -->
 
-  <section class="hero" id="home">
+  <!-- =========================
+       HERO
+  ========================== -->
 
-    <div class="orange-line"></div>
+  <section
+    class="hero"
+    id="home"
+  >
 
 
-    <!-- BIG BACKGROUND NAME -->
+    <!-- BACKGROUND GLOW -->
+
+    <div class="hero-glow"></div>
+
+
+    <!-- ORANGE ORBIT -->
+
+    <div class="orbit"></div>
+
+
+
+    <!-- HUGE NAME -->
 
     <h1 class="big-name">
-      <span class="first-name">PRATHAM</span>
-      <span class="last-name">TEMKAR</span>
+
+      <span class="first-name">
+        PRATHAM
+      </span>
+
+      <span class="last-name">
+        TEMKAR
+      </span>
+
     </h1>
 
 
-    <!-- LEFT -->
+
+    <!-- LEFT CONTENT -->
 
     <div class="hero-left">
 
-      <div class="small-heading">
-        HELLO, I'M
+      <div class="hello">
+
+        Hello, I'm
+
       </div>
+
 
       <div class="role">
+
         Shopify Developer
+
         <br>
+
         × Digital Marketing
+
       </div>
 
-      <p class="hero-description">
-        I build modern Shopify experiences and help
-        brands create a stronger digital presence.
+
+      <p class="description">
+
+        I build modern Shopify experiences
+        and help brands create a stronger
+        digital presence.
+
       </p>
 
     </div>
 
 
-    <!-- YOUR PHOTO -->
+
+    <!-- PORTRAIT -->
 
     <div class="portrait-wrapper">
 
@@ -673,9 +1021,11 @@
     </div>
 
 
-    <!-- RIGHT -->
+
+    <!-- RIGHT CONTENT -->
 
     <div class="hero-right">
+
 
       <div class="available">
 
@@ -686,61 +1036,155 @@
       </div>
 
 
-      <a href="#contact" class="cta">
+      <a
+        href="#contact"
+        class="cta"
+      >
 
         <span class="cta-text">
+
           Let's Work Together
+
         </span>
 
-        <span>↗</span>
+        <span class="cta-arrow">
+
+          ↗
+
+        </span>
 
       </a>
 
+
     </div>
 
 
-    <div class="scroll">
+
+    <!-- SCROLL -->
+
+    <div class="scroll-text">
+
       Scroll to explore ↓
+
     </div>
 
 
-    <!-- MOVING STRIP -->
 
-    <div class="bottom-strip">
+    <!-- =========================
+         MOVING BOTTOM STRIP
+    ========================== -->
+
+    <div class="marquee-container">
 
       <div class="marquee">
 
-        <span>
-          Shopify Development <b>•</b>
-          Custom Sections <b>•</b>
-          Store Design <b>•</b>
-          Digital Marketing <b>•</b>
-          Landing Pages <b>•</b>
-          Shopify Development <b>•</b>
-          Custom Sections <b>•</b>
-          Store Design <b>•</b>
-          Digital Marketing <b>•</b>
-          Landing Pages <b>•</b>
-        </span>
 
-        <span>
-          Shopify Development <b>•</b>
-          Custom Sections <b>•</b>
-          Store Design <b>•</b>
-          Digital Marketing <b>•</b>
-          Landing Pages <b>•</b>
-          Shopify Development <b>•</b>
-          Custom Sections <b>•</b>
-          Store Design <b>•</b>
-          Digital Marketing <b>•</b>
-          Landing Pages <b>•</b>
-        </span>
+        <!-- COPY 1 -->
+
+        <div class="marquee-content">
+
+          <span>
+            Shopify Development
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Custom Sections
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Store Design
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Digital Marketing
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Landing Pages
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Shopify Development
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Custom Sections
+          </span>
+
+          <i>•</i>
+
+        </div>
+
+
+
+        <!-- COPY 2 FOR LOOP -->
+
+        <div class="marquee-content">
+
+          <span>
+            Shopify Development
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Custom Sections
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Store Design
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Digital Marketing
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Landing Pages
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Shopify Development
+          </span>
+
+          <i>•</i>
+
+          <span>
+            Custom Sections
+          </span>
+
+          <i>•</i>
+
+        </div>
+
 
       </div>
 
     </div>
 
+
   </section>
+
 
 </body>
 </html>
