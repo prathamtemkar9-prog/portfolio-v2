@@ -210,21 +210,16 @@ user-select:none;
 
 .name-first,
 .name-last{
-position:static;
 display:block;
 }
 
 .name-first{
 color:#eeeeee;
-text-align:right;
 }
 
 .name-last{
 color:#ff6500;
-text-align:left;
-
-text-shadow:
-0 0 45px rgba(255,101,0,.08);
+text-shadow:0 0 45px rgba(255,101,0,.08);
 }
 
 .hero-name-gap{
@@ -297,9 +292,7 @@ left:5%;
 bottom:16%;
 width:30%;
 z-index:20;
-
-animation:
-fadeUp .9s .2s ease both;
+animation:fadeUp .9s .2s ease both;
 }
 
 .hello{
@@ -313,10 +306,7 @@ text-transform:uppercase;
 
 .role{
 color:#f4f4f4;
-
-font-size:
-clamp(19px,1.7vw,28px);
-
+font-size:clamp(19px,1.7vw,28px);
 font-weight:600;
 line-height:1.2;
 letter-spacing:3px;
@@ -326,13 +316,10 @@ text-transform:uppercase;
 .description{
 max-width:360px;
 margin-top:18px;
-
 color:#898989;
-
 font-size:13px;
 font-weight:300;
 line-height:1.7;
-letter-spacing:.4px;
 }
 
 
@@ -350,43 +337,32 @@ display:flex;
 flex-direction:column;
 align-items:flex-end;
 
-animation:
-fadeUp .9s .35s ease both;
+animation:fadeUp .9s .35s ease both;
 }
 
 .available{
 display:flex;
 align-items:center;
 gap:10px;
-
 margin-bottom:20px;
-
 color:#999;
-
 font-size:10px;
-font-weight:500;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
 .available-dot{
 width:8px;
 height:8px;
-
 border-radius:50%;
-
 background:#ff6500;
-
-box-shadow:
-0 0 12px #ff6500;
+box-shadow:0 0 12px #ff6500;
 }
 
 .cta{
 display:inline-flex;
 align-items:center;
 gap:22px;
-
 padding:15px 27px;
 
 border:1px solid #ff6500;
@@ -394,49 +370,34 @@ border-radius:50px;
 
 color:white;
 text-decoration:none;
-
 font-size:12px;
 font-weight:600;
 letter-spacing:2px;
-
 text-transform:uppercase;
 
-transition:.35s;
-}
-
-.cta-arrow{
-font-size:19px;
 transition:.35s;
 }
 
 .cta:hover{
 background:#ff6500;
 color:#0c0c0c;
-
 transform:translateY(-3px);
-
-box-shadow:
-0 10px 40px rgba(255,101,0,.25);
 }
 
-.cta:hover .cta-arrow{
-transform:translate(4px,-4px);
+.cta-arrow{
+font-size:19px;
 }
 
 .scroll-text{
 position:absolute;
 left:50%;
 bottom:63px;
-
 transform:translateX(-50%);
-
 z-index:30;
 
 color:#777;
-
 font-size:9px;
 letter-spacing:3px;
-
 text-transform:uppercase;
 }
 
@@ -449,29 +410,22 @@ text-transform:uppercase;
 position:absolute;
 bottom:0;
 left:0;
-
 width:100%;
 height:42px;
-
 z-index:40;
 
 display:flex;
 align-items:center;
-
 overflow:hidden;
 
 background:rgba(12,12,12,.96);
-
-border-top:
-1px solid rgba(255,101,0,.35);
+border-top:1px solid rgba(255,101,0,.35);
 }
 
 .hero-strip-track{
 display:flex;
 width:max-content;
-
-animation:
-stripMove 22s linear infinite;
+animation:stripMove 22s linear infinite;
 }
 
 .strip-copy{
@@ -482,13 +436,10 @@ white-space:nowrap;
 
 .strip-copy span{
 padding:0 25px;
-
 color:#ddd;
-
 font-size:10px;
 font-weight:500;
 letter-spacing:3px;
-
 text-transform:uppercase;
 }
 
@@ -503,53 +454,37 @@ color:#ff6500;
 
 .showcase{
 position:relative;
-
-padding:
-130px 0 150px;
-
+padding:130px 0 150px;
 background:#0c0c0c;
-
 overflow:hidden;
 }
 
 .showcase-heading{
 width:90%;
 max-width:1500px;
-
-margin:
-0 auto 70px;
+margin:0 auto 70px;
 
 display:flex;
 align-items:flex-end;
 justify-content:space-between;
-
 gap:30px;
 }
 
 .showcase-eyebrow{
 margin-bottom:12px;
-
 color:#ff6500;
-
 font-size:11px;
-font-weight:500;
 letter-spacing:5px;
-
 text-transform:uppercase;
 }
 
 .showcase-title{
 max-width:850px;
-
 color:#f1f1f1;
-
-font-size:
-clamp(48px,7vw,110px);
-
+font-size:clamp(48px,7vw,110px);
 font-weight:900;
 line-height:.82;
 letter-spacing:-.04em;
-
 text-transform:uppercase;
 }
 
@@ -559,9 +494,7 @@ color:#ff6500;
 
 .showcase-description{
 max-width:320px;
-
 color:#858585;
-
 font-size:14px;
 font-weight:300;
 line-height:1.6;
@@ -569,55 +502,35 @@ line-height:1.6;
 
 .project-row{
 position:relative;
-
 display:flex;
-
 width:max-content;
-
 gap:14px;
 margin-bottom:14px;
-
 will-change:transform;
 }
 
 .showcase-card{
 position:relative;
-
 width:420px;
 height:270px;
-
 flex-shrink:0;
-
 overflow:hidden;
-
 border-radius:22px;
-
 background:#171717;
-
-border:
-1px solid rgba(255,255,255,.08);
-
-transition:
-transform .4s ease,
-border-color .4s ease;
+border:1px solid rgba(255,255,255,.08);
+transition:.4s;
 }
 
 .showcase-card:hover{
 transform:scale(.975);
-
-border-color:
-rgba(255,101,0,.55);
+border-color:rgba(255,101,0,.55);
 }
 
 .showcase-card img{
 width:100%;
 height:100%;
-
 object-fit:cover;
-
-transition:
-transform .6s ease,
-filter .6s ease;
+transition:.6s;
 }
 
 .showcase-card:hover img{
@@ -628,11 +541,9 @@ filter:brightness(.65);
 .card-overlay{
 position:absolute;
 inset:0;
-
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
-
 padding:25px;
 
 opacity:0;
@@ -643,7 +554,7 @@ transparent 30%,
 rgba(0,0,0,.88)
 );
 
-transition:opacity .4s ease;
+transition:.4s;
 }
 
 .showcase-card:hover .card-overlay{
@@ -652,13 +563,9 @@ opacity:1;
 
 .card-type{
 margin-bottom:5px;
-
 color:#ff6500;
-
 font-size:9px;
-font-weight:500;
 letter-spacing:3px;
-
 text-transform:uppercase;
 }
 
@@ -671,35 +578,27 @@ font-weight:600;
 .showcase-bottom{
 width:90%;
 max-width:1500px;
-
-margin:
-65px auto 0;
+margin:65px auto 0;
+padding-top:25px;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
 
-border-top:
-1px solid rgba(255,255,255,.12);
-
-padding-top:25px;
+border-top:1px solid rgba(255,255,255,.12);
 }
 
 .showcase-bottom p{
 color:#707070;
-
 font-size:11px;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
 .scroll-indicator{
 color:#ff6500;
-
 font-size:11px;
 letter-spacing:3px;
-
 text-transform:uppercase;
 }
 
@@ -710,16 +609,13 @@ text-transform:uppercase;
 
 .about-section{
 position:relative;
-
 min-height:100vh;
 
 display:flex;
 align-items:center;
 justify-content:center;
 
-padding:
-140px 5% 150px;
-
+padding:140px 5% 150px;
 overflow:hidden;
 
 background:
@@ -733,10 +629,8 @@ transparent 32%
 
 .about-section::before{
 content:"";
-
 position:absolute;
 inset:0;
-
 opacity:.11;
 
 background-image:
@@ -764,7 +658,6 @@ pointer-events:none;
 
 .about-content{
 position:relative;
-
 width:100%;
 max-width:1100px;
 
@@ -773,34 +666,24 @@ flex-direction:column;
 align-items:center;
 
 text-align:center;
-
 z-index:10;
 }
 
 .about-eyebrow{
 margin-bottom:20px;
-
 color:#ff6500;
-
 font-size:10px;
-font-weight:500;
 letter-spacing:6px;
-
 text-transform:uppercase;
 }
 
 .about-title{
 color:#f1f1f1;
-
-font-size:
-clamp(80px,13vw,210px);
-
+font-size:clamp(80px,13vw,210px);
 font-weight:900;
 line-height:.8;
 letter-spacing:-.055em;
-
 text-transform:uppercase;
-
 white-space:nowrap;
 }
 
@@ -810,37 +693,24 @@ color:#ff6500;
 
 .about-text{
 max-width:760px;
-
 margin-top:70px;
-
 color:#d0d0d0;
-
-font-size:
-clamp(18px,2vw,27px);
-
+font-size:clamp(18px,2vw,27px);
 font-weight:300;
 line-height:1.55;
 }
 
 .about-word{
 display:inline-block;
-
 margin-right:.20em;
-
 opacity:.15;
-
 transform:translateY(8px);
-
-transition:
-opacity .12s linear,
-transform .12s linear;
+transition:.12s;
 }
 
 .about-word.active{
 opacity:1;
-
 transform:translateY(0);
-
 color:#f1f1f1;
 }
 
@@ -848,53 +718,38 @@ color:#f1f1f1;
 display:flex;
 justify-content:center;
 flex-wrap:wrap;
-
 gap:10px;
-
 margin-top:45px;
 }
 
 .about-tags span{
 padding:10px 18px;
-
-border:
-1px solid rgba(255,255,255,.14);
-
+border:1px solid rgba(255,255,255,.14);
 border-radius:50px;
-
 color:#999;
-
 font-size:9px;
 letter-spacing:2px;
-
 transition:.3s;
 }
 
 .about-tags span:hover{
 color:#ff6500;
-
 border-color:#ff6500;
-
 transform:translateY(-3px);
 }
 
 .about-button{
 display:inline-flex;
 align-items:center;
-
 gap:30px;
-
 margin-top:55px;
-
 padding:16px 27px;
 
 border:1px solid #ff6500;
 border-radius:50px;
 
 color:white;
-
 text-decoration:none;
-
 font-size:11px;
 font-weight:600;
 letter-spacing:2px;
@@ -905,15 +760,12 @@ transition:.35s;
 .about-button:hover{
 background:#ff6500;
 color:#0c0c0c;
-
 transform:translateY(-4px);
 }
 
 .about-decoration{
 position:absolute;
-
 z-index:5;
-
 width:125px;
 height:125px;
 
@@ -921,33 +773,24 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-
 gap:9px;
 
-border:
-1px solid rgba(255,101,0,.22);
-
-background:
-rgba(18,18,18,.72);
-
+border:1px solid rgba(255,101,0,.22);
+background:rgba(18,18,18,.72);
 backdrop-filter:blur(12px);
-
-box-shadow:
-0 20px 60px rgba(0,0,0,.35);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
 
 pointer-events:none;
 }
 
 .about-decoration span{
 color:#ff6500;
-
 font-size:36px;
 font-weight:700;
 }
 
 .about-decoration small{
 color:#777;
-
 font-size:7px;
 letter-spacing:2px;
 }
@@ -955,19 +798,14 @@ letter-spacing:2px;
 .code-card{
 top:13%;
 left:7%;
-
-border-radius:
-35px 12px 35px 12px;
-
+border-radius:35px 12px 35px 12px;
 transform:rotate(-10deg);
 }
 
 .shopify-card{
 top:13%;
 right:7%;
-
 border-radius:50%;
-
 transform:rotate(9deg);
 }
 
@@ -979,10 +817,7 @@ font-weight:900;
 .marketing-card{
 bottom:13%;
 left:11%;
-
-border-radius:
-15px 40px 15px 40px;
-
+border-radius:15px 40px 15px 40px;
 transform:rotate(8deg);
 }
 
@@ -993,29 +828,21 @@ font-size:55px;
 .pixel-card{
 bottom:12%;
 right:10%;
-
 border-radius:25px;
-
 transform:rotate(-8deg);
 }
 
 .pixel-grid{
 display:grid;
-
-grid-template-columns:
-repeat(3,10px);
-
+grid-template-columns:repeat(3,10px);
 gap:5px;
 }
 
 .pixel-grid i{
 width:10px;
 height:10px;
-
 display:block;
-
 background:#ff6500;
-
 border-radius:2px;
 }
 
@@ -1027,13 +854,9 @@ opacity:.25;
 
 .about-number{
 position:absolute;
-
 left:5%;
 bottom:40px;
-
-color:
-rgba(255,255,255,.18);
-
+color:rgba(255,255,255,.18);
 font-size:11px;
 letter-spacing:4px;
 }
@@ -1045,62 +868,44 @@ letter-spacing:4px;
 
 .services-section{
 position:relative;
-
 background:#f3f1ec;
 color:#111;
-
-padding:
-120px 5% 90px;
-
-border-radius:
-65px 65px 0 0;
-
+padding:120px 5% 90px;
+border-radius:65px 65px 0 0;
 overflow:hidden;
 }
 
 .services-top{
 max-width:1500px;
-
-margin:
-0 auto 80px;
+margin:0 auto 80px;
 
 display:flex;
 align-items:flex-end;
 justify-content:space-between;
-
 gap:50px;
 }
 
 .services-eyebrow{
 margin-bottom:12px;
-
 color:#ff6500;
-
 font-size:10px;
 font-weight:600;
 letter-spacing:5px;
-
 text-transform:uppercase;
 }
 
 .services-heading{
 color:#111;
-
-font-size:
-clamp(75px,12vw,190px);
-
+font-size:clamp(75px,12vw,190px);
 font-weight:900;
 line-height:.78;
 letter-spacing:-.06em;
-
 text-transform:uppercase;
 }
 
 .services-intro{
 width:320px;
-
 color:#696969;
-
 font-size:14px;
 font-weight:300;
 line-height:1.65;
@@ -1108,20 +913,15 @@ line-height:1.65;
 
 .services-list{
 max-width:1500px;
-
 margin:auto;
-
-border-top:
-1px solid rgba(0,0,0,.18);
+border-top:1px solid rgba(0,0,0,.18);
 }
 
 .service-row{
 position:relative;
-
 min-height:170px;
 
 display:grid;
-
 grid-template-columns:
 100px
 minmax(350px,1.7fr)
@@ -1129,29 +929,20 @@ minmax(350px,1.7fr)
 80px;
 
 align-items:center;
-
 gap:30px;
 
-border-bottom:
-1px solid rgba(0,0,0,.18);
-
+border-bottom:1px solid rgba(0,0,0,.18);
 overflow:hidden;
 }
 
 .service-row::before{
 content:"";
-
 position:absolute;
 inset:0;
-
 background:#ff6500;
-
 transform:scaleX(0);
 transform-origin:left;
-
-transition:
-transform .45s cubic-bezier(.77,0,.18,1);
-
+transition:transform .45s cubic-bezier(.77,0,.18,1);
 z-index:0;
 }
 
@@ -1166,74 +957,52 @@ z-index:2;
 
 .service-number{
 color:#999;
-
 font-size:12px;
-font-weight:500;
 letter-spacing:2px;
-
-transition:.35s;
 }
 
 .service-name{
 color:#151515;
-
-font-size:
-clamp(31px,4vw,62px);
-
+font-size:clamp(31px,4vw,62px);
 font-weight:700;
 line-height:.9;
 letter-spacing:-.03em;
-
 text-transform:uppercase;
-
-transition:
-color .35s,
-transform .35s;
+transition:.35s;
 }
 
 .service-name span{
 color:#777;
-
-transition:color .35s;
+transition:.35s;
 }
 
 .service-description{
 max-width:330px;
-
 color:#777;
-
 font-size:13px;
 font-weight:300;
 line-height:1.55;
-
-transition:color .35s;
+transition:.35s;
 }
 
 .service-arrow{
 display:flex;
 align-items:center;
 justify-content:center;
-
 width:55px;
 height:55px;
-
 justify-self:end;
 
-border:
-1px solid rgba(0,0,0,.25);
-
+border:1px solid rgba(0,0,0,.25);
 border-radius:50%;
 
 color:#111;
-
 font-size:22px;
-
-transition:.4s ease;
+transition:.4s;
 }
 
 .service-row:hover .service-name{
 color:#0c0c0c;
-
 transform:translateX(12px);
 }
 
@@ -1249,42 +1018,34 @@ color:rgba(0,0,0,.7);
 background:#0c0c0c;
 border-color:#0c0c0c;
 color:#ff6500;
-
 transform:rotate(45deg);
 }
 
 .services-footer{
 max-width:1500px;
-
-margin:
-60px auto 0;
+margin:60px auto 0;
 
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 gap:30px;
 }
 
 .services-footer > span{
 color:#888;
-
 font-size:10px;
 letter-spacing:4px;
 }
 
 .services-footer a{
 display:inline-flex;
-
 padding:15px 25px;
 
 border:1px solid #111;
 border-radius:50px;
 
 color:#111;
-
 text-decoration:none;
-
 font-size:11px;
 font-weight:600;
 letter-spacing:2px;
@@ -1295,65 +1056,46 @@ transition:.35s;
 .services-footer a:hover{
 background:#111;
 color:#ff6500;
-
 transform:translateY(-3px);
 }
 
 
 /* ==================================================
-   PROJECTS / MY WORK
+   PROJECTS
 ================================================== */
 
 .projects-section{
 position:relative;
-
 background:#0c0c0c;
-
-padding:
-130px 5% 180px;
-
-border-radius:
-65px 65px 0 0;
-
+padding:130px 5% 180px;
+border-radius:65px 65px 0 0;
 overflow:visible;
 }
 
 .projects-header{
 max-width:1500px;
-
-margin:
-0 auto 90px;
+margin:0 auto 90px;
 
 display:flex;
 align-items:flex-end;
 justify-content:space-between;
-
 gap:50px;
 }
 
 .projects-eyebrow{
 margin-bottom:15px;
-
 color:#ff6500;
-
 font-size:10px;
-font-weight:500;
 letter-spacing:5px;
-
 text-transform:uppercase;
 }
 
 .projects-heading{
 color:#f3f3f3;
-
-font-size:
-clamp(70px,11vw,175px);
-
+font-size:clamp(70px,11vw,175px);
 font-weight:900;
-
 line-height:.78;
 letter-spacing:-.055em;
-
 text-transform:uppercase;
 }
 
@@ -1363,9 +1105,7 @@ color:#ff6500;
 
 .projects-header-text{
 width:320px;
-
 color:#777;
-
 font-size:14px;
 font-weight:300;
 line-height:1.65;
@@ -1378,46 +1118,31 @@ line-height:1.65;
 
 .projects-stack{
 position:relative;
-
 max-width:1500px;
-
 margin:auto;
 }
 
 .project-stack-card{
 position:sticky;
-
 top:40px;
-
 width:100%;
 height:min(76vh,760px);
-
 margin-bottom:120px;
 
 display:grid;
-
-grid-template-columns:
-.85fr 1.35fr;
+grid-template-columns:.85fr 1.35fr;
 
 overflow:hidden;
-
 border-radius:38px;
 
 background:#171717;
+border:1px solid rgba(255,255,255,.1);
 
-border:
-1px solid rgba(255,255,255,.1);
-
-box-shadow:
-0 -20px 70px rgba(0,0,0,.35);
+box-shadow:0 -20px 70px rgba(0,0,0,.35);
 
 transform-origin:center top;
-
 will-change:transform;
 }
-
-
-/* CARD POSITIONS */
 
 .project-stack-card:nth-child(1){
 top:35px;
@@ -1431,20 +1156,12 @@ top:55px;
 top:75px;
 }
 
-
-/* ==================================================
-   PROJECT INFO
-================================================== */
-
 .project-info{
 position:relative;
-
 display:flex;
 flex-direction:column;
 justify-content:space-between;
-
-padding:
-55px 50px;
+padding:55px 50px;
 
 background:
 linear-gradient(
@@ -1460,67 +1177,48 @@ z-index:3;
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 gap:20px;
 }
 
 .project-index{
 color:#ff6500;
-
 font-size:12px;
 font-weight:600;
 letter-spacing:3px;
 }
 
 .project-category{
-padding:
-8px 14px;
-
-border:
-1px solid rgba(255,255,255,.13);
-
+padding:8px 14px;
+border:1px solid rgba(255,255,255,.13);
 border-radius:50px;
-
 color:#777;
-
 font-size:8px;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
 .project-main{
-margin:
-auto 0;
+margin:auto 0;
 }
 
 .project-title{
 color:#f4f4f4;
-
-font-size:
-clamp(42px,5vw,78px);
-
+font-size:clamp(42px,5vw,78px);
 font-weight:800;
-
 line-height:.88;
 letter-spacing:-.035em;
-
 text-transform:uppercase;
 }
 
 .project-title span{
 display:block;
-
 color:#ff6500;
 }
 
 .project-summary{
 max-width:390px;
-
 margin-top:30px;
-
 color:#888;
-
 font-size:14px;
 font-weight:300;
 line-height:1.65;
@@ -1529,29 +1227,18 @@ line-height:1.65;
 .project-tags{
 display:flex;
 flex-wrap:wrap;
-
 gap:8px;
-
 margin-top:30px;
 }
 
 .project-tags span{
-padding:
-8px 12px;
-
+padding:8px 12px;
 border-radius:50px;
-
-background:
-rgba(255,255,255,.05);
-
-border:
-1px solid rgba(255,255,255,.08);
-
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
 color:#999;
-
 font-size:8px;
 letter-spacing:1.5px;
-
 text-transform:uppercase;
 }
 
@@ -1559,16 +1246,13 @@ text-transform:uppercase;
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 gap:20px;
 }
 
 .project-status{
 color:#666;
-
 font-size:9px;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
@@ -1576,62 +1260,40 @@ text-transform:uppercase;
 display:flex;
 align-items:center;
 justify-content:center;
-
 width:60px;
 height:60px;
-
 border-radius:50%;
-
 background:#ff6500;
-
 color:#0c0c0c;
-
 text-decoration:none;
-
 font-size:24px;
-
 transition:.35s;
 }
 
 .project-link:hover{
 background:#f5f5f5;
-
-transform:
-rotate(45deg)
-scale(1.05);
+transform:rotate(45deg) scale(1.05);
 }
-
-
-/* ==================================================
-   PROJECT VISUAL
-================================================== */
 
 .project-visual{
 position:relative;
-
 overflow:hidden;
-
 background:#222;
 }
 
 .project-visual img{
 width:100%;
 height:100%;
-
 object-fit:cover;
-
-transition:
-transform .8s cubic-bezier(.2,.7,.2,1);
+transition:.8s;
 }
 
-.project-stack-card:hover
-.project-visual img{
+.project-stack-card:hover .project-visual img{
 transform:scale(1.035);
 }
 
 .project-visual::after{
 content:"";
-
 position:absolute;
 inset:0;
 
@@ -1647,63 +1309,40 @@ pointer-events:none;
 
 .project-demo-label{
 position:absolute;
-
 right:25px;
 top:25px;
-
 z-index:4;
 
-padding:
-9px 14px;
+padding:9px 14px;
 
 border-radius:50px;
-
-background:
-rgba(12,12,12,.7);
-
-backdrop-filter:
-blur(10px);
-
-border:
-1px solid rgba(255,255,255,.12);
+background:rgba(12,12,12,.7);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.12);
 
 color:#ddd;
-
 font-size:8px;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
-
-/* ==================================================
-   PROJECT END
-================================================== */
-
 .projects-end{
 max-width:1500px;
-
-margin:
-40px auto 0;
-
+margin:40px auto 0;
 padding-top:40px;
 
-border-top:
-1px solid rgba(255,255,255,.1);
+border-top:1px solid rgba(255,255,255,.1);
 
 display:flex;
 align-items:center;
 justify-content:space-between;
-
 gap:30px;
 }
 
 .projects-end p{
 color:#777;
-
 font-size:11px;
 letter-spacing:2px;
-
 text-transform:uppercase;
 }
 
@@ -1713,42 +1352,387 @@ color:#ff6500;
 
 
 /* ==================================================
-   NEXT CONTACT PREVIEW
+   CONTACT
 ================================================== */
 
-.contact-preview{
-min-height:65vh;
+.contact-section{
+position:relative;
+min-height:100vh;
 
 display:flex;
-align-items:center;
-justify-content:center;
+flex-direction:column;
+justify-content:space-between;
 
-padding:80px 5%;
+padding:130px 5% 35px;
 
-background:#0c0c0c;
+overflow:hidden;
 
-border-top:
-1px solid rgba(255,255,255,.08);
+background:
+radial-gradient(
+circle at 50% 42%,
+rgba(255,101,0,.14),
+transparent 33%
+),
+#0c0c0c;
+
+border-top:1px solid rgba(255,255,255,.08);
+}
+
+.contact-grid{
+position:absolute;
+inset:0;
+opacity:.08;
+
+background-image:
+linear-gradient(
+rgba(255,255,255,.1) 1px,
+transparent 1px
+),
+linear-gradient(
+90deg,
+rgba(255,255,255,.1) 1px,
+transparent 1px
+);
+
+background-size:80px 80px;
+
+mask-image:
+linear-gradient(
+to bottom,
+black,
+transparent 80%
+);
+
+pointer-events:none;
+}
+
+.contact-content{
+position:relative;
+z-index:5;
+
+max-width:1500px;
+width:100%;
+
+margin:auto;
 
 text-align:center;
 }
 
-.contact-preview h2{
+.contact-eyebrow{
+margin-bottom:30px;
+
+color:#ff6500;
+
+font-size:10px;
+font-weight:500;
+letter-spacing:6px;
+
+text-transform:uppercase;
+}
+
+.contact-title{
 color:#f2f2f2;
 
 font-size:
-clamp(60px,12vw,190px);
+clamp(75px,12vw,190px);
 
 font-weight:900;
 
-line-height:.8;
+line-height:.78;
 letter-spacing:-.06em;
 
 text-transform:uppercase;
 }
 
-.contact-preview h2 span{
+.contact-title span{
+display:block;
 color:#ff6500;
+}
+
+.contact-copy{
+max-width:560px;
+
+margin:
+45px auto 0;
+
+color:#888;
+
+font-size:15px;
+font-weight:300;
+
+line-height:1.7;
+}
+
+.contact-main-button{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+
+gap:35px;
+
+margin-top:45px;
+
+padding:
+19px 31px;
+
+border:1px solid #ff6500;
+border-radius:100px;
+
+background:transparent;
+
+color:#f5f5f5;
+
+text-decoration:none;
+
+font-size:12px;
+font-weight:600;
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+transition:.4s;
+}
+
+.contact-main-button span:last-child{
+font-size:21px;
+transition:.4s;
+}
+
+.contact-main-button:hover{
+background:#ff6500;
+color:#0c0c0c;
+
+transform:translateY(-5px);
+
+box-shadow:
+0 15px 50px rgba(255,101,0,.2);
+}
+
+.contact-main-button:hover span:last-child{
+transform:translate(5px,-5px);
+}
+
+
+/* ==================================================
+   SOCIAL LINKS
+================================================== */
+
+.social-area{
+position:relative;
+z-index:5;
+
+width:100%;
+max-width:1500px;
+
+margin:
+100px auto 0;
+
+border-top:
+1px solid rgba(255,255,255,.12);
+}
+
+.social-link{
+position:relative;
+
+display:grid;
+
+grid-template-columns:
+70px 1fr auto;
+
+align-items:center;
+
+gap:25px;
+
+min-height:95px;
+
+border-bottom:
+1px solid rgba(255,255,255,.12);
+
+color:#f2f2f2;
+
+text-decoration:none;
+
+overflow:hidden;
+}
+
+.social-link::before{
+content:"";
+
+position:absolute;
+inset:0;
+
+background:#ff6500;
+
+transform:
+scaleX(0);
+
+transform-origin:right;
+
+transition:
+transform .45s
+cubic-bezier(.77,0,.18,1);
+
+z-index:0;
+}
+
+.social-link:hover::before{
+transform:scaleX(1);
+transform-origin:left;
+}
+
+.social-link > *{
+position:relative;
+z-index:2;
+}
+
+.social-number{
+color:#666;
+
+font-size:9px;
+letter-spacing:2px;
+
+transition:.35s;
+}
+
+.social-name{
+font-size:
+clamp(25px,3vw,48px);
+
+font-weight:600;
+
+letter-spacing:-.02em;
+
+text-transform:uppercase;
+
+transition:.35s;
+}
+
+.social-arrow{
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:45px;
+height:45px;
+
+border:
+1px solid rgba(255,255,255,.18);
+
+border-radius:50%;
+
+font-size:18px;
+
+transition:.4s;
+}
+
+.social-link:hover{
+color:#0c0c0c;
+}
+
+.social-link:hover .social-number{
+color:
+rgba(0,0,0,.55);
+}
+
+.social-link:hover .social-name{
+transform:
+translateX(10px);
+}
+
+.social-link:hover .social-arrow{
+background:#0c0c0c;
+border-color:#0c0c0c;
+color:#ff6500;
+
+transform:rotate(45deg);
+}
+
+
+/* ==================================================
+   FINAL FOOTER
+================================================== */
+
+.footer{
+position:relative;
+z-index:5;
+
+width:100%;
+max-width:1500px;
+
+margin:
+70px auto 0;
+
+padding-top:25px;
+
+display:flex;
+align-items:center;
+justify-content:space-between;
+
+gap:30px;
+
+border-top:
+1px solid rgba(255,255,255,.08);
+}
+
+.footer-copyright{
+color:#666;
+
+font-size:9px;
+font-weight:400;
+letter-spacing:2px;
+
+text-transform:uppercase;
+}
+
+.footer-copyright span{
+color:#aaa;
+}
+
+.back-top{
+display:inline-flex;
+align-items:center;
+
+gap:15px;
+
+color:#777;
+
+text-decoration:none;
+
+font-size:9px;
+letter-spacing:2px;
+
+text-transform:uppercase;
+
+transition:.3s;
+}
+
+.back-top-arrow{
+display:flex;
+align-items:center;
+justify-content:center;
+
+width:35px;
+height:35px;
+
+border:
+1px solid rgba(255,255,255,.15);
+
+border-radius:50%;
+
+color:#ff6500;
+
+transition:.3s;
+}
+
+.back-top:hover{
+color:#f5f5f5;
+}
+
+.back-top:hover .back-top-arrow{
+background:#ff6500;
+color:#0c0c0c;
+
+transform:translateY(-4px);
 }
 
 
@@ -1774,7 +1758,6 @@ transform:translateY(0);
 
 from{
 opacity:0;
-
 transform:
 translateX(-50%)
 translateY(60px);
@@ -1782,7 +1765,6 @@ translateY(60px);
 
 to{
 opacity:1;
-
 transform:
 translateX(-50%)
 translateY(0);
@@ -1866,11 +1848,8 @@ font-size:9px;
 
 .hero-name{
 top:19%;
-
 transform:translateX(-50%);
-
 flex-direction:column;
-
 font-size:17vw;
 line-height:.73;
 }
@@ -1891,28 +1870,24 @@ transform:translateX(7vw);
 .portrait-wrapper{
 width:min(78vw,390px);
 height:54vh;
-
 bottom:42px;
 }
 
 .orbit{
 width:330px;
 height:330px;
-
 top:60%;
 }
 
 .hero-glow{
 width:500px;
 height:500px;
-
 top:60%;
 }
 
 .hero-left{
 left:20px;
 bottom:83px;
-
 width:60%;
 }
 
@@ -1941,9 +1916,7 @@ display:none;
 .cta{
 width:52px;
 height:52px;
-
 padding:0;
-
 justify-content:center;
 }
 
@@ -1959,14 +1932,11 @@ display:none;
 /* SHOWCASE */
 
 .showcase{
-padding:
-90px 0 100px;
+padding:90px 0 100px;
 }
 
 .showcase-heading{
-width:
-calc(100% - 40px);
-
+width:calc(100% - 40px);
 margin-bottom:45px;
 }
 
@@ -1982,13 +1952,11 @@ margin-bottom:10px;
 .showcase-card{
 width:300px;
 height:195px;
-
 border-radius:17px;
 }
 
 .card-overlay{
 opacity:1;
-
 padding:18px;
 
 background:
@@ -2003,8 +1971,7 @@ font-size:17px;
 }
 
 .showcase-bottom{
-width:
-calc(100% - 40px);
+width:calc(100% - 40px);
 }
 
 
@@ -2012,9 +1979,7 @@ calc(100% - 40px);
 
 .about-section{
 min-height:900px;
-
-padding:
-110px 20px;
+padding:110px 20px;
 }
 
 .about-title{
@@ -2063,19 +2028,14 @@ right:5%;
 /* SERVICES */
 
 .services-section{
-padding:
-90px 20px 70px;
-
-border-radius:
-38px 38px 0 0;
+padding:90px 20px 70px;
+border-radius:38px 38px 0 0;
 }
 
 .services-top{
 margin-bottom:55px;
-
 flex-direction:column;
 align-items:flex-start;
-
 gap:30px;
 }
 
@@ -2090,7 +2050,6 @@ max-width:400px;
 
 .service-row{
 min-height:auto;
-
 padding:35px 0;
 
 grid-template-columns:
@@ -2100,28 +2059,23 @@ gap:12px;
 }
 
 .service-name{
-font-size:
-clamp(28px,8vw,42px);
+font-size:clamp(28px,8vw,42px);
 }
 
 .service-description{
 grid-column:2 / 4;
-
 margin-top:8px;
-
 max-width:360px;
 }
 
 .service-arrow{
 width:42px;
 height:42px;
-
 font-size:17px;
 }
 
 .services-footer{
 margin-top:45px;
-
 flex-direction:column;
 align-items:flex-start;
 }
@@ -2130,11 +2084,8 @@ align-items:flex-start;
 /* PROJECTS */
 
 .projects-section{
-padding:
-90px 20px 120px;
-
-border-radius:
-38px 38px 0 0;
+padding:90px 20px 120px;
+border-radius:38px 38px 0 0;
 }
 
 .projects-header{
@@ -2152,30 +2103,21 @@ max-width:400px;
 
 .project-stack-card{
 position:relative !important;
-
 top:auto !important;
-
 height:auto;
-
 min-height:700px;
-
 margin-bottom:30px;
-
 grid-template-columns:1fr;
-
 border-radius:25px;
 }
 
 .project-info{
 min-height:390px;
-
-padding:
-30px 25px;
+padding:30px 25px;
 }
 
 .project-title{
-font-size:
-clamp(38px,11vw,60px);
+font-size:clamp(38px,11vw,60px);
 }
 
 .project-summary{
@@ -2189,6 +2131,56 @@ height:340px;
 .projects-end{
 flex-direction:column;
 align-items:flex-start;
+}
+
+
+/* CONTACT */
+
+.contact-section{
+min-height:auto;
+padding:100px 20px 30px;
+}
+
+.contact-title{
+font-size:18vw;
+}
+
+.contact-copy{
+margin-top:35px;
+font-size:14px;
+}
+
+.contact-main-button{
+margin-top:35px;
+padding:16px 23px;
+font-size:10px;
+}
+
+.social-area{
+margin-top:75px;
+}
+
+.social-link{
+grid-template-columns:35px 1fr 40px;
+gap:10px;
+min-height:80px;
+}
+
+.social-name{
+font-size:26px;
+}
+
+.social-arrow{
+width:38px;
+height:38px;
+font-size:15px;
+}
+
+.footer{
+margin-top:55px;
+flex-direction:column;
+align-items:flex-start;
+gap:20px;
 }
 
 }
@@ -2229,6 +2221,10 @@ font-size:16px;
 height:280px;
 }
 
+.contact-title{
+font-size:19vw;
+}
+
 }
 
 </style>
@@ -2239,7 +2235,7 @@ height:280px;
 
 
 <!-- ==================================================
-     NAVIGATION
+     NAVBAR
 ================================================== -->
 
 <nav class="navbar">
@@ -2251,21 +2247,10 @@ PRATHAM TEMKAR
 
 <div class="nav-links">
 
-<a href="#about">
-About
-</a>
-
-<a href="#services">
-Services
-</a>
-
-<a href="#projects">
-Projects
-</a>
-
-<a href="#contact">
-Contact
-</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 
 </div>
 
@@ -2280,7 +2265,6 @@ Contact
 <section class="hero" id="home">
 
 <div class="hero-glow"></div>
-
 <div class="orbit"></div>
 
 
@@ -2342,10 +2326,7 @@ AVAILABLE FOR PROJECTS
 </div>
 
 
-<a
-href="#contact"
-class="cta"
->
+<a href="#contact" class="cta">
 
 <span class="cta-text">
 LET'S WORK TOGETHER
@@ -2369,50 +2350,37 @@ SCROLL TO EXPLORE ↓
 
 <div class="hero-strip-track">
 
-
 <div class="strip-copy">
-
 <span>Shopify Development</span><b>•</b>
 <span>Custom Sections</span><b>•</b>
 <span>Store Design</span><b>•</b>
 <span>Digital Marketing</span><b>•</b>
 <span>Landing Pages</span><b>•</b>
-
 </div>
 
-
 <div class="strip-copy">
-
 <span>Shopify Development</span><b>•</b>
 <span>Custom Sections</span><b>•</b>
 <span>Store Design</span><b>•</b>
 <span>Digital Marketing</span><b>•</b>
 <span>Landing Pages</span><b>•</b>
-
 </div>
 
-
 <div class="strip-copy">
-
 <span>Shopify Development</span><b>•</b>
 <span>Custom Sections</span><b>•</b>
 <span>Store Design</span><b>•</b>
 <span>Digital Marketing</span><b>•</b>
 <span>Landing Pages</span><b>•</b>
-
 </div>
 
-
 <div class="strip-copy">
-
 <span>Shopify Development</span><b>•</b>
 <span>Custom Sections</span><b>•</b>
 <span>Store Design</span><b>•</b>
 <span>Digital Marketing</span><b>•</b>
 <span>Landing Pages</span><b>•</b>
-
 </div>
-
 
 </div>
 
@@ -2423,13 +2391,10 @@ SCROLL TO EXPLORE ↓
 
 
 <!-- ==================================================
-     MOVING SHOWCASE
+     SHOWCASE
 ================================================== -->
 
-<section
-class="showcase"
-id="projects-preview"
->
+<section class="showcase" id="projects-preview">
 
 <div class="showcase-heading">
 
@@ -2440,330 +2405,134 @@ SELECTED WORK
 </div>
 
 <h2 class="showcase-title">
-
 BUILDING DIGITAL
-
-<span>
-EXPERIENCES.
-</span>
-
+<span>EXPERIENCES.</span>
 </h2>
 
 </div>
 
-
 <p class="showcase-description">
-
 A growing collection of Shopify development,
 e-commerce design and digital projects.
-
 </p>
 
 </div>
 
 
-
 <!-- ROW ONE -->
 
-<div
-class="project-row"
-id="rowOne"
->
-
+<div class="project-row" id="rowOne">
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Shopify
+<div class="card-type">Shopify</div>
+<div class="card-title">E-commerce Experience</div>
 </div>
-
-<div class="card-title">
-E-commerce Experience
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Development
+<div class="card-type">Development</div>
+<div class="card-title">Custom Store</div>
 </div>
-
-<div class="card-title">
-Custom Store
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-UI / UX
+<div class="card-type">UI / UX</div>
+<div class="card-title">Modern Commerce</div>
 </div>
-
-<div class="card-title">
-Modern Commerce
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Shopify
+<div class="card-type">Shopify</div>
+<div class="card-title">Store Experience</div>
 </div>
-
-<div class="card-title">
-Store Experience
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Digital
+<div class="card-type">Digital</div>
+<div class="card-title">Brand Experience</div>
 </div>
-
-<div class="card-title">
-Brand Experience
-</div>
-
-</div>
-
-</div>
-
-
-<!-- DUPLICATES -->
-
-<div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
-alt="Project"
->
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" alt="Project">
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" alt="Project">
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" alt="Project">
 </div>
 
-
 </div>
-
 
 
 <!-- ROW TWO -->
 
-<div
-class="project-row"
-id="rowTwo"
->
-
+<div class="project-row" id="rowTwo">
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-E-commerce
+<div class="card-type">E-commerce</div>
+<div class="card-title">Conversion Design</div>
 </div>
-
-<div class="card-title">
-Conversion Design
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Shopify
+<div class="card-type">Shopify</div>
+<div class="card-title">Product Experience</div>
 </div>
-
-<div class="card-title">
-Product Experience
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Design
+<div class="card-type">Design</div>
+<div class="card-title">Landing Experience</div>
 </div>
-
-<div class="card-title">
-Landing Experience
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Digital
+<div class="card-type">Digital</div>
+<div class="card-title">Interactive Website</div>
 </div>
-
-<div class="card-title">
-Interactive Website
 </div>
-
-</div>
-
-</div>
-
 
 <div class="showcase-card">
-
-<img
-src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
-alt="Project"
->
-
+<img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" alt="Project">
 <div class="card-overlay">
-
-<div class="card-type">
-Development
+<div class="card-type">Development</div>
+<div class="card-title">Web Experience</div>
 </div>
-
-<div class="card-title">
-Web Experience
-</div>
-
-</div>
-
-</div>
-
-
-<!-- DUPLICATES -->
-
-<div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
-alt="Project"
->
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" alt="Project">
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" alt="Project">
 </div>
 
 <div class="showcase-card">
-<img
-src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
-alt="Project"
->
+<img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" alt="Project">
 </div>
-
 
 </div>
 
@@ -2788,75 +2557,34 @@ KEEP SCROLLING ↓
      ABOUT
 ================================================== -->
 
-<section
-class="about-section"
-id="about"
->
-
+<section class="about-section" id="about">
 
 <div class="about-decoration code-card">
-
-<span>
-&lt;/&gt;
-</span>
-
-<small>
-DEVELOPMENT
-</small>
-
+<span>&lt;/&gt;</span>
+<small>DEVELOPMENT</small>
 </div>
-
 
 <div class="about-decoration shopify-card">
-
-<span>
-S
-</span>
-
-<small>
-SHOPIFY
-</small>
-
+<span>S</span>
+<small>SHOPIFY</small>
 </div>
-
 
 <div class="about-decoration marketing-card">
-
-<span>
-↗
-</span>
-
-<small>
-GROWTH
-</small>
-
+<span>↗</span>
+<small>GROWTH</small>
 </div>
-
 
 <div class="about-decoration pixel-card">
 
 <div class="pixel-grid">
-
-<i></i>
-<i></i>
-<i></i>
-
-<i></i>
-<i></i>
-<i></i>
-
-<i></i>
-<i></i>
-<i></i>
-
+<i></i><i></i><i></i>
+<i></i><i></i><i></i>
+<i></i><i></i><i></i>
 </div>
 
-<small>
-DIGITAL
-</small>
+<small>DIGITAL</small>
 
 </div>
-
 
 
 <div class="about-content">
@@ -2865,71 +2593,32 @@ DIGITAL
 GET TO KNOW ME
 </div>
 
-
 <h2 class="about-title">
-
-ABOUT
-
-<span>
-ME
-</span>
-
+ABOUT <span>ME</span>
 </h2>
 
-
-<p
-class="about-text"
-id="aboutText"
->
-
+<p class="about-text" id="aboutText">
 I'm Pratham Temkar, a Shopify developer focused
 on building modern, responsive and engaging
 e-commerce experiences. Alongside development,
 I'm expanding my skills in Digital Marketing
 and AI to understand not only how a store looks
 and works, but how it can grow.
-
 </p>
 
-
 <div class="about-tags">
-
-<span>
-SHOPIFY
-</span>
-
-<span>
-WEB DEVELOPMENT
-</span>
-
-<span>
-DIGITAL MARKETING
-</span>
-
-<span>
-AI
-</span>
-
+<span>SHOPIFY</span>
+<span>WEB DEVELOPMENT</span>
+<span>DIGITAL MARKETING</span>
+<span>AI</span>
 </div>
 
-
-<a
-href="#contact"
-class="about-button"
->
-
-<span>
-LET'S CONNECT
-</span>
-
-<span>
-↗
-</span>
-
+<a href="#contact" class="about-button">
+<span>LET'S CONNECT</span>
+<span>↗</span>
 </a>
 
 </div>
-
 
 <div class="about-number">
 02
@@ -2943,10 +2632,7 @@ LET'S CONNECT
      SERVICES
 ================================================== -->
 
-<section
-class="services-section"
-id="services"
->
+<section class="services-section" id="services">
 
 <div class="services-top">
 
@@ -2962,17 +2648,13 @@ SERVICES
 
 </div>
 
-
 <p class="services-intro">
-
 Shopify development focused on creating
 modern, responsive and engaging online
 store experiences.
-
 </p>
 
 </div>
-
 
 
 <div class="services-list">
@@ -2980,162 +2662,102 @@ store experiences.
 
 <div class="service-row">
 
-<div class="service-number">
-01
-</div>
+<div class="service-number">01</div>
 
 <div class="service-name">
-
 Shopify Store
-
-<span>
-Development
-</span>
-
+<span>Development</span>
 </div>
 
 <div class="service-description">
-
 Building responsive Shopify stores
 with clean layouts and a smooth
 shopping experience.
-
 </div>
 
-<div class="service-arrow">
-↗
-</div>
+<div class="service-arrow">↗</div>
 
 </div>
-
 
 
 <div class="service-row">
 
-<div class="service-number">
-02
-</div>
+<div class="service-number">02</div>
 
 <div class="service-name">
-
 Custom Shopify
-
-<span>
-Sections
-</span>
-
+<span>Sections</span>
 </div>
 
 <div class="service-description">
-
 Custom sections designed to give
 Shopify stores more flexibility and
 stronger visual presentation.
-
 </div>
 
-<div class="service-arrow">
-↗
-</div>
+<div class="service-arrow">↗</div>
 
 </div>
-
 
 
 <div class="service-row">
 
-<div class="service-number">
-03
-</div>
+<div class="service-number">03</div>
 
 <div class="service-name">
-
 Theme
-
-<span>
-Customization
-</span>
-
+<span>Customization</span>
 </div>
 
 <div class="service-description">
-
 Customizing Shopify themes to better
 match a brand's identity, products
 and customer experience.
-
 </div>
 
-<div class="service-arrow">
-↗
-</div>
+<div class="service-arrow">↗</div>
 
 </div>
-
 
 
 <div class="service-row">
 
-<div class="service-number">
-04
-</div>
+<div class="service-number">04</div>
 
 <div class="service-name">
-
 Landing Page
-
-<span>
-Development
-</span>
-
+<span>Development</span>
 </div>
 
 <div class="service-description">
-
 Creating focused landing pages for
 products, campaigns and brand
 storytelling.
-
 </div>
 
-<div class="service-arrow">
-↗
-</div>
+<div class="service-arrow">↗</div>
 
 </div>
-
 
 
 <div class="service-row">
 
-<div class="service-number">
-05
-</div>
+<div class="service-number">05</div>
 
 <div class="service-name">
-
 Shopify Store
-
-<span>
-Improvements
-</span>
-
+<span>Improvements</span>
 </div>
 
 <div class="service-description">
-
 Improving existing store layouts,
 sections and overall visual
 experience.
-
 </div>
 
-<div class="service-arrow">
-↗
-</div>
+<div class="service-arrow">↗</div>
 
 </div>
-
 
 </div>
 
@@ -3157,13 +2779,10 @@ LET'S WORK TOGETHER ↗
 
 
 <!-- ==================================================
-     PROJECTS / MY WORK
+     PROJECTS
 ================================================== -->
 
-<section
-class="projects-section"
-id="projects"
->
+<section class="projects-section" id="projects">
 
 <div class="projects-header">
 
@@ -3174,37 +2793,26 @@ MY WORK
 </div>
 
 <h2 class="projects-heading">
-
 SELECTED
-
-<span>
-PROJECTS
-</span>
-
+<span>PROJECTS</span>
 </h2>
 
 </div>
 
-
 <p class="projects-header-text">
-
 A closer look at Shopify and digital
-experiences I've worked on. These cards
-are temporary while the final project
-content is being prepared.
-
+experiences I've worked on. Project details
+and final visuals will be added during the
+next refinement stage.
 </p>
 
 </div>
 
 
-
 <div class="projects-stack">
 
 
-<!-- ==================================================
-     PROJECT 01
-================================================== -->
+<!-- PROJECT 01 -->
 
 <article class="project-stack-card">
 
@@ -3226,32 +2834,20 @@ SHOPIFY
 <div class="project-main">
 
 <h3 class="project-title">
-
 FASHION
-
-<span>
-STORE
-</span>
-
+<span>STORE</span>
 </h3>
 
-
 <p class="project-summary">
-
-A modern Shopify storefront concept
-focused on strong product presentation,
-clean navigation and a smooth shopping
-experience.
-
+A modern Shopify storefront concept focused
+on strong product presentation, clean navigation
+and a smooth shopping experience.
 </p>
 
-
 <div class="project-tags">
-
 <span>SHOPIFY</span>
 <span>LIQUID</span>
 <span>RESPONSIVE</span>
-
 </div>
 
 </div>
@@ -3263,11 +2859,7 @@ experience.
 PROJECT PREVIEW
 </div>
 
-<a
-href="#"
-class="project-link"
-aria-label="View project"
->
+<a href="#" class="project-link" aria-label="View project">
 ↗
 </a>
 
@@ -3284,7 +2876,7 @@ TEMPORARY VISUAL
 
 <img
 src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
-alt="Temporary fashion Shopify project preview"
+alt="Temporary Shopify project preview"
 >
 
 </div>
@@ -3293,9 +2885,7 @@ alt="Temporary fashion Shopify project preview"
 
 
 
-<!-- ==================================================
-     PROJECT 02
-================================================== -->
+<!-- PROJECT 02 -->
 
 <article class="project-stack-card">
 
@@ -3317,31 +2907,20 @@ CUSTOM DEVELOPMENT
 <div class="project-main">
 
 <h3 class="project-title">
-
 CUSTOM
-
-<span>
-SECTIONS
-</span>
-
+<span>SECTIONS</span>
 </h3>
 
-
 <p class="project-summary">
-
 A custom Shopify section concept designed
 to give brands more control over content,
 visual storytelling and product presentation.
-
 </p>
 
-
 <div class="project-tags">
-
 <span>SHOPIFY</span>
 <span>LIQUID</span>
 <span>HTML / CSS</span>
-
 </div>
 
 </div>
@@ -3353,11 +2932,7 @@ visual storytelling and product presentation.
 PROJECT PREVIEW
 </div>
 
-<a
-href="#"
-class="project-link"
-aria-label="View project"
->
+<a href="#" class="project-link" aria-label="View project">
 ↗
 </a>
 
@@ -3374,7 +2949,7 @@ TEMPORARY VISUAL
 
 <img
 src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
-alt="Temporary custom Shopify section preview"
+alt="Temporary custom section preview"
 >
 
 </div>
@@ -3383,9 +2958,7 @@ alt="Temporary custom Shopify section preview"
 
 
 
-<!-- ==================================================
-     PROJECT 03
-================================================== -->
+<!-- PROJECT 03 -->
 
 <article class="project-stack-card">
 
@@ -3407,31 +2980,20 @@ E-COMMERCE
 <div class="project-main">
 
 <h3 class="project-title">
-
 PRODUCT
-
-<span>
-EXPERIENCE
-</span>
-
+<span>EXPERIENCE</span>
 </h3>
 
-
 <p class="project-summary">
-
-An e-commerce experience concept built
-around clear product information, modern
-visual hierarchy and engaging interaction.
-
+An e-commerce experience concept built around
+clear product information, modern visual hierarchy
+and engaging interaction.
 </p>
 
-
 <div class="project-tags">
-
 <span>E-COMMERCE</span>
 <span>UI</span>
 <span>SHOPIFY</span>
-
 </div>
 
 </div>
@@ -3443,11 +3005,7 @@ visual hierarchy and engaging interaction.
 PROJECT PREVIEW
 </div>
 
-<a
-href="#"
-class="project-link"
-aria-label="View project"
->
+<a href="#" class="project-link" aria-label="View project">
 ↗
 </a>
 
@@ -3471,9 +3029,7 @@ alt="Temporary ecommerce project preview"
 
 </article>
 
-
 </div>
-
 
 
 <div class="projects-end">
@@ -3484,7 +3040,7 @@ MORE WORK WILL BE ADDED AS THE PORTFOLIO
 </p>
 
 <div class="scroll-indicator">
-NEXT — CONTACT ↓
+LET'S CONNECT ↓
 </div>
 
 </div>
@@ -3494,23 +3050,195 @@ NEXT — CONTACT ↓
 
 
 <!-- ==================================================
-     CONTACT PREVIEW
+     CONTACT + SOCIALS + FOOTER
 ================================================== -->
 
-<section
-class="contact-preview"
-id="contact"
->
+<section class="contact-section" id="contact">
 
-<h2>
+<div class="contact-grid"></div>
 
-LET'S BUILD
+
+<div class="contact-content">
+
+<div class="contact-eyebrow">
+HAVE A PROJECT OR IDEA?
+</div>
+
+
+<h2 class="contact-title">
+
+LET'S WORK
 
 <span>
-SOMETHING.
+TOGETHER.
 </span>
 
 </h2>
+
+
+<p class="contact-copy">
+
+Looking for a Shopify developer or want to
+discuss an e-commerce project? Let's connect
+and see what we can build together.
+
+</p>
+
+
+<!--
+Replace # with your email / contact link later
+-->
+
+<a href="#" class="contact-main-button">
+
+<span>
+START A CONVERSATION
+</span>
+
+<span>
+↗
+</span>
+
+</a>
+
+</div>
+
+
+
+<!-- SOCIALS -->
+
+<div class="social-area">
+
+
+<!-- INSTAGRAM -->
+
+<a
+href="#"
+class="social-link"
+>
+
+<span class="social-number">
+01
+</span>
+
+<span class="social-name">
+Instagram
+</span>
+
+<span class="social-arrow">
+↗
+</span>
+
+</a>
+
+
+
+<!-- LINKEDIN -->
+
+<a
+href="#"
+class="social-link"
+>
+
+<span class="social-number">
+02
+</span>
+
+<span class="social-name">
+LinkedIn
+</span>
+
+<span class="social-arrow">
+↗
+</span>
+
+</a>
+
+
+
+<!-- GITHUB -->
+
+<a
+href="#"
+class="social-link"
+>
+
+<span class="social-number">
+03
+</span>
+
+<span class="social-name">
+GitHub
+</span>
+
+<span class="social-arrow">
+↗
+</span>
+
+</a>
+
+
+
+<!-- EMAIL -->
+
+<a
+href="#"
+class="social-link"
+>
+
+<span class="social-number">
+04
+</span>
+
+<span class="social-name">
+Email
+</span>
+
+<span class="social-arrow">
+↗
+</span>
+
+</a>
+
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+
+<div class="footer-copyright">
+
+© 2026
+
+<span>
+PRATHAM TEMKAR
+</span>
+
+— ALL RIGHTS RESERVED
+
+</div>
+
+
+<a
+href="#home"
+class="back-top"
+>
+
+BACK TO TOP
+
+<span class="back-top-arrow">
+↑
+</span>
+
+</a>
+
+
+</footer>
+
 
 </section>
 
@@ -3539,38 +3267,26 @@ document.querySelector(".showcase");
 
 function moveProjectRows(){
 
-if(
-!rowOne ||
-!rowTwo ||
-!showcase
-){
+if(!rowOne || !rowTwo || !showcase){
 return;
 }
-
 
 const rect =
 showcase.getBoundingClientRect();
 
-
 const progress =
-window.innerHeight -
-rect.top;
-
+window.innerHeight - rect.top;
 
 const movement =
 progress * .22;
 
 
 rowOne.style.transform =
-`translate3d(${
--650 + movement
-}px,0,0)`;
+`translate3d(${-650 + movement}px,0,0)`;
 
 
 rowTwo.style.transform =
-`translate3d(${
--850 - movement
-}px,0,0)`;
+`translate3d(${-850 - movement}px,0,0)`;
 
 }
 
@@ -3581,10 +3297,7 @@ rowTwo.style.transform =
 ================================================== */
 
 const aboutText =
-document.getElementById(
-"aboutText"
-);
-
+document.getElementById("aboutText");
 
 let aboutWords = [];
 
@@ -3595,15 +3308,10 @@ const originalText =
 aboutText
 .textContent
 .trim()
-.replace(
-/\s+/g,
-" "
-);
-
+.replace(/\s+/g," ");
 
 const words =
 originalText.split(" ");
-
 
 aboutText.innerHTML =
 words
@@ -3613,29 +3321,20 @@ word =>
 )
 .join(" ");
 
-
 aboutWords =
-document.querySelectorAll(
-".about-word"
-);
+document.querySelectorAll(".about-word");
 
 }
 
 
 function revealAboutText(){
 
-if(
-!aboutText ||
-!aboutWords.length
-){
+if(!aboutText || !aboutWords.length){
 return;
 }
 
-
 const rect =
-aboutText
-.getBoundingClientRect();
-
+aboutText.getBoundingClientRect();
 
 let progress =
 (
@@ -3647,43 +3346,28 @@ rect.top
 window.innerHeight * .65
 );
 
-
 progress =
 Math.max(
 0,
-Math.min(
-1,
-progress
-)
+Math.min(1,progress)
 );
-
 
 const visibleWords =
 Math.floor(
-progress *
-aboutWords.length
+progress * aboutWords.length
 );
 
 
 aboutWords.forEach(
 (word,index) => {
 
-if(
-index <=
-visibleWords
-){
+if(index <= visibleWords){
 
-word.classList.add(
-"active"
-);
+word.classList.add("active");
 
-}
+}else{
 
-else{
-
-word.classList.remove(
-"active"
-);
+word.classList.remove("active");
 
 }
 
@@ -3695,7 +3379,7 @@ word.classList.remove(
 
 
 /* ==================================================
-   STACKING PROJECT SCALE
+   PROJECT STACK SCALE
 ================================================== */
 
 const stackCards =
@@ -3706,9 +3390,8 @@ document.querySelectorAll(
 
 function animateProjectCards(){
 
-if(
-window.innerWidth <= 768
-){
+if(window.innerWidth <= 768){
+
 stackCards.forEach(
 card => {
 card.style.transform =
@@ -3726,35 +3409,20 @@ stackCards.forEach(
 const rect =
 card.getBoundingClientRect();
 
-
 const stickyTop =
 35 + index * 20;
 
-
-/*
-Once a card reaches its sticky
-position, gradually scale it
-slightly as the next card arrives.
-*/
-
 const distance =
-stickyTop -
-rect.top;
-
+stickyTop - rect.top;
 
 let progress =
 distance / 500;
 
-
 progress =
 Math.max(
 0,
-Math.min(
-1,
-progress
-)
+Math.min(1,progress)
 );
-
 
 const minimumScale =
 1 -
@@ -3764,12 +3432,10 @@ const minimumScale =
 .012
 );
 
-
 const scale =
 1 -
 progress *
 (1 - minimumScale);
-
 
 card.style.transform =
 `scale(${scale})`;
@@ -3832,7 +3498,6 @@ updateScrollEffects();
 
 
 </script>
-
 
 </body>
 </html>
