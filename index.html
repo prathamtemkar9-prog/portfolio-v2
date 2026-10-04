@@ -16,9 +16,9 @@
 
   <style>
 
-    /* =========================
+    /* ==================================================
        GLOBAL
-    ========================= */
+    ================================================== */
 
     * {
       margin: 0;
@@ -31,21 +31,25 @@
     }
 
     body {
-      background: #090909;
+      background: #0c0c0c;
       color: #f5f5f5;
       font-family: "Kanit", sans-serif;
       overflow-x: hidden;
     }
 
     ::selection {
-      background: #ff6a00;
-      color: #090909;
+      background: #ff6500;
+      color: #0c0c0c;
+    }
+
+    img {
+      display: block;
     }
 
 
-    /* =========================
+    /* ==================================================
        NAVBAR
-    ========================= */
+    ================================================== */
 
     .navbar {
       position: absolute;
@@ -53,13 +57,14 @@
       left: 0;
 
       width: 100%;
-      z-index: 100;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
 
       padding: 28px 5%;
+
+      z-index: 100;
     }
 
     .logo {
@@ -67,31 +72,30 @@
       align-items: center;
       gap: 11px;
 
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
+
       letter-spacing: 2px;
 
       text-transform: uppercase;
     }
 
     .logo-dot {
-      width: 11px;
-      height: 11px;
+      width: 10px;
+      height: 10px;
 
       border-radius: 50%;
 
-      background: #ff6a00;
+      background: #ff6500;
 
       box-shadow:
-        0 0 8px rgba(255, 106, 0, 0.8),
-        0 0 20px rgba(255, 106, 0, 0.35);
+        0 0 10px rgba(255,101,0,.8),
+        0 0 25px rgba(255,101,0,.3);
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-
-      gap: clamp(22px, 3vw, 48px);
+      gap: clamp(22px,3vw,48px);
     }
 
     .nav-links a {
@@ -100,14 +104,15 @@
       color: #f5f5f5;
 
       text-decoration: none;
-      text-transform: uppercase;
 
       font-size: 12px;
       font-weight: 500;
 
       letter-spacing: 1.5px;
 
-      transition: 0.3s ease;
+      text-transform: uppercase;
+
+      transition: .3s;
     }
 
     .nav-links a::after {
@@ -121,13 +126,13 @@
       width: 0;
       height: 1px;
 
-      background: #ff6a00;
+      background: #ff6500;
 
-      transition: width 0.3s ease;
+      transition: .3s;
     }
 
     .nav-links a:hover {
-      color: #ff6a00;
+      color: #ff6500;
     }
 
     .nav-links a:hover::after {
@@ -135,37 +140,33 @@
     }
 
 
-    /* =========================
+    /* ==================================================
        HERO
-    ========================= */
+    ================================================== */
 
     .hero {
       position: relative;
 
       width: 100%;
       height: 100vh;
-      min-height: 720px;
+
+      min-height: 700px;
 
       overflow: hidden;
 
-      display: flex;
-      align-items: center;
-
-      padding: 90px 5% 60px;
-
       background:
         radial-gradient(
-          circle at 50% 55%,
-          rgba(255, 106, 0, 0.08),
-          transparent 34%
+          circle at 50% 52%,
+          rgba(255,101,0,.10),
+          transparent 35%
         ),
-        #090909;
+        #0c0c0c;
     }
 
 
-    /* =========================
-       BACKGROUND GLOW
-    ========================= */
+    /* ==================================================
+       HERO GLOW
+    ================================================== */
 
     .hero-glow {
       position: absolute;
@@ -174,51 +175,51 @@
       height: 750px;
 
       left: 50%;
-      top: 57%;
+      top: 55%;
 
-      transform: translate(-50%, -50%);
+      transform: translate(-50%,-50%);
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(255, 106, 0, 0.17) 0%,
-          rgba(255, 106, 0, 0.07) 30%,
-          rgba(255, 106, 0, 0.02) 50%,
+          rgba(255,101,0,.18),
+          rgba(255,101,0,.06) 35%,
           transparent 70%
         );
 
-      filter: blur(20px);
+      filter: blur(25px);
 
       pointer-events: none;
     }
 
 
-    /* =========================
-       ORANGE ORBIT
-    ========================= */
+    /* ==================================================
+       ORBIT
+    ================================================== */
 
     .orbit {
       position: absolute;
 
-      width: 480px;
-      height: 480px;
+      width: 500px;
+      height: 500px;
 
       left: 50%;
-      top: 58%;
+      top: 56%;
 
       transform:
-        translate(-50%, -50%)
+        translate(-50%,-50%)
         rotate(-13deg)
-        scaleY(0.30);
+        scaleY(.30);
 
-      border: 2px solid rgba(255, 106, 0, 0.65);
+      border:
+        2px solid rgba(255,101,0,.6);
+
       border-radius: 50%;
 
       box-shadow:
-        0 0 20px rgba(255, 106, 0, 0.25),
-        inset 0 0 20px rgba(255, 106, 0, 0.08);
+        0 0 25px rgba(255,101,0,.22);
 
       z-index: 2;
 
@@ -226,175 +227,112 @@
     }
 
 
-    /* =========================
-       BIG NAME
-    ========================= */
+    /* ==================================================
+       HUGE NAME
 
-    .big-name {
+       IMPORTANT:
+       PRATHAM and TEMKAR are positioned separately now.
+
+       This gives us MUCH more space in the middle.
+    ================================================== */
+
+    .hero-name {
       position: absolute;
 
-      left: 50%;
-      top: 45%;
+      left: 0;
+      top: 39%;
 
-      transform: translate(-50%, -50%);
+      transform: translateY(-50%);
 
       width: 100%;
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      z-index: 1;
 
-      /*
-       THIS CREATES THE SPACE BETWEEN
-       PRATHAM AND TEMKAR
-      */
-      gap: clamp(22px, 2.4vw, 50px);
-
-      font-size: clamp(80px, 12.2vw, 220px);
+      font-size: clamp(75px, 11.3vw, 205px);
 
       font-weight: 900;
 
-      line-height: 0.78;
+      line-height: .78;
 
-      letter-spacing: -0.045em;
+      letter-spacing: -.045em;
 
       text-transform: uppercase;
 
       white-space: nowrap;
 
-      z-index: 1;
-
       user-select: none;
 
-      animation: nameEnter 1s ease forwards;
+      pointer-events: none;
     }
 
-    .first-name {
+    .name-first {
+      position: absolute;
+
+      /*
+       Push PRATHAM toward LEFT
+      */
+      right: 52.8%;
+
       color: #eeeeee;
     }
 
-    .last-name {
-      color: #ff6a00;
-
-      text-shadow:
-        0 0 40px rgba(255, 106, 0, 0.08);
-    }
-
-
-    /* =========================
-       LEFT CONTENT
-    ========================= */
-
-    .hero-left {
+    .name-last {
       position: absolute;
 
-      left: 5%;
-      bottom: 17%;
+      /*
+       Push TEMKAR toward RIGHT
+      */
+      left: 52.8%;
 
-      z-index: 20;
+      color: #ff6500;
 
-      width: 28%;
-
-      animation: fadeUp 0.9s 0.25s ease both;
-    }
-
-    .hello {
-      margin-bottom: 13px;
-
-      color: #ff6a00;
-
-      font-size: 11px;
-      font-weight: 500;
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-    }
-
-    .role {
-      color: #f5f5f5;
-
-      font-size: clamp(20px, 1.75vw, 29px);
-
-      font-weight: 600;
-
-      line-height: 1.18;
-
-      letter-spacing: 3.5px;
-
-      text-transform: uppercase;
-    }
-
-    .description {
-      max-width: 380px;
-
-      margin-top: 18px;
-
-      color: #898989;
-
-      font-size: 14px;
-      font-weight: 300;
-
-      line-height: 1.7;
-
-      letter-spacing: 0.5px;
+      text-shadow:
+        0 0 45px rgba(255,101,0,.08);
     }
 
 
-    /* =========================
+    /* ==================================================
        PORTRAIT
-    ========================= */
+    ================================================== */
 
     .portrait-wrapper {
       position: absolute;
 
       left: 50%;
-      bottom: 41px;
+      bottom: 42px;
 
       transform: translateX(-50%);
 
-      width: clamp(340px, 31vw, 500px);
+      width: clamp(330px,30vw,500px);
+      height: 61vh;
 
-      height: 62vh;
-
-      max-height: 640px;
-      min-height: 500px;
-
-      z-index: 10;
+      max-height: 630px;
 
       overflow: hidden;
 
       border-radius:
-        240px 240px 28px 28px;
+        240px 240px 25px 25px;
+
+      z-index: 10;
 
       box-shadow:
-        0 0 90px rgba(255, 106, 0, 0.10);
+        0 0 100px rgba(255,101,0,.08);
 
       animation:
-        portraitEnter 1.1s 0.15s ease both;
+        portraitIn 1.1s ease both;
     }
 
     .portrait {
       width: 100%;
       height: 100%;
 
-      display: block;
-
       object-fit: cover;
-
-      /*
-       Moves your face slightly higher
-       inside the frame.
-      */
       object-position: center 18%;
 
       filter:
         contrast(1.04)
-        saturate(0.88);
+        saturate(.88);
     }
-
-
-    /* DARK FADE AT BOTTOM OF PHOTO */
 
     .portrait-wrapper::after {
       content: "";
@@ -405,28 +343,87 @@
       bottom: 0;
 
       width: 100%;
-      height: 26%;
+      height: 25%;
 
       background:
         linear-gradient(
-          to bottom,
           transparent,
-          rgba(9, 9, 9, 0.9)
+          rgba(12,12,12,.95)
         );
-
-      pointer-events: none;
     }
 
 
-    /* =========================
-       RIGHT CONTENT
-    ========================= */
+    /* ==================================================
+       LEFT HERO CONTENT
+    ================================================== */
+
+    .hero-left {
+      position: absolute;
+
+      left: 5%;
+      bottom: 16%;
+
+      width: 30%;
+
+      z-index: 20;
+
+      animation:
+        fadeUp .9s .2s ease both;
+    }
+
+    .hello {
+      margin-bottom: 12px;
+
+      color: #ff6500;
+
+      font-size: 10px;
+      font-weight: 500;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+    }
+
+    .role {
+      color: #f4f4f4;
+
+      font-size:
+        clamp(19px,1.7vw,28px);
+
+      font-weight: 600;
+
+      line-height: 1.2;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+    .description {
+      max-width: 360px;
+
+      margin-top: 18px;
+
+      color: #898989;
+
+      font-size: 13px;
+      font-weight: 300;
+
+      line-height: 1.7;
+
+      letter-spacing: .4px;
+    }
+
+
+    /* ==================================================
+       RIGHT HERO
+    ================================================== */
 
     .hero-right {
       position: absolute;
 
       right: 5%;
-      bottom: 17%;
+      bottom: 16%;
 
       z-index: 20;
 
@@ -435,7 +432,7 @@
       align-items: flex-end;
 
       animation:
-        fadeUp 0.9s 0.4s ease both;
+        fadeUp .9s .35s ease both;
     }
 
     .available {
@@ -448,7 +445,7 @@
 
       color: #999;
 
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 500;
 
       letter-spacing: 2px;
@@ -462,16 +459,16 @@
 
       border-radius: 50%;
 
-      background: #ff6a00;
+      background: #ff6500;
 
       box-shadow:
-        0 0 12px #ff6a00;
+        0 0 12px #ff6500;
     }
 
 
-    /* =========================
+    /* ==================================================
        CTA
-    ========================= */
+    ================================================== */
 
     .cta {
       display: inline-flex;
@@ -479,14 +476,14 @@
 
       gap: 22px;
 
-      padding: 16px 27px;
+      padding: 15px 27px;
 
       border:
-        1px solid rgba(255, 106, 0, 0.9);
+        1px solid #ff6500;
 
       border-radius: 50px;
 
-      color: #fff;
+      color: white;
 
       text-decoration: none;
 
@@ -497,45 +494,40 @@
 
       text-transform: uppercase;
 
-      transition:
-        background 0.35s ease,
-        color 0.35s ease,
-        box-shadow 0.35s ease,
-        transform 0.35s ease;
+      transition: .35s;
     }
 
     .cta-arrow {
-      font-size: 20px;
+      font-size: 19px;
 
-      transition:
-        transform 0.35s ease;
+      transition: .35s;
     }
 
     .cta:hover {
-      color: #090909;
+      background: #ff6500;
 
-      background: #ff6a00;
+      color: #0c0c0c;
 
       transform: translateY(-3px);
 
       box-shadow:
-        0 10px 40px rgba(255, 106, 0, 0.25);
+        0 10px 40px rgba(255,101,0,.25);
     }
 
     .cta:hover .cta-arrow {
-      transform: translate(4px, -4px);
+      transform: translate(4px,-4px);
     }
 
 
-    /* =========================
+    /* ==================================================
        SCROLL TEXT
-    ========================= */
+    ================================================== */
 
     .scroll-text {
       position: absolute;
 
       left: 50%;
-      bottom: 62px;
+      bottom: 63px;
 
       transform: translateX(-50%);
 
@@ -551,20 +543,20 @@
     }
 
 
-    /* =========================
-       MARQUEE
-    ========================= */
+    /* ==================================================
+       HERO BOTTOM STRIP
+    ================================================== */
 
-    .marquee-container {
+    .hero-strip {
       position: absolute;
 
-      left: 0;
       bottom: 0;
+      left: 0;
 
       width: 100%;
       height: 42px;
 
-      z-index: 50;
+      z-index: 40;
 
       display: flex;
       align-items: center;
@@ -572,51 +564,333 @@
       overflow: hidden;
 
       background:
-        rgba(9, 9, 9, 0.94);
+        rgba(12,12,12,.96);
 
       border-top:
-        1px solid rgba(255, 106, 0, 0.4);
+        1px solid rgba(255,101,0,.35);
     }
 
-    .marquee {
+    .hero-strip-track {
       display: flex;
 
       width: max-content;
 
       animation:
-        marqueeMove 24s linear infinite;
+        stripMove 22s linear infinite;
     }
 
-    .marquee-content {
+    .strip-copy {
       display: flex;
       align-items: center;
 
       white-space: nowrap;
     }
 
-    .marquee-content span {
-      color: #d6d6d6;
-
+    .strip-copy span {
       padding: 0 25px;
+
+      color: #ddd;
 
       font-size: 10px;
       font-weight: 500;
 
-      letter-spacing: 3.5px;
+      letter-spacing: 3px;
 
       text-transform: uppercase;
     }
 
-    .marquee-content i {
-      color: #ff6a00;
-
-      font-style: normal;
+    .strip-copy b {
+      color: #ff6500;
     }
 
 
-    /* =========================
+    /* ==================================================
+       SHOWCASE SECTION
+    ================================================== */
+
+    .showcase {
+      position: relative;
+
+      padding:
+        130px 0 150px;
+
+      background: #0c0c0c;
+
+      overflow: hidden;
+    }
+
+    .showcase-heading {
+      width: 90%;
+      max-width: 1500px;
+
+      margin:
+        0 auto 70px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .showcase-eyebrow {
+      margin-bottom: 12px;
+
+      color: #ff6500;
+
+      font-size: 11px;
+      font-weight: 500;
+
+      letter-spacing: 5px;
+
+      text-transform: uppercase;
+    }
+
+    .showcase-title {
+      max-width: 850px;
+
+      color: #f1f1f1;
+
+      font-size:
+        clamp(48px,7vw,110px);
+
+      font-weight: 900;
+
+      line-height: .82;
+
+      letter-spacing: -.04em;
+
+      text-transform: uppercase;
+    }
+
+    .showcase-title span {
+      color: #ff6500;
+    }
+
+    .showcase-description {
+      max-width: 320px;
+
+      color: #858585;
+
+      font-size: 14px;
+      font-weight: 300;
+
+      line-height: 1.6;
+    }
+
+
+    /* ==================================================
+       MOVING ROWS
+    ================================================== */
+
+    .project-row {
+      position: relative;
+
+      display: flex;
+
+      width: max-content;
+
+      gap: 14px;
+
+      margin-bottom: 14px;
+
+      will-change: transform;
+    }
+
+    .project-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .row-one {
+      /*
+       JS modifies transform
+      */
+      transform: translateX(-550px);
+    }
+
+    .row-two {
+      transform: translateX(-1100px);
+    }
+
+
+    /* ==================================================
+       PROJECT CARD
+    ================================================== */
+
+    .showcase-card {
+      position: relative;
+
+      width: 420px;
+      height: 270px;
+
+      flex-shrink: 0;
+
+      overflow: hidden;
+
+      border-radius: 22px;
+
+      background: #171717;
+
+      border:
+        1px solid rgba(255,255,255,.08);
+
+      transition:
+        transform .4s ease,
+        border-color .4s ease;
+    }
+
+    .showcase-card:hover {
+      transform: scale(.975);
+
+      border-color:
+        rgba(255,101,0,.55);
+    }
+
+    .showcase-card img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform .6s ease,
+        filter .6s ease;
+    }
+
+    .showcase-card:hover img {
+      transform: scale(1.04);
+
+      filter:
+        brightness(.65);
+    }
+
+
+    /* CARD OVERLAY */
+
+    .card-overlay {
+      position: absolute;
+
+      inset: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      padding: 25px;
+
+      opacity: 0;
+
+      background:
+        linear-gradient(
+          transparent 30%,
+          rgba(0,0,0,.88)
+        );
+
+      transition:
+        opacity .4s ease;
+    }
+
+    .showcase-card:hover .card-overlay {
+      opacity: 1;
+    }
+
+    .card-type {
+      margin-bottom: 5px;
+
+      color: #ff6500;
+
+      font-size: 9px;
+      font-weight: 500;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      color: white;
+
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+
+    /* ==================================================
+       SECTION BOTTOM
+    ================================================== */
+
+    .showcase-bottom {
+      width: 90%;
+      max-width: 1500px;
+
+      margin:
+        65px auto 0;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-top:
+        1px solid rgba(255,255,255,.12);
+
+      padding-top: 25px;
+    }
+
+    .showcase-bottom p {
+      color: #707070;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+    .scroll-indicator {
+      color: #ff6500;
+
+      font-size: 11px;
+
+      letter-spacing: 3px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ==================================================
+       TEMP NEXT SECTION
+
+       This lets us see where ABOUT will begin.
+    ================================================== */
+
+    .next-section {
+      min-height: 45vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #0c0c0c;
+
+      border-top:
+        1px solid rgba(255,255,255,.05);
+    }
+
+    .next-section h2 {
+      color: #1a1a1a;
+
+      font-size:
+        clamp(70px,14vw,220px);
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+    }
+
+
+    /* ==================================================
        ANIMATIONS
-    ========================= */
+    ================================================== */
 
     @keyframes fadeUp {
 
@@ -632,8 +906,7 @@
 
     }
 
-
-    @keyframes portraitEnter {
+    @keyframes portraitIn {
 
       from {
         opacity: 0;
@@ -653,27 +926,7 @@
 
     }
 
-
-    @keyframes nameEnter {
-
-      from {
-        opacity: 0;
-
-        transform:
-          translate(-50%, -45%);
-      }
-
-      to {
-        opacity: 1;
-
-        transform:
-          translate(-50%, -50%);
-      }
-
-    }
-
-
-    @keyframes marqueeMove {
+    @keyframes stripMove {
 
       from {
         transform: translateX(0);
@@ -686,58 +939,58 @@
     }
 
 
-    /* =========================
+    /* ==================================================
        TABLET
-    ========================= */
+    ================================================== */
 
-    @media (max-width: 1000px) {
+    @media(max-width:1000px) {
 
-      .big-name {
-        top: 38%;
+      .hero-name {
+        top: 34%;
 
-        font-size: 12.5vw;
+        font-size: 11vw;
+      }
 
-        gap: 22px;
+      .name-first {
+        right: 53%;
+      }
+
+      .name-last {
+        left: 53%;
       }
 
       .portrait-wrapper {
         width: 390px;
-        height: 58vh;
       }
 
       .hero-left {
         width: 34%;
       }
 
-      .description {
-        font-size: 12px;
+      .showcase-heading {
+        align-items: flex-start;
+        flex-direction: column;
       }
 
     }
 
 
-    /* =========================
+    /* ==================================================
        MOBILE
-    ========================= */
+    ================================================== */
 
-    @media (max-width: 768px) {
+    @media(max-width:768px) {
 
       .navbar {
         padding: 22px 20px;
       }
 
       .logo {
-        font-size: 13px;
-        letter-spacing: 1.5px;
-      }
-
-      .logo-dot {
-        width: 9px;
-        height: 9px;
+        font-size: 12px;
       }
 
       .nav-links {
-        gap: 18px;
+        gap: 17px;
       }
 
       .nav-links a {
@@ -745,39 +998,44 @@
       }
 
 
-      .hero {
-        height: 100svh;
-        min-height: 680px;
+      /* NAME */
 
-        padding:
-          90px 20px 60px;
-      }
+      .hero-name {
+        top: 21%;
 
+        transform: none;
 
-      /* NAME STACKS ON MOBILE */
-
-      .big-name {
-        top: 24%;
-
+        display: flex;
         flex-direction: column;
-
-        gap: 3px;
+        align-items: center;
 
         font-size: 17vw;
 
-        line-height: 0.75;
+        line-height: .73;
+      }
 
-        letter-spacing: -0.04em;
+      .name-first,
+      .name-last {
+        position: static;
+      }
+
+      .name-first {
+        margin-right: 14vw;
+      }
+
+      .name-last {
+        margin-left: 14vw;
       }
 
 
-      .hero-glow {
-        width: 500px;
-        height: 500px;
+      .portrait-wrapper {
+        width:
+          min(78vw,390px);
 
-        top: 58%;
+        height: 54vh;
+
+        bottom: 42px;
       }
-
 
       .orbit {
         width: 330px;
@@ -786,34 +1044,23 @@
         top: 60%;
       }
 
+      .hero-glow {
+        width: 500px;
+        height: 500px;
 
-      .portrait-wrapper {
-        bottom: 41px;
-
-        width: min(76vw, 390px);
-
-        height: 54vh;
-
-        min-height: 390px;
-
-        border-radius:
-          190px 190px 20px 20px;
+        top: 60%;
       }
 
 
       .hero-left {
         left: 20px;
-        bottom: 82px;
+        bottom: 83px;
 
-        width: 58%;
+        width: 60%;
       }
 
       .hello {
-        margin-bottom: 8px;
-
         font-size: 8px;
-
-        letter-spacing: 3px;
       }
 
       .role {
@@ -829,13 +1076,12 @@
 
       .hero-right {
         right: 20px;
-        bottom: 82px;
+        bottom: 83px;
       }
 
       .available {
         display: none;
       }
-
 
       .cta {
         width: 52px;
@@ -843,7 +1089,6 @@
 
         padding: 0;
 
-        display: flex;
         justify-content: center;
       }
 
@@ -851,42 +1096,85 @@
         display: none;
       }
 
-
       .scroll-text {
         display: none;
+      }
+
+
+      /* SHOWCASE */
+
+      .showcase {
+        padding:
+          90px 0 100px;
+      }
+
+      .showcase-heading {
+        width: calc(100% - 40px);
+
+        margin-bottom: 45px;
+      }
+
+      .showcase-description {
+        max-width: 100%;
+      }
+
+      .project-row {
+        gap: 10px;
+
+        margin-bottom: 10px;
+      }
+
+      .showcase-card {
+        width: 300px;
+        height: 195px;
+
+        border-radius: 17px;
+      }
+
+      .card-overlay {
+        opacity: 1;
+
+        padding: 18px;
+
+        background:
+          linear-gradient(
+            transparent 45%,
+            rgba(0,0,0,.82)
+          );
+      }
+
+      .card-title {
+        font-size: 17px;
+      }
+
+      .showcase-bottom {
+        width: calc(100% - 40px);
       }
 
     }
 
 
-    /* =========================
+    /* ==================================================
        SMALL MOBILE
-    ========================= */
+    ================================================== */
 
-    @media (max-width: 520px) {
+    @media(max-width:520px) {
 
       .nav-links a:nth-child(2),
       .nav-links a:nth-child(4) {
         display: none;
       }
 
-      .nav-links {
-        gap: 20px;
-      }
-
-      .big-name {
-        top: 23%;
+      .hero-name {
         font-size: 18vw;
       }
 
       .portrait-wrapper {
         width: 82vw;
-
-        height: 53vh;
       }
 
-      .hero-left {
-        width: 65%;
+      .showcase-title {
+        font-size: 15vw;
       }
 
     }
@@ -898,9 +1186,9 @@
 <body>
 
 
-  <!-- =========================
-       NAVBAR
-  ========================== -->
+  <!-- ==================================================
+       NAVIGATION
+  ================================================== -->
 
   <nav class="navbar">
 
@@ -915,21 +1203,13 @@
 
     <div class="nav-links">
 
-      <a href="#about">
-        About
-      </a>
+      <a href="#about">About</a>
 
-      <a href="#services">
-        Services
-      </a>
+      <a href="#services">Services</a>
 
-      <a href="#projects">
-        Projects
-      </a>
+      <a href="#projects">Projects</a>
 
-      <a href="#contact">
-        Contact
-      </a>
+      <a href="#contact">Contact</a>
 
     </div>
 
@@ -937,22 +1217,16 @@
 
 
 
-  <!-- =========================
+  <!-- ==================================================
        HERO
-  ========================== -->
+  ================================================== -->
 
   <section
     class="hero"
     id="home"
   >
 
-
-    <!-- BACKGROUND GLOW -->
-
     <div class="hero-glow"></div>
-
-
-    <!-- ORANGE ORBIT -->
 
     <div class="orbit"></div>
 
@@ -960,21 +1234,21 @@
 
     <!-- HUGE NAME -->
 
-    <h1 class="big-name">
+    <div class="hero-name">
 
-      <span class="first-name">
+      <span class="name-first">
         PRATHAM
       </span>
 
-      <span class="last-name">
+      <span class="name-last">
         TEMKAR
       </span>
 
-    </h1>
+    </div>
 
 
 
-    <!-- LEFT CONTENT -->
+    <!-- LEFT -->
 
     <div class="hero-left">
 
@@ -983,7 +1257,6 @@
         Hello, I'm
 
       </div>
-
 
       <div class="role">
 
@@ -994,7 +1267,6 @@
         × Digital Marketing
 
       </div>
-
 
       <p class="description">
 
@@ -1022,10 +1294,9 @@
 
 
 
-    <!-- RIGHT CONTENT -->
+    <!-- RIGHT -->
 
     <div class="hero-right">
-
 
       <div class="available">
 
@@ -1055,12 +1326,9 @@
 
       </a>
 
-
     </div>
 
 
-
-    <!-- SCROLL -->
 
     <div class="scroll-text">
 
@@ -1070,110 +1338,69 @@
 
 
 
-    <!-- =========================
-         MOVING BOTTOM STRIP
-    ========================== -->
+    <!-- BOTTOM MOVING STRIP -->
 
-    <div class="marquee-container">
+    <div class="hero-strip">
 
-      <div class="marquee">
+      <div class="hero-strip-track">
 
 
-        <!-- COPY 1 -->
+        <div class="strip-copy">
 
-        <div class="marquee-content">
+          <span>Shopify Development</span><b>•</b>
 
-          <span>
-            Shopify Development
-          </span>
+          <span>Custom Sections</span><b>•</b>
 
-          <i>•</i>
+          <span>Store Design</span><b>•</b>
 
-          <span>
-            Custom Sections
-          </span>
+          <span>Digital Marketing</span><b>•</b>
 
-          <i>•</i>
-
-          <span>
-            Store Design
-          </span>
-
-          <i>•</i>
-
-          <span>
-            Digital Marketing
-          </span>
-
-          <i>•</i>
-
-          <span>
-            Landing Pages
-          </span>
-
-          <i>•</i>
-
-          <span>
-            Shopify Development
-          </span>
-
-          <i>•</i>
-
-          <span>
-            Custom Sections
-          </span>
-
-          <i>•</i>
+          <span>Landing Pages</span><b>•</b>
 
         </div>
 
 
+        <div class="strip-copy">
 
-        <!-- COPY 2 FOR LOOP -->
+          <span>Shopify Development</span><b>•</b>
 
-        <div class="marquee-content">
+          <span>Custom Sections</span><b>•</b>
 
-          <span>
-            Shopify Development
-          </span>
+          <span>Store Design</span><b>•</b>
 
-          <i>•</i>
+          <span>Digital Marketing</span><b>•</b>
 
-          <span>
-            Custom Sections
-          </span>
+          <span>Landing Pages</span><b>•</b>
 
-          <i>•</i>
+        </div>
 
-          <span>
-            Store Design
-          </span>
 
-          <i>•</i>
+        <div class="strip-copy">
 
-          <span>
-            Digital Marketing
-          </span>
+          <span>Shopify Development</span><b>•</b>
 
-          <i>•</i>
+          <span>Custom Sections</span><b>•</b>
 
-          <span>
-            Landing Pages
-          </span>
+          <span>Store Design</span><b>•</b>
 
-          <i>•</i>
+          <span>Digital Marketing</span><b>•</b>
 
-          <span>
-            Shopify Development
-          </span>
+          <span>Landing Pages</span><b>•</b>
 
-          <i>•</i>
+        </div>
 
-          <span>
-            Custom Sections
-          </span>
 
-          <i>•</i>
+        <div class="strip-copy">
+
+          <span>Shopify Development</span><b>•</b>
+
+          <span>Custom Sections</span><b>•</b>
+
+          <span>Store Design</span><b>•</b>
+
+          <span>Digital Marketing</span><b>•</b>
+
+          <span>Landing Pages</span><b>•</b>
 
         </div>
 
@@ -1182,8 +1409,693 @@
 
     </div>
 
+  </section>
+
+
+
+  <!-- ==================================================
+       SHOWCASE
+  ================================================== -->
+
+  <section
+    class="showcase"
+    id="projects-preview"
+  >
+
+
+    <!-- SECTION HEADING -->
+
+    <div class="showcase-heading">
+
+      <div>
+
+        <div class="showcase-eyebrow">
+
+          Selected Work
+
+        </div>
+
+
+        <h2 class="showcase-title">
+
+          Building digital
+
+          <span>experiences.</span>
+
+        </h2>
+
+      </div>
+
+
+      <p class="showcase-description">
+
+        A growing collection of Shopify development,
+        e-commerce design and digital projects.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ROW 1
+    ================================================== -->
+
+    <div
+      class="project-row row-one"
+      id="rowOne"
+    >
+
+
+      <!-- ORIGINAL SET -->
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            E-commerce Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Development
+          </div>
+
+          <div class="card-title">
+            Custom Store
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            UI / UX
+          </div>
+
+          <div class="card-title">
+            Modern Commerce
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            Store Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Digital
+          </div>
+
+          <div class="card-title">
+            Brand Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- DUPLICATE SET -->
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            E-commerce Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Development
+          </div>
+
+          <div class="card-title">
+            Custom Store
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            UI / UX
+          </div>
+
+          <div class="card-title">
+            Modern Commerce
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            Store Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Digital
+          </div>
+
+          <div class="card-title">
+            Brand Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ==================================================
+         ROW 2
+    ================================================== -->
+
+    <div
+      class="project-row row-two"
+      id="rowTwo"
+    >
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            E-commerce
+          </div>
+
+          <div class="card-title">
+            Conversion Design
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            Product Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Design
+          </div>
+
+          <div class="card-title">
+            Landing Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Digital
+          </div>
+
+          <div class="card-title">
+            Interactive Website
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Development
+          </div>
+
+          <div class="card-title">
+            Web Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- DUPLICATES -->
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            E-commerce
+          </div>
+
+          <div class="card-title">
+            Conversion Design
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Shopify
+          </div>
+
+          <div class="card-title">
+            Product Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Design
+          </div>
+
+          <div class="card-title">
+            Landing Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Digital
+          </div>
+
+          <div class="card-title">
+            Interactive Website
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="showcase-card">
+
+        <img
+          src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif"
+          alt="Project preview"
+          loading="lazy"
+        >
+
+        <div class="card-overlay">
+
+          <div class="card-type">
+            Development
+          </div>
+
+          <div class="card-title">
+            Web Experience
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- BOTTOM -->
+
+    <div class="showcase-bottom">
+
+      <p>
+        Shopify • Development • Digital
+      </p>
+
+      <div class="scroll-indicator">
+        Keep scrolling ↓
+      </div>
+
+    </div>
+
 
   </section>
+
+
+
+  <!-- ==================================================
+       ABOUT PLACEHOLDER
+       NEXT STEP
+  ================================================== -->
+
+  <section
+    class="next-section"
+    id="about"
+  >
+
+    <h2>
+      About
+    </h2>
+
+  </section>
+
+
+
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
+
+  <script>
+
+    const rowOne = document.getElementById("rowOne");
+    const rowTwo = document.getElementById("rowTwo");
+
+    let ticking = false;
+
+
+    function moveProjectRows() {
+
+      const showcase =
+        document.querySelector(".showcase");
+
+      const rect =
+        showcase.getBoundingClientRect();
+
+
+      /*
+        Distance through the showcase section.
+      */
+
+      const progress =
+        window.innerHeight - rect.top;
+
+
+      /*
+        Adjust 0.22 if we want
+        faster/slower movement later.
+      */
+
+      const movement =
+        progress * 0.22;
+
+
+      /*
+        ROW 1 → moves RIGHT
+      */
+
+      rowOne.style.transform =
+        `translate3d(${-650 + movement}px,0,0)`;
+
+
+      /*
+        ROW 2 → moves LEFT
+      */
+
+      rowTwo.style.transform =
+        `translate3d(${-850 - movement}px,0,0)`;
+
+
+      ticking = false;
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        if (!ticking) {
+
+          window.requestAnimationFrame(
+            moveProjectRows
+          );
+
+          ticking = true;
+
+        }
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    /*
+      Set initial position
+    */
+
+    moveProjectRows();
+
+  </script>
 
 
 </body>
