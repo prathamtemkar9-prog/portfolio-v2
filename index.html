@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Kanit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -29,7 +29,7 @@ scroll-behavior:smooth;
 body{
 background:#0c0c0c;
 color:#f5f5f5;
-font-family:"Kanit",sans-serif;
+font-family:"Inter", Arial, sans-serif;
 overflow-x:hidden;
 }
 
@@ -2228,97 +2228,209 @@ font-size:19vw;
 }
 
 
+
+
+/* Typography refinement: readable body copy, expressive display headings. */
+.hero-name,
+.showcase-title,
+.about-title,
+.services-heading,
+.service-name,
+.projects-heading,
+.project-title,
+.contact-title,
+.social-name {
+  font-family:"Kanit", "Inter", Arial, sans-serif;
+}
+
 /* ==================================================
-   ROCKET CURSOR
+   REFINEMENT: CURSOR, ACCESSIBILITY & RESPONSIVE QA
 ================================================== */
 
-@media (pointer:fine) {
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity .18s ease, width .2s ease, height .2s ease,
+              background .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
 
-  html,
-  body,
-  a,
-  button,
-  .showcase-card,
-  .project-stack-card,
-  .service-row,
-  .social-link {
-    cursor:none !important;
-  }
+.cursor-dot {
+  width: 7px;
+  height: 7px;
+  background: #ff6500;
+  box-shadow: 0 0 12px rgba(255,101,0,.55);
+}
 
-  .cursor-dot,
-  .cursor-rocket {
-    position:fixed;
-    left:0;
-    top:0;
-    pointer-events:none;
-    z-index:99999;
-    opacity:0;
-  }
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,101,0,.72);
+  background: rgba(255,101,0,.035);
+}
 
-  .cursor-dot {
-    width:12px;
-    height:12px;
-    border-radius:50%;
-    background:#ff6500;
-    box-shadow:
-      0 0 0 4px rgba(255,101,0,.10),
-      0 0 14px rgba(255,101,0,.85),
-      0 0 30px rgba(255,101,0,.35);
-    transform:translate(-50%,-50%);
-    transition:
-      width .2s ease,
-      height .2s ease,
-      box-shadow .2s ease,
-      background .2s ease;
-  }
+.cursor-dot.is-visible,
+.cursor-ring.is-visible { opacity: 1; }
 
-  .cursor-dot.is-hovering {
-    width:16px;
-    height:16px;
-    box-shadow:
-      0 0 0 7px rgba(255,101,0,.12),
-      0 0 20px rgba(255,101,0,.95),
-      0 0 42px rgba(255,101,0,.45);
-  }
+.cursor-ring.is-hovering {
+  width: 48px;
+  height: 48px;
+  background: rgba(255,101,0,.12);
+  border-color: #ff6500;
+}
 
-  .cursor-dot.is-clicking {
-    width:8px;
-    height:8px;
-  }
+.cursor-dot.is-hovering {
+  width: 9px;
+  height: 9px;
+}
 
-  .cursor-rocket {
-    width:32px;
-    height:32px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:26px;
-    line-height:1;
-    transform:translate(-50%,-50%);
-    transform-origin:center;
-    will-change:left,top,transform,opacity;
-    filter:drop-shadow(0 0 8px rgba(255,101,0,.45));
-  }
+.cursor-dot.is-clicking,
+.cursor-ring.is-clicking {
+  transform: translate(-50%, -50%) scale(.82);
+}
 
-  .cursor-rocket.flying {
-    animation:rocketFly .18s ease-in-out infinite alternate;
-  }
-
-  .cursor-rocket.merged {
-    opacity:0 !important;
-  }
-
-  @keyframes rocketFly {
-    from { margin-top:1px; }
-    to   { margin-top:-2px; }
+@media (pointer:fine) and (prefers-reduced-motion:no-preference) {
+  html.has-custom-cursor,
+  html.has-custom-cursor body,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button {
+    cursor: none;
   }
 }
 
-@media (pointer:coarse), (max-width:768px) {
-  .cursor-dot,
-  .cursor-rocket {
-    display:none !important;
+@media (pointer:coarse), (prefers-reduced-motion:reduce) {
+  .cursor-dot, .cursor-ring { display:none !important; }
+}
+
+/* Never hide navigation links on narrow screens. */
+@media (max-width:768px) {
+  .navbar {
+    position:absolute;
+    padding:18px 20px;
+    gap:14px;
+    align-items:flex-start;
   }
+  .nav-links {
+    gap:clamp(9px,2.5vw,17px);
+    flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  .nav-links a {
+    font-size:clamp(8px,1.7vw,10px);
+    letter-spacing:.7px;
+  }
+  .hero {
+    min-height:640px;
+    min-height:max(640px, 100svh);
+  }
+  .hero-name {
+    max-width:100%;
+  }
+  .portrait-wrapper {
+    max-width:calc(100vw - 36px);
+  }
+  .showcase-card img,
+  .project-visual img {
+    max-width:100%;
+  }
+}
+
+/* Tablet layout: avoid narrow two-column project cards and sticky overlap. */
+@media (min-width:769px) and (max-width:1024px) {
+  .navbar { padding:22px 4%; }
+  .nav-links { gap:18px; }
+  .nav-links a { font-size:10px; letter-spacing:1px; }
+  .hero-name { font-size:10vw; }
+  .hero-left { width:27%; }
+  .hero-right { right:4%; }
+  .portrait-wrapper { width:34vw; height:56vh; }
+  .about-decoration { width:100px; height:100px; }
+  .service-row {
+    grid-template-columns:60px minmax(0,1.3fr) minmax(180px,1fr) 55px;
+    gap:16px;
+  }
+  .project-stack-card {
+    position:relative;
+    top:auto !important;
+    height:auto;
+    min-height:0;
+    margin-bottom:28px;
+    grid-template-columns:1fr 1fr;
+  }
+  .project-info { padding:32px 26px; }
+  .project-visual { min-height:440px; }
+}
+
+/* Small screens: keep every nav destination visible and prevent clipping. */
+@media (max-width:520px) {
+  .navbar {
+    padding:16px 14px;
+    align-items:center;
+  }
+  .logo {
+    gap:7px;
+    font-size:10px;
+    letter-spacing:1px;
+    white-space:nowrap;
+  }
+  .logo-dot { width:7px; height:7px; flex:0 0 7px; }
+  .nav-links {
+    gap:8px;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    max-width:62vw;
+    scrollbar-width:none;
+  }
+  .nav-links::-webkit-scrollbar { display:none; }
+  .nav-links a {
+    display:inline-block !important;
+    white-space:nowrap;
+    font-size:8px;
+    letter-spacing:.3px;
+  }
+  .hero-left { left:16px; width:58%; }
+  .hero-right { right:14px; }
+  .service-row { grid-template-columns:34px minmax(0,1fr) 38px; gap:8px; }
+  .service-number { font-size:10px; }
+  .service-arrow { width:36px; height:36px; }
+  .project-stack-card { min-height:0; }
+  .project-info { min-height:370px; }
+  .project-visual { height:250px; }
+  .social-link { grid-template-columns:28px minmax(0,1fr) 36px; }
+  .social-name { font-size:clamp(20px,6vw,26px); }
+  .footer-copyright { line-height:1.8; }
+}
+
+@media (max-width:360px) {
+  .logo { font-size:9px; }
+  .nav-links { max-width:58vw; gap:6px; }
+  .nav-links a { font-size:7px; }
+  .hero-name { font-size:16vw; }
+  .hero-left { width:56%; }
+  .role { font-size:12px; }
+}
+
+/* Better focus visibility for keyboard navigation. */
+a:focus-visible, button:focus-visible {
+  outline:2px solid #ff6500;
+  outline-offset:4px;
+}
+
+/* Avoid forced motion for visitors who request reduced motion. */
+@media (prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+  *, *::before, *::after {
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .about-word { opacity:1; transform:none; }
 }
 
 </style>
@@ -2331,7 +2443,7 @@ font-size:19vw;
      ROCKET CURSOR
 ================================================== -->
 <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
-<div class="cursor-rocket" id="cursorRocket" aria-hidden="true">🚀</div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
 
 
@@ -2339,7 +2451,7 @@ font-size:19vw;
      NAVBAR
 ================================================== -->
 
-<nav class="navbar">
+<nav class="navbar" aria-label="Main navigation">
 
 <div class="logo">
 <span class="logo-dot"></span>
@@ -2960,7 +3072,7 @@ and a smooth shopping experience.
 PROJECT PREVIEW
 </div>
 
-<a href="#" class="project-link" aria-label="View project">
+<a href="#contact" class="project-link" aria-label="Ask about this project" title="Ask about this project">
 ↗
 </a>
 
@@ -3033,7 +3145,7 @@ visual storytelling and product presentation.
 PROJECT PREVIEW
 </div>
 
-<a href="#" class="project-link" aria-label="View project">
+<a href="#contact" class="project-link" aria-label="Ask about this project" title="Ask about this project">
 ↗
 </a>
 
@@ -3106,7 +3218,7 @@ and engaging interaction.
 PROJECT PREVIEW
 </div>
 
-<a href="#" class="project-link" aria-label="View project">
+<a href="#contact" class="project-link" aria-label="Ask about this project" title="Ask about this project">
 ↗
 </a>
 
@@ -3190,7 +3302,7 @@ and see what we can build together.
 Replace # with your email / contact link later
 -->
 
-<a href="#" class="contact-main-button">
+<a href="mailto:YOUR_EMAIL@example.com?subject=Portfolio%20Enquiry" class="contact-main-button">
 
 <span>
 START A CONVERSATION
@@ -3211,6 +3323,7 @@ START A CONVERSATION
 <div class="social-area">
 
 
+<!-- TODO before publishing: replace social href="#" placeholders with your verified profile URLs. -->
 <!-- INSTAGRAM -->
 
 <a
@@ -3600,222 +3713,75 @@ updateScrollEffects();
 
 
 /* ==================================================
-   ROCKET CURSOR
+   PROFESSIONAL CUSTOM CURSOR
 ================================================== */
 
 const cursorDot = document.getElementById("cursorDot");
-const cursorRocket = document.getElementById("cursorRocket");
+const cursorRing = document.getElementById("cursorRing");
+const finePointer = window.matchMedia("(pointer:fine)").matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const finePointer =
-window.matchMedia("(pointer:fine)").matches;
+if (cursorDot && cursorRing && finePointer && !reduceMotion) {
+  let pointerX = -100;
+  let pointerY = -100;
+  let ringX = -100;
+  let ringY = -100;
+  let cursorVisible = false;
 
-if(cursorDot && cursorRocket && finePointer){
+  document.documentElement.classList.add("has-custom-cursor");
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+  window.addEventListener("pointermove", (event) => {
+    pointerX = event.clientX;
+    pointerY = event.clientY;
+    cursorDot.style.left = `${pointerX}px`;
+    cursorDot.style.top = `${pointerY}px`;
 
-let rocketX = mouseX;
-let rocketY = mouseY;
+    if (!cursorVisible) {
+      cursorDot.classList.add("is-visible");
+      cursorRing.classList.add("is-visible");
+      cursorVisible = true;
+    }
+  }, { passive: true });
 
-let lastMoveTime = performance.now();
-let lastMouseX = mouseX;
-let lastMouseY = mouseY;
+  document.addEventListener("pointerover", (event) => {
+    const target = event.target.closest("a, button, [role='button'], input, textarea, select, .showcase-card, .service-row");
+    cursorDot.classList.toggle("is-hovering", Boolean(target));
+    cursorRing.classList.toggle("is-hovering", Boolean(target));
+  });
 
-let angle = 0;
-let cursorStarted = false;
+  window.addEventListener("pointerdown", () => {
+    cursorDot.classList.add("is-clicking");
+    cursorRing.classList.add("is-clicking");
+  });
 
-function showRocketCursor(){
+  window.addEventListener("pointerup", () => {
+    cursorDot.classList.remove("is-clicking");
+    cursorRing.classList.remove("is-clicking");
+  });
 
-if(cursorStarted) return;
+  document.addEventListener("pointerleave", () => {
+    cursorDot.classList.remove("is-visible");
+    cursorRing.classList.remove("is-visible");
+    cursorVisible = false;
+  });
 
-cursorStarted = true;
+  document.addEventListener("pointerenter", () => {
+    if (cursorVisible) {
+      cursorDot.classList.add("is-visible");
+      cursorRing.classList.add("is-visible");
+    }
+  });
 
-cursorDot.style.opacity = "1";
-cursorRocket.style.opacity = "0";
+  function animateCursorRing() {
+    ringX += (pointerX - ringX) * 0.16;
+    ringY += (pointerY - ringY) * 0.16;
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+    requestAnimationFrame(animateCursorRing);
+  }
 
-rocketX = mouseX;
-rocketY = mouseY;
-
+  animateCursorRing();
 }
-
-window.addEventListener(
-"mousemove",
-(event) => {
-
-const previousX = mouseX;
-const previousY = mouseY;
-
-mouseX = event.clientX;
-mouseY = event.clientY;
-
-showRocketCursor();
-
-const velocityX = mouseX - previousX;
-const velocityY = mouseY - previousY;
-
-if(Math.abs(velocityX) + Math.abs(velocityY) > 1){
-
-angle =
-Math.atan2(velocityY, velocityX) * 180 / Math.PI + 45;
-
-}
-
-lastMouseX = mouseX;
-lastMouseY = mouseY;
-lastMoveTime = performance.now();
-
-},
-{passive:true}
-);
-
-
-const interactiveCursorItems =
-document.querySelectorAll(
-"a, button, .showcase-card, .project-stack-card, .service-row, .social-link"
-);
-
-interactiveCursorItems.forEach(
-item => {
-
-item.addEventListener(
-"mouseenter",
-() => cursorDot.classList.add("is-hovering")
-);
-
-item.addEventListener(
-"mouseleave",
-() => cursorDot.classList.remove("is-hovering")
-);
-
-}
-);
-
-
-window.addEventListener(
-"mousedown",
-() => cursorDot.classList.add("is-clicking")
-);
-
-window.addEventListener(
-"mouseup",
-() => cursorDot.classList.remove("is-clicking")
-);
-
-
-document.addEventListener(
-"mouseleave",
-() => {
-
-cursorDot.style.opacity = "0";
-cursorRocket.style.opacity = "0";
-
-}
-);
-
-
-document.addEventListener(
-"mouseenter",
-() => {
-
-if(cursorStarted){
-cursorDot.style.opacity = "1";
-}
-
-}
-);
-
-
-function animateRocketCursor(){
-
-cursorDot.style.left = `${mouseX}px`;
-cursorDot.style.top = `${mouseY}px`;
-
-const dx = mouseX - rocketX;
-const dy = mouseY - rocketY;
-
-const distance =
-Math.sqrt(dx * dx + dy * dy);
-
-const timeSinceMove =
-performance.now() - lastMoveTime;
-
-
-/*
-Rocket chases the cursor while the mouse is moving.
-A large distance makes it accelerate so it never feels lost.
-*/
-let chaseStrength =
-distance > 180 ? .18 :
-distance > 100 ? .14 :
-distance > 45  ? .105 :
-.085;
-
-
-/*
-When the user stops moving, the rocket accelerates into the dot.
-*/
-if(timeSinceMove > 80){
-chaseStrength =
-distance > 45 ? .20 : .30;
-}
-
-
-rocketX += dx * chaseStrength;
-rocketY += dy * chaseStrength;
-
-cursorRocket.style.left = `${rocketX}px`;
-cursorRocket.style.top = `${rocketY}px`;
-
-
-/*
-Point the rocket directly toward the orange cursor dot.
-The rocket emoji naturally points up-right, hence the +45° correction.
-*/
-if(distance > 3){
-
-angle =
-Math.atan2(dy, dx) * 180 / Math.PI + 45;
-
-}
-
-cursorRocket.style.transform =
-`translate(-50%,-50%) rotate(${angle}deg)`;
-
-
-/*
-While moving, the rocket is visible and chasing.
-Once the mouse stops and the rocket reaches the dot,
-it fades into the dot so both look like one cursor.
-*/
-const shouldMerge =
-timeSinceMove > 100 && distance < 12;
-
-if(shouldMerge){
-
-rocketX = mouseX;
-rocketY = mouseY;
-
-cursorRocket.classList.remove("flying");
-cursorRocket.classList.add("merged");
-
-}else{
-
-cursorRocket.classList.remove("merged");
-cursorRocket.classList.add("flying");
-cursorRocket.style.opacity = "1";
-
-}
-
-requestAnimationFrame(
-animateRocketCursor
-);
-
-}
-
-animateRocketCursor();
-
-}
-
 </script>
 
 </body>
