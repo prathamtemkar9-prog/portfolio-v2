@@ -3230,6 +3230,61 @@ a:focus-visible, button:focus-visible {
   .skills-section .meteor-layer .meteor { animation:none !important; display:none !important; }
 }
 
+
+/* ==================================================
+   STICKY HEADER
+================================================== */
+
+.navbar {
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  padding:20px 5%;
+  background:rgba(7,8,14,.76);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  -webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(16px);
+  transition:background .25s ease, padding .25s ease, border-color .25s ease;
+}
+
+/* Keep the hero content clear of the fixed navigation. */
+.hero {
+  scroll-margin-top:80px;
+}
+
+#about,
+#experience,
+#skills,
+#services,
+#projects,
+#contact {
+  scroll-margin-top:88px;
+}
+
+@media (max-width:768px) {
+  .navbar {
+    position:fixed;
+    padding:13px 14px;
+    min-height:54px;
+  }
+  #about,
+  #experience,
+  #skills,
+  #services,
+  #projects,
+  #contact {
+    scroll-margin-top:70px;
+  }
+}
+
+@media (max-width:420px) {
+  .navbar {
+    padding:11px 10px;
+  }
+}
+
 </style>
 </head>
 
